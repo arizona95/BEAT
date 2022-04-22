@@ -1,0 +1,4 @@
+1. input, output 정책
+2. odeint -> gym 돌리기
+3. param 정리
+4. code 정리

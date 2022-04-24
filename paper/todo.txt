@@ -1,3 +1,5 @@
 1. neat.cfg 변경
 2. assert 작성
-3. 줄
+3. 너무 커짐.. exp -> discrete 모델, 조절하기
+4. output activate
+5. 검증 -> cell creator 로 만들고 시뮬레이팅 하기

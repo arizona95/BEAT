@@ -16,6 +16,8 @@ class Gene :
         self.max_state = param["max_state"]
         self.react_depth = param["react_depth"]
         self.neuron_num = param["neuron_num"]
+        self.input_num = param["input_num"]
+        self.output_num = param["output_num"]
 
         self.rule_num =0
         self.model = dict()
@@ -269,7 +271,7 @@ class Gene :
         self.model["a"] = dict()
         self.model["k"] = dict()
         self.model["v"] = dict()
-        self.model["c"] = dict()
+        self.model["c_"] = dict()
         self.model["x_h"] = dict()
         self.model["h"] = dict()
 
@@ -286,7 +288,7 @@ class Gene :
                     add_S[to_string(si)] = 0
             self.model["S"][node_name] = add_S
             self.model["a"][node_name] = node[node_name][3]
-            self.model["c"][node_name] = 1
+            self.model["c_"][node_name] = 1
             self.model["x_h"][node_name] = node[node_name][4]
             self.model["h"][node_name] = node[node_name][5]
 
@@ -305,7 +307,7 @@ class Gene :
         self.model["a"] = pd.DataFrame.from_dict([self.model["a"]]).T
         self.model["k"] = pd.DataFrame.from_dict([k]).T
         self.model["v"] = pd.DataFrame.from_dict([v]).T
-        self.model["c"] = pd.DataFrame.from_dict([self.model["c"]]).T
+        self.model["c_"] = pd.DataFrame.from_dict([self.model["c_"]]).T
         self.model["x_h"] = pd.DataFrame.from_dict([self.model["x_h"]]).T
         self.model["h"] = pd.DataFrame.from_dict([self.model["h"]]).T
 
@@ -322,14 +324,17 @@ class Gene :
         self.model["c_s"] = self.c_s
         self.model["s_s"] = self.s_s
         self.model["neuron_num"] = self.neuron_num
+        self.model["input_num"] = self.input_num
+        self.model["output_num"] = self.output_num
         self.model["node_names"] = list(self.model["x_0"].T.keys())
 
 
         input_maker = np.zeros((self.model["n"], self.neuron_num))
 
-        extenel_signal_node = np.zeros(self.c_s)
+        extenel_signal_node = [0]* self.g_s
         extenel_signal_node[0] = 1
-        extenel_signal_splace_check = np.zeros(self.model["s_s"] - 1)
+
+        extenel_signal_splace_check = [0]* (self.model["s_s"] - 1)
 
         for i, node_name in enumerate(self.model["x_0"].T):
             gene, space = node_name.split(self.gene_space_separator)
@@ -417,7 +422,7 @@ class Gene :
                 if diff_or_hamilt == hamiltonian_flow_character:
                     g.edge(node_name_0, node_name_1, style="bold")
 
-        #g.render(filename=f"{savePath}\\graph.dot", view=True)
+        g.render(filename=f"{savePath}\\graph.dot", view=False)
 
         #g.write_png(f"{savePath}\\graph.png")
         display(g)

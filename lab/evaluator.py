@@ -44,9 +44,14 @@ class Evaluator :
 
         #simulate
         simulator = Simulator(model)
-        input_vector = np.array([1,])
+        input_vector = np.array([1,2,3,4])
         simulator.input(input_vector)
-        simulator.run(10)
+        success = simulator.run(10)
+        if success == False :
+
+            sys.exit()
+            return -1
+
         output_vector = simulator.output()
         print(f"output_vector {output_vector}")
         simulator.show()

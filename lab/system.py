@@ -20,7 +20,7 @@ class System :
         self.a   = model["a"]
         self.k   = model["k"]
         self.v   = model["v"]
-        self.c   = model["c"]
+        self.c_   = model["c_"]
         self.x_h = model["x_h"]
         self.h   = model["h"]
 
@@ -66,10 +66,19 @@ class System :
                 (np.exp( 0.5*np.dot(np.log(self.x.T), np.abs(self.M_))))).T)
         hamiltonian_flow_x =np.dot(self.M_, self.v*(np.dot(grad_p, self.M_).T) )
         hamiltonian_flow_p = -np.dot(self.M_, self.v*(np.dot(grad_x, self.M_).T) )
-        colision_flow_p = -self.c*(grad_p).T
+        colision_flow_p = -self.c_*(grad_p).T
         external_homeostasis_flow_x = self.h*(self.x_h-self.x)
 
+        print(f"debug ")
+        print(f"grad_x {grad_x}")
+        print(f"grad_p {grad_p}")
+        print(f"np.dot(grad_x, self.M_) {np.dot(grad_x, self.M_)}")
+        print(f"(np.exp(np.dot(grad_x, self.M_))-1) {(np.exp(np.dot(grad_x, self.M_)) - 1)}")
+        print(f"(np.exp(-0.5*np.dot(grad_x, self.M_))) {(np.exp(-0.5*np.dot(grad_x, self.M_)))}")
+        print(f"(np.exp( 0.5*np.dot(np.log(self.x.T), np.abs(self.M_)))) {(np.exp( 0.5*np.dot(np.log(self.x.T), np.abs(self.M_))))}")
+
         return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x,  hamiltonian_flow_p + colision_flow_p
+
 
     def ode(self, xp, t):
         xp_2d = xp.reshape(2, -1)

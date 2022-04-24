@@ -32,18 +32,18 @@ class Simulator :
 
 
     def input(self, input_vector):
-        print("input_maker")
-        print(self.model["input_maker"])
         input_vector = np.pad(input_vector, (0, self.model["neuron_num"] - len(input_vector)), 'constant', constant_values=0)
         input_vector = np.array([input_vector]).T
         self.model["x_0"] += np.dot(self.model["input_maker"], input_vector)
 
     def output(self):
-        return np.dot(np.sum(self.history["xp"]), self.model["input_maker"])
+        print(self.model["output_num"])
+        return np.dot(np.sum(self.history["xp"], axis=0).reshape(2,-1)[0], self.model["input_maker"])[-self.model["output_num"]:]
 
     def run(self, time):
         ## simulate condition
-        if len(self.model["M_"]) == 0: return
+        if len(self.model["x_0"]) == 0: return False
+        if len(self.model["M_"]) == 0: return False
 
         model = self.model
 
@@ -60,8 +60,10 @@ class Simulator :
         self.history["t"] = t
         self.history["age"] += time
 
+        return True
 
-    def show(self, save=False, path=""):
+
+    def show(self, save=False, savePath=""):
         def get_cmap(n, name='hsv'):
             return plt.cm.get_cmap(name, n)
 
@@ -69,25 +71,39 @@ class Simulator :
 
         cmap = get_cmap(len(node_names))
 
-        print(self.history["t"])
-        print(self.history["xp"][:, 0])
-
         for i,node_name in enumerate(node_names) :
             plt.plot(self.history["t"], self.history["xp"][:, i], color=cmap(i), label=node_name)
         plt.xlabel('time')
         plt.legend(loc='best')
 
+
         if not save :
             plt.show()
         else :
-            plt.savefig(path, dpi=300)
+            plt.savefig(f"{savePath}/model.png", dpi=300)
+
+        '''
+        energy = list()
+        for i in range(len(xp)):
+            energy.append(self.system.energy(np.array([self.history["xp"][i].reshape(2, -1)[0]]).T,\
+                                             np.array([self.history["xp"][i].reshape(2, -1)[1]]).T, sim))
+
+        plt.plot(self.history["t"], energy, 'm-', label='e')
+        plt.xlabel('time')
+        plt.legend(loc='best')
+        if not save:
+            plt.show()
+        else:
+            plt.savefig(f"{savePath}/energy.png", dpi=300)
+        '''
+
 
     def save(self,savePath):
 
         with open(f"{savePath}\model.JSON", 'wb') as fw:
             pickle.dump(self.model, fw)
 
-        self.show(save=True, path=f"{savePath}/model.png")
+        self.show(save=True, savePath=savePath)
 
 
 

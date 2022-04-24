@@ -27,14 +27,6 @@ class System :
         self.assert_parameter()
         self.initial_calculate()
 
-
-    @classmethod
-    def import_model(cls, filename):
-        # init from a file
-        with open(filename, 'rb') as fr:
-            model = pickle.load(fr)
-            return cls(model)
-
     def assert_parameter(self,):
         # assert system parameter
         assert self.x_0.shape == (self.n, 1)
@@ -87,26 +79,4 @@ class System :
         dxpdt = np.array([flow_x, flow_p]).reshape(-1)
         return dxpdt
 
-    def save_model(self):
-        # save model
-        model=dict()
-        model["n"] = self.n
-        model["c"] = self.c
-        model["e"] = self.e
-        model["x_0"] = self.x_0
-        model["M"] = self.M
-        model["M_"] = self.M_
-        model["S"] = self.S
-        model["D"] = self.D
-        model["m_c"] = self.m_c
-        model["q_c"] = self.q_c
-        model["a"] = self.a
-        model["k"] = self.k
-        model["v"] = self.v
-        model["c"] = self.c
-        model["x_h"] = self.x_h
-        model["h"] = self.h
-
-        with open('model', 'wb') as fw:
-            pickle.dump(model, fw)
 

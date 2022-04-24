@@ -1,4 +1,10 @@
 1. input, output 정책
+
+전체 k 개
+input n개
+output m 개
+
+1/0/0/0/0/0  -  [0-(n-1)]/0/0/0
+1/0/0/0/0/0  -  [(k-m-2)-k-1]/0/0/0
+
 2. odeint -> gym 돌리기
-3. param 정리
-4. code 정리

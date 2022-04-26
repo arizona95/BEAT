@@ -1,2 +1,4 @@
 ## BEAT Ignore File ##
+lab/generations/*
 lab/log/*
+lab/logs/*

@@ -1,9 +1,7 @@
-import neat
 import numpy as np
 import pandas as pd
 import itertools
 import graphviz
-import matplotlib.pyplot as plt
 from IPython.display import display
 
 class Gene :
@@ -60,7 +58,7 @@ class Gene :
             input_vector = c_vector + g_0 + s_0 + g_0 + s_0
             output = net_output(input_vector)
             m_c.append(output[0])
-            q_c.append(2 * output[1] - 1)
+            q_c.append((2 * output[1] - 1)/100)
 
         # 1-2. make init of Gene Map G0
         react_rules = dict()
@@ -360,7 +358,7 @@ class Gene :
             print(e)
             display(self.model[e])
 
-    def model_display(self, savePath):
+    def model_display(self, savePath, show=False):
 
         def to_string(list) :
             return self.vector_separator.join(str(e) for e in list)
@@ -374,7 +372,7 @@ class Gene :
 
         ## graph display
 
-        display(self.model["M_"])
+        if show : display(self.model["M_"])
 
         # model graph
         node = self.set["node"]
@@ -425,5 +423,5 @@ class Gene :
         g.render(filename=f"{savePath}\\graph.dot", view=False)
 
         #g.write_png(f"{savePath}\\graph.png")
-        display(g)
+        if show : display(g)
         #g.view()

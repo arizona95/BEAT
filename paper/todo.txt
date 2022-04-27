@@ -1,8 +1,11 @@
-시간 연속
-
-
-
-
 1. neat.cfg 변경
 2. assert 작성
+
+3. genome 옮기기
+    3-1 genome 까지 저장
+    3-2 genome 으로부터 진화 출발
+
+    
+
+
 5. 검증 -> cell creator 로 만들고 시뮬레이팅 하기

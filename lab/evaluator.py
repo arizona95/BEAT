@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 from simulator import Simulator
 from gene import Gene
@@ -28,10 +29,15 @@ class Evaluator :
         gene.expression()
         model = gene.model
 
+
+        # if show
+        #savePath=False
+
         #print
         #gene.print_model_info()
         gene.model_display(savePath)
-        visualize.draw_net(config, genome, True, node_names={}, filename=f"{savePath}\\net.png")
+        if savePath:
+            visualize.draw_net(config, genome, True, node_names={}, filename=f"{savePath}\\net.png")
 
         # simulator make
         simulator = Simulator(model)
@@ -49,7 +55,7 @@ class Evaluator :
             #print(f"age : {simulator.history['age']}")
             #print(f"input_vector  :{input_vector}")
             simulator.input(input_vector)
-            success = simulator.run(0.1, savePath=savePath, show=False)
+            success = simulator.run(0.1)
             if success == False :  return -1
             output_vector = simulator.output()
             #print(f"output_vector  :{output_vector}")
@@ -60,7 +66,13 @@ class Evaluator :
             input_vector = np.exp(state)
             fitnesses += reward
 
+            if done or (epoch+1)%10 == 0 :
+                simulator.visualize(savePath=savePath)
+                #simulator.visualize()  # show
+
             if done: break
+
+
 
         #sys.exit()
         return fitnesses

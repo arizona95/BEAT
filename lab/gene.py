@@ -206,7 +206,7 @@ class Gene :
             for j, space_name_j in enumerate(space_node):
                 sj = list(map(lambda x: int(x), space_name_j.split(vector_separator)))
                 # if neighbor space
-                if i != j and D[i][j] > 0 and D[i][j] < 1:
+                if i > j and D[i][j] > 0 and D[i][j] < 1:
                     for n, node_name_n in enumerate(space_node[space_name_i]):
                         for m, node_name_m in enumerate(space_node[space_name_j]):
                             if node_name_n == node_name_m:
@@ -358,7 +358,7 @@ class Gene :
             print(e)
             display(self.model[e])
 
-    def model_display(self, savePath, show=False):
+    def model_display(self, savePath=False):
 
         def to_string(list) :
             return self.vector_separator.join(str(e) for e in list)
@@ -372,7 +372,7 @@ class Gene :
 
         ## graph display
 
-        if show : display(self.model["M_"])
+        if not savePath : display(self.model["M_"])
 
         # model graph
         node = self.set["node"]
@@ -423,5 +423,5 @@ class Gene :
         g.render(filename=f"{savePath}\\graph.dot", view=False)
 
         #g.write_png(f"{savePath}\\graph.png")
-        if show : display(g)
+        if not savePath : display(g)
         #g.view()

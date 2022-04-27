@@ -38,7 +38,7 @@ class Simulator :
     def output(self):
         return np.dot(np.sum(self.history["xp"], axis=0).reshape(2,-1)[0], self.model["input_maker"])[-self.model["output_num"]:]
 
-    def run(self, time, savePath=False, show=False):
+    def run(self, time):
         ## simulate condition
         if self.model["x_0"].shape[0] == 0: return False
         if self.model["M_"].shape[1] > 1000 : return False
@@ -71,14 +71,17 @@ class Simulator :
         plt.xlabel('time')
         plt.legend(loc='best')
 
+
+        self.history["age"] += time
+        return True
+
+    def visualize(self, savePath=False):
         if savePath :
             plt.savefig(f"{savePath}/model_{str(self.history['age'])}.png", dpi=300)
             with open(f"{savePath}\model.JSON", 'wb') as fw:
                 pickle.dump(self.model_dict, fw)
-        if show: plt.show()
+        else : plt.show()
 
-        self.history["age"] += time
-        return True
 
 
 

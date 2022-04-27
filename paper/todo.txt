@@ -1,11 +1,40 @@
+0. 버그잡기 - 지금 x 가 음수가 되는 경우 존재
+odesolver 문제 ? - lnx 로 시뮬레이션 하는수밖에..
+아니면 system 고치기
+M 으로 디버깅
+energy 로 디버깅
+
 1. neat.cfg 변경
 2. assert 작성
+3. visual 이쁘게 ->
+	1) space 끼리 선 연결
+	2) input 노드 : 초록색
+	3) hidden 노드 : 파란색
+	3) output 노드 : 선두개 주황색
+	4)  노드 크기 로그스케일
+	5)
 
-3. genome 옮기기
-    3-1 genome 까지 저장
-    3-2 genome 으로부터 진화 출발
 
-    
+4. genome 옮기기
+    2) genome 으로부터 진화 출발
+
+# 지도 학습
+5. cell creator 로 수작업 (modeldb)
+	1) cell creator 로 만듬
+	2) 그걸 학습시켜서 옮김
+
+6. substrate 변화
+	1) state 정수 -> 1000 01000 등의 벡터로 변환
+	2) input/output/hidden -> 0/1/2 로 시작하도록 변환
+
+7. discrete model 만들기
+	1) 계산 최적화 -chemical flow a*b*k 로 바꿈
 
 
-5. 검증 -> cell creator 로 만들고 시뮬레이팅 하기
+8. naming 규칙
+
+	1/0/0-1/0
+
+	1.0 0/1.0
+
+9. expression ? 여러개의 그래프 동시 진화 : 이방법이 더 좋나?

@@ -58,7 +58,7 @@ def run(n_generations):
         except: pass
         for idx, genome in genomes:
             genome.fitness = evaluator.eval_genome(genome, config, idx, rootPath=genRootPath)
-            print(f"fitness : {genome.fitness}")
+            print(f"fitness : {genome.fitness}, key: {idx}")
 
     pop = Population(config)
     stats = neat.StatisticsReporter()

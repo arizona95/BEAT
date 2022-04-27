@@ -22,8 +22,10 @@ class Evaluator :
         plt.clf()
         # make idx save folder
         savePath = f"{rootPath}\{str(idx)}"
-        try: os.makedirs(savePath)
-        except :  pass
+        os.makedirs(savePath)
+
+        with open(f"{savePath}\genome.JSON", 'wb') as fw:
+            pickle.dump(genome, fw)
 
         net = self.make_net(genome, config, 1)
         gene = Gene(net, self.param)

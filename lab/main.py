@@ -4,6 +4,11 @@ import neat
 from evaluator import Evaluator
 from datetime import datetime
 from tf_neat.recurrent_net import RecurrentNet
+from tf_neat.population import Population
+from tf_neat.neat_reporter import LogReporter
+import tensorflow as tf
+# Activate eager TensorFlow execution
+print("Executing eagerly: ", tf.executing_eagerly())
 
 param = {
     "g_s": 3,
@@ -31,6 +36,8 @@ def make_net(genome, config, bs):
 
 
 def run(n_generations):
+
+
     config_path = os.path.join(os.path.dirname(os.path.abspath('')), "lab/neat.cfg")
     config = neat.Config(
         neat.DefaultGenome,
@@ -44,13 +51,26 @@ def run(n_generations):
         make_net, make_env=make_env, param=param
     )
 
-    def eval_genomes(genomes, config):
-        for idx, genome in genomes:
-            genome.fitness = evaluator.eval_genome(genome, config, idx, rootPath=rootPath)
+    def eval_genomes(genomes, config, now_generations):
 
-    pop = neat.Population(config)
+        genRootPath = f"{rootPath}\gen_{now_generations}"
+        try: os.mkdirs(genRootPath)
+        except: pass
+        for idx, genome in genomes:
+            genome.fitness = evaluator.eval_genome(genome, config, idx, rootPath=genRootPath)
+            print(f"fitness : {genome.fitness}")
+
+    pop = Population(config)
+    stats = neat.StatisticsReporter()
+    pop.add_reporter(stats)
+    reporter = neat.StdOutReporter(True)
+    pop.add_reporter(reporter)
+    logger = LogReporter("./logs/neat.json", evaluator.eval_genome)
+    pop.add_reporter(logger)
+
+    pop = Population(config)
     pop.run(eval_genomes, n_generations)
 
 
 if __name__ == "__main__" :
-    run(10)
+    run(100)

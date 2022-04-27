@@ -22,7 +22,8 @@ class Evaluator :
         plt.clf()
         # make idx save folder
         savePath = f"{rootPath}\{str(idx)}"
-        os.makedirs(savePath)
+        try: os.makedirs(savePath)
+        except :  pass
 
         net = self.make_net(genome, config, 1)
         gene = Gene(net, self.param)
@@ -75,7 +76,7 @@ class Evaluator :
 
 
         #sys.exit()
-        return fitnesses
+        return fitnesses[0]
 
 
 

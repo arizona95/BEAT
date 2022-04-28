@@ -1,9 +1,10 @@
-import sys
-import numpy as np
-from simulator import Simulator
-from gene import Gene
-import tf_neat.visualize as visualize
 import os
+import sys
+import pickle
+import numpy as np
+from gene import Gene
+from simulator import Simulator
+import tf_neat.visualize as visualize
 import matplotlib.pyplot as plt
 
 class Evaluator :
@@ -17,15 +18,17 @@ class Evaluator :
         self.param = param
 
 
-    def eval_genome(self, genome, config, idx, rootPath, debug=False):
+    def eval_genome(self, genome, config, idx=False, rootPath=False, debug=False):
+
 
         plt.clf()
+        if rootPath:
         # make idx save folder
-        savePath = f"{rootPath}\{str(idx)}"
-        os.makedirs(savePath)
+            savePath = f"{rootPath}\{str(idx)}"
+            os.makedirs(savePath)
 
-        with open(f"{savePath}\genome.JSON", 'wb') as fw:
-            pickle.dump(genome, fw)
+            with open(f"{savePath}\genome.JSON", 'wb') as fw:
+                pickle.dump(genome, fw)
 
         net = self.make_net(genome, config, 1)
         gene = Gene(net, self.param)
@@ -38,8 +41,8 @@ class Evaluator :
 
         #print
         #gene.print_model_info()
-        gene.model_display(savePath)
-        if savePath:
+        if rootPath:
+            gene.model_display(savePath)
             visualize.draw_net(config, genome, True, node_names={}, filename=f"{savePath}\\net.png")
 
         # simulator make
@@ -69,9 +72,10 @@ class Evaluator :
             input_vector = np.exp(state)
             fitnesses += reward
 
-            if done or (epoch+1)%10 == 0 :
+            if rootPath and (done or (epoch+1)%10 == 0) :
                 simulator.visualize(savePath=savePath)
                 #simulator.visualize()  # show
+                plt.clf()
 
             if done: break
 

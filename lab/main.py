@@ -67,8 +67,6 @@ def run(n_generations):
     pop.add_reporter(reporter)
     logger = LogReporter("./logs/neat.json", evaluator.eval_genome)
     pop.add_reporter(logger)
-
-    pop = Population(config)
     pop.run(eval_genomes, n_generations)
 
 

@@ -1,9 +1,10 @@
-import sys
-import numpy as np
-from simulator import Simulator
-from gene import Gene
-import tf_neat.visualize as visualize
 import os
+import sys
+import pickle
+import numpy as np
+from gene import Gene
+from simulator import Simulator
+import tf_neat.visualize as visualize
 import matplotlib.pyplot as plt
 
 class Evaluator :

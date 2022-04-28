@@ -60,13 +60,22 @@ class System :
         # flow
         chemical_flow_x =\
             -np.dot(self.M_,(self.k.T*\
-                (np.exp(np.dot(grad_x, self.M_))-1)*\
-                (np.exp(-0.5*np.dot(grad_x, self.M_)))*\
-                (np.exp( 0.5*np.dot(np.log(self.x.T), np.abs(self.M_))))).T)
-        hamiltonian_flow_x =np.dot(self.M_, self.v*(np.dot(grad_p, self.M_).T) )
-        hamiltonian_flow_p = -np.dot(self.M_, self.v*(np.dot(grad_x, self.M_).T) )
+                   (np.exp(np.dot(grad_x, self.M_))-1)*\
+                   (np.exp(-0.5*np.dot(grad_x, self.M_)))*\
+                   (np.exp( 0.5*np.dot(np.log(self.x.T), np.abs(self.M_))))).T)
+        hamiltonian_flow_x =  np.dot(self.M_, self.v*\
+                                    (np.dot(grad_p, self.M_).T)* \
+                                    (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
+        hamiltonian_flow_p = -np.dot(self.M_, self.v*\
+                                    (np.dot(grad_x, self.M_).T)* \
+                                    (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
         colision_flow_p = -self.c_*(grad_p).T
         external_homeostasis_flow_x = self.h*(self.x_h-self.x)
+
+        #print(f"x : {self.x}")
+        #print(f"np.dot(np.abs(self.M_.T), np.log(self.x) : {np.dot(np.abs(self.M_.T), np.log(self.x))}")
+        #print(f"self.M_ : {self.M_}")
+        #print(f"hamiltonian_flow_x : {hamiltonian_flow_x}")
 
         return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x,  hamiltonian_flow_p + colision_flow_p
 

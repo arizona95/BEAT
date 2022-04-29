@@ -7,12 +7,13 @@ from tf_neat.recurrent_net import RecurrentNet
 from tf_neat.population import Population
 from tf_neat.neat_reporter import LogReporter
 import tensorflow as tf
+
 # Activate eager TensorFlow execution
-print("Executing eagerly: ", tf.executing_eagerly())
+tf.executing_eagerly()
 
 param = {
-    "g_s": 3,
-    "s_s": 2,
+    "g_c": 2,
+    "g_s": 2,
     "max_state": 5,
     "react_depth": 1,
     "neuron_num": 5,
@@ -34,6 +35,19 @@ def make_env():
 def make_net(genome, config, bs):
     return RecurrentNet.create(genome, config, bs)
 
+def neat_cfg_change() :
+    with open("neat_cfg_maker.cfg","r") as rnc :
+        neat_cfg_data = rnc.read()
+        num_inputs = 2*param["g_c"] + 2 + 2*param["g_s"]
+        num_hidden = 12
+        num_outputs = 13
+
+        neat_cfg_data = neat_cfg_data.replace("num_inputs_replace", str(num_inputs))
+        neat_cfg_data = neat_cfg_data.replace("num_hidden_replace", str(num_hidden))
+        neat_cfg_data = neat_cfg_data.replace("num_outputs_replace", str(num_outputs))
+
+    with open("neat.cfg","w") as wnc:
+        wnc.write(neat_cfg_data)
 
 def run(n_generations):
 
@@ -71,4 +85,5 @@ def run(n_generations):
 
 
 if __name__ == "__main__" :
+    neat_cfg_change()
     run(100)

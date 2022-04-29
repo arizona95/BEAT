@@ -45,10 +45,6 @@ class Simulator :
         if self.model["M_"].shape[0] == 0: return False
 
         model = self.model
-        model["n"] = model["x_0"].shape[0]
-        model["c"] = model["m_c"].shape[0]
-        model["e"] = model["M_"].shape[1]
-
         if self.history["age"] ==0 :
             self.system = System(model)
         xp0 = np.array([model["x_0"], model["p_0"]]).reshape(-1)

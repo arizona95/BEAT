@@ -8,9 +8,9 @@ class Gene :
     def __init__(self, net, param):
 
         self.net = net
-        self.c_s = param["g_s"]-1
+        self.g_c = param["g_c"]
+        self.g_g = param["g_c"]+1
         self.g_s = param["g_s"]
-        self.s_s = param["s_s"]
         self.max_state = param["max_state"]
         self.react_depth = param["react_depth"]
         self.neuron_num = param["neuron_num"]
@@ -36,9 +36,9 @@ class Gene :
             return self.net.activate([np.array(input_vector)]).numpy()[0]
 
         # make zero vector
-        c_0 = [0] * self.c_s
-        g_0 = [0] * self.g_s
-        s_0 = [0] * self.s_s
+        c_0 = [0] * self.g_c
+        g_0 = [0] * self.g_g
+        s_0 = [0] * self.g_s
 
         # make abbreviation
         vector_separator = self.vector_separator
@@ -52,8 +52,8 @@ class Gene :
         # 1-1. make mass and charge of component
         m_c = list()
         q_c = list()
-        for i in range(self.c_s):
-            c_vector = [0] * self.c_s
+        for i in range(self.g_c):
+            c_vector = [0] * self.g_c
             c_vector[i] = 1
             input_vector = c_vector + g_0 + s_0 + g_0 + s_0
             output = net_output(input_vector)
@@ -63,8 +63,8 @@ class Gene :
         # 1-2. make init of Gene Map G0
         react_rules = dict()
         G0 = list()
-        for i in range(self.c_s):
-            add_G0 = [0] * self.g_s
+        for i in range(self.g_c):
+            add_G0 = [0] * self.g_g
             add_G0[i] = 1
             G0.append(add_G0)
 
@@ -102,7 +102,7 @@ class Gene :
         S = list()
         S_substrate = list()
         for neuron_idx in range(self.neuron_num):
-            list(map(lambda x: S.append([neuron_idx] + list(x)), list(itertools.product([0, 1], repeat=self.s_s-1))))
+            list(map(lambda x: S.append([neuron_idx] + list(x)), list(itertools.product([0, 1], repeat=self.g_s-1))))
 
         for si in S_substrate:
             input_vector = c_0 + g_0 + si + g_0 + s_0
@@ -319,8 +319,11 @@ class Gene :
 
         # model discription
         self.model["n"] = len(node)
-        self.model["c_s"] = self.c_s
-        self.model["s_s"] = self.s_s
+        self.model["c"] = self.g_c
+        self.model["e"] = self.model["M_"].shape[1]
+        self.model["s"] = len(S)
+        self.model["g_c"] = self.g_c
+        self.model["g_s"] = self.g_s
         self.model["neuron_num"] = self.neuron_num
         self.model["input_num"] = self.input_num
         self.model["output_num"] = self.output_num
@@ -329,10 +332,10 @@ class Gene :
 
         input_maker = np.zeros((self.model["n"], self.neuron_num))
 
-        extenel_signal_node = [0]* self.g_s
+        extenel_signal_node = [0]* self.g_g
         extenel_signal_node[0] = 1
 
-        extenel_signal_splace_check = [0]* (self.model["s_s"] - 1)
+        extenel_signal_splace_check = [0]* (self.model["s"] - 1)
 
         for i, node_name in enumerate(self.model["x_0"].T):
             gene, space = node_name.split(self.gene_space_separator)

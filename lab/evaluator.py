@@ -49,32 +49,41 @@ class Evaluator :
         simulator = Simulator(model)
 
         # environment setting
-
         fitnesses = np.zeros(1)
-        states = self.env.reset()
-        dones = False
-
+        self.env.reset()
         input_vector = np.array([0]*self.param["input_num"])
+
+        ## preparing
+        success = simulator.run(1)
+        if success == False:  return -1
+
+        ##training
+        for tr_num in range (10) :
+            for epoch in range (300) :
+
+                simulator.input(input_vector)
+                simulator.run(0.1)
+                output_vector = simulator.output()
+                action = 1 if output_vector > 100 else 0
+                state, reward, done, _ = self.env.step(action)
+                input_vector = np.exp(state)
+                plt.clf()
+
+                if done: break
+
 
         for epoch in range (300) :
 
-            #print(f"age : {simulator.history['age']}")
-            #print(f"input_vector  :{input_vector}")
             simulator.input(input_vector)
-            success = simulator.run(0.1)
-            if success == False :  return -1
+            simulator.run(0.1)
             output_vector = simulator.output()
-            #print(f"output_vector  :{output_vector}")
             action = 1 if output_vector > 100 else 0
-            #print(f"action : {action}")
-
             state, reward, done, _ = self.env.step(action)
             input_vector = np.exp(state)
             fitnesses += reward
 
             if rootPath and (done or (epoch+1)%10 == 0) :
                 simulator.visualize(savePath=savePath)
-                #simulator.visualize()  # show
                 plt.clf()
 
             if done: break

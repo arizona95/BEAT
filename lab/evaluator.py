@@ -53,6 +53,9 @@ class Evaluator :
         self.env.reset()
         input_vector = np.array([0]*self.param["input_num"])
 
+        #prepare&training
+
+        '''
         ## preparing
         success = simulator.run(1)
         if success == False:  return -1
@@ -69,13 +72,15 @@ class Evaluator :
                 input_vector = np.exp(state)
                 plt.clf()
 
-                if done: break
+                if done: break 
+        '''
 
 
         for epoch in range (300) :
 
             simulator.input(input_vector)
-            simulator.run(0.1)
+            success = simulator.run(0.1)
+            if success == False:  return -1
             output_vector = simulator.output()
             action = 1 if output_vector > 100 else 0
             state, reward, done, _ = self.env.step(action)

@@ -156,7 +156,7 @@ class Gene :
                         x0,  # x0
                         gi[:-1],  # c
                         sj,  # s
-                        -np.log(A[to_string(gi)] * V[to_string(sj)])-1,  # a
+                        -np.log( A[to_string(gi)] * V[to_string(sj)])-12,  # a
                         xh,  # xh
                         h,  # h
                         gi,

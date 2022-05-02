@@ -44,7 +44,7 @@ class Simulator :
         if self.model["M_"].shape[1] > 100 : return False
         if self.model["M_"].shape[0] == 0: return False
 
-        mode = 'bio'
+        mode = 'phy'
         model = self.model
         if self.history["age"] ==0 :
             self.system = System(model, mode=mode)

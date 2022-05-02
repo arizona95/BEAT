@@ -1,7 +1,9 @@
 
 7. discrete model 만들기
-	1) 계산 최적화 -chemical flow a*b*k 로 바꿈
+	1) diffusion flow
+	2) hamiltonian flow
 
+10. collision 변수 조절
 
 ===================================================================
 

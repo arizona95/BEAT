@@ -69,7 +69,7 @@ def run(n_generations):
 
 
     pop = Population(config)
-    pe = ParallelEvaluator(1, evaluator.eval_genome,  rootPath=rootPath)
+    pe = ParallelEvaluator(4, evaluator.eval_genome,  rootPath=rootPath)
     stats = neat.StatisticsReporter()
     pop.add_reporter(stats)
     reporter = neat.StdOutReporter(True)

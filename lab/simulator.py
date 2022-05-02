@@ -41,7 +41,7 @@ class Simulator :
     def run(self, time):
         ## simulate condition
         if self.model["x_0"].shape[0] == 0: return False
-        if self.model["M_"].shape[1] > 100 : return False
+        if self.model["M_"].shape[1] > 300 : return False
         if self.model["M_"].shape[0] == 0: return False
 
         mode = 'phy'

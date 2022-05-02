@@ -5,6 +5,7 @@ from evaluator import Evaluator
 from datetime import datetime
 from tf_neat.recurrent_net import RecurrentNet
 from tf_neat.population import Population
+from tf_neat.parallel import ParallelEvaluator
 from tf_neat.neat_reporter import LogReporter
 import tensorflow as tf
 
@@ -13,10 +14,10 @@ tf.executing_eagerly()
 
 param = {
     "g_c": 2,
-    "g_s": 2,
+    "g_s": 3,
     "max_state": 5,
-    "react_depth": 1,
-    "neuron_num": 5,
+    "react_depth": 2,
+    "neuron_num": 6,
     "input_num": 4,
     "output_num": 1
 }
@@ -38,7 +39,7 @@ def make_net(genome, config, bs):
 def neat_cfg_change() :
     with open("neat_cfg_maker.cfg","r") as rnc :
         neat_cfg_data = rnc.read()
-        num_inputs = 2*param["g_c"] + 2 + 2*param["g_s"]
+        num_inputs = 3*param["g_c"] + 2 + 2*param["g_s"]
         num_hidden = 12
         num_outputs = 13
 
@@ -65,23 +66,17 @@ def run(n_generations):
         make_net, make_env=make_env, param=param
     )
 
-    def eval_genomes(genomes, config, now_generations):
 
-        genRootPath = f"{rootPath}\gen_{now_generations}"
-        try: os.mkdirs(genRootPath)
-        except: pass
-        for idx, genome in genomes:
-            genome.fitness = evaluator.eval_genome(genome, config, idx, rootPath=genRootPath)
-            print(f"fitness : {genome.fitness}, key: {idx}")
 
     pop = Population(config)
+    pe = ParallelEvaluator(4, evaluator.eval_genome,  rootPath=rootPath)
     stats = neat.StatisticsReporter()
     pop.add_reporter(stats)
     reporter = neat.StdOutReporter(True)
     pop.add_reporter(reporter)
     logger = LogReporter("./logs/neat.json", evaluator.eval_genome)
     pop.add_reporter(logger)
-    pop.run(eval_genomes, n_generations)
+    pop.run(pe.evaluate, n_generations)
 
 
 if __name__ == "__main__" :

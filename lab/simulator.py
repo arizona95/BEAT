@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 import pandas as pd
 from system import System
-from scipy.integrate import odeint
+from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
 
@@ -41,15 +41,20 @@ class Simulator :
     def run(self, time):
         ## simulate condition
         if self.model["x_0"].shape[0] == 0: return False
-        if self.model["M_"].shape[1] > 1000 : return False
+        if self.model["M_"].shape[1] > 300 : return False
         if self.model["M_"].shape[0] == 0: return False
 
+        mode = 'phy'
         model = self.model
         if self.history["age"] ==0 :
-            self.system = System(model)
+            self.system = System(model, mode=mode)
         xp0 = np.array([model["x_0"], model["p_0"]]).reshape(-1)
         t = np.linspace(0, time)
-        xp = odeint(self.system.ode, xp0, t)
+        #xp = odeint(self.system.ode, xp0, t)
+        method = 'RK23'  # available methods: 'RK45', 'RK23', 'DOP853', 'Radau', 'BDF', 'LSODA'
+        #ode_function = lambda t, xp: self.system.ode(t, xp, mode)
+        solution = solve_ivp(self.system.ode, [0, time], xp0, method=method, dense_output=True)
+        xp = solution.sol(t).T
 
         xp_end = xp[-1,:].reshape(2,-1)
 
@@ -63,7 +68,7 @@ class Simulator :
         cmap = plt.cm.get_cmap('hsv', self.model["n"])
         for i,node_name in enumerate(self.model["node_names"]) :
             plt.plot(self.history["t"] + self.history['age'], self.history["xp"][:, i], color=cmap(i), label=node_name)
-        plt.ylim([0, 100])
+        #plt.ylim([0, 100])
         plt.xlabel('time')
         plt.legend(loc='best')
 

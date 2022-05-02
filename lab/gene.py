@@ -156,7 +156,7 @@ class Gene :
                         x0,  # x0
                         gi[:-1],  # c
                         sj,  # s
-                        A[to_string(gi)] * V[to_string(sj)],  # a
+                        -np.log(A[to_string(gi)] * V[to_string(sj)])-1,  # a
                         xh,  # xh
                         h,  # h
                         gi,
@@ -167,6 +167,7 @@ class Gene :
         M_T = dict()
         k = dict()
         v = dict()
+        er, ed, eh = 0, 0, 0
 
         ## chemical flow : same space
         space_node = dict()
@@ -200,7 +201,10 @@ class Gene :
                     # add v
                     v[edge_name] = 0
 
-        ## diffusion flow, hamiltonian flow : different space
+                    # count plus
+                    er += 1
+
+        ## diffusion flow : different space
         for i, space_name_i in enumerate(space_node):
             si = list(map(lambda x: int(x), space_name_i.split(vector_separator)))
             for j, space_name_j in enumerate(space_node):
@@ -237,6 +241,21 @@ class Gene :
                                     # add v
                                     v[edge_name] = 0
 
+                                    # count plus
+                                    ed += 1
+
+        ## hamiltonian flow : different space
+        for i, space_name_i in enumerate(space_node):
+            si = list(map(lambda x: int(x), space_name_i.split(vector_separator)))
+            for j, space_name_j in enumerate(space_node):
+                sj = list(map(lambda x: int(x), space_name_j.split(vector_separator)))
+                # if neighbor space
+                if i > j and D[i][j] > 0 and D[i][j] < 1:
+                    for n, node_name_n in enumerate(space_node[space_name_i]):
+                        for m, node_name_m in enumerate(space_node[space_name_j]):
+                            if node_name_n == node_name_m:
+                                input_vector = c_0 + space_node[space_name_i][node_name_n] + \
+                                               si + space_node[space_name_j][node_name_m] + sj
                                 # hamilt edge
                                 hamilt_k = 2 * float(net_output(input_vector)[12]) - 1
                                 if hamilt_k > 0:  # edge connect
@@ -259,6 +278,9 @@ class Gene :
 
                                     # add v
                                     v[edge_name] = hamilt_k
+
+                                    # count plus
+                                    eh += 1
 
         self.model["x_0"] = dict()
         self.model["p_0"] = dict()
@@ -293,7 +315,8 @@ class Gene :
         self.model["x_0"] = pd.DataFrame.from_dict([self.model["x_0"]]).T
         self.model["p_0"] = pd.DataFrame.from_dict([self.model["p_0"]]).T
         self.model["M"] = pd.DataFrame.from_dict(self.model["M"]).T
-        self.model["M_"] = pd.DataFrame.from_dict(M_T)
+        try: self.model["M_"] = pd.DataFrame(M_T).T[node.keys()].T
+        except : self.model["M_"] = pd.DataFrame(M_T)
         self.model["S"] = pd.DataFrame.from_dict(self.model["S"]).T
         space_names = list(map(lambda x: to_string(x), S))
         self.model["D"] = pd.DataFrame.from_dict(D)
@@ -321,6 +344,9 @@ class Gene :
         self.model["n"] = len(node)
         self.model["c"] = self.g_c
         self.model["e"] = self.model["M_"].shape[1]
+        self.model["er"] = er
+        self.model["ed"] = ed
+        self.model["eh"] = eh
         self.model["s"] = len(S)
         self.model["g_c"] = self.g_c
         self.model["g_s"] = self.g_s
@@ -419,9 +445,9 @@ class Gene :
                 node_name_0 = node_name + gene_space_separator + space_name_0
                 node_name_1 = node_name + gene_space_separator + space_name_1
                 if diff_or_hamilt == diffusion_flow_character:
-                    g.edge(node_name_0, node_name_1, style="dashed")
-                if diff_or_hamilt == hamiltonian_flow_character:
                     g.edge(node_name_0, node_name_1, style="bold")
+                if diff_or_hamilt == hamiltonian_flow_character:
+                    g.edge(node_name_0, node_name_1, style="dashed")
 
         g.render(filename=f"{savePath}\\graph.dot", view=False)
 

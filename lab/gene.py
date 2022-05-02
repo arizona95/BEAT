@@ -308,7 +308,7 @@ class Gene :
                     add_S[to_string(si)] = 0
             self.model["S"][node_name] = add_S
             self.model["a"][node_name] = node[node_name][3]
-            self.model["c_"][node_name] = 10
+            self.model["c_"][node_name] = 100
             self.model["x_h"][node_name] = node[node_name][4]
             self.model["h"][node_name] = node[node_name][5]
 

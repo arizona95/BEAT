@@ -2,9 +2,9 @@ import numpy as np
 
 
 class System:
-    def __init__(self, model, mode="phy"):
+    def __init__(self, model, engine="phy"):
         # mode
-        self.mode = mode
+        self.engine = engine
 
         # shape of parameter
         self.n = model["n"]
@@ -31,7 +31,9 @@ class System:
         self.assert_parameter()
         self.initial_calculate()
 
-        if self.mode == "bio":
+        if self.engine == "phy":
+            self.setting_phy_model()
+        elif self.engine == "bio":
             self.er = model["er"]
             self.ed = model["ed"]
             self.eh = model["eh"]
@@ -67,26 +69,34 @@ class System:
         assert self.h.shape == (self.n, 1)
         assert (self.h >= 0).all()
 
+    def relu(self,x):
+        return np.maximum(0, x)
+
     def setting_bio_model(self):
 
-        def relu(x):
-            return np.maximum(0, x)
-
         self.k_r = self.k[:self.er]
-        self.k_d = self.k[self.er, :self.er + self.ed]
+        self.k_d = self.k[self.er :self.er + self.ed]
+        self.v_h = self.v[self.er + self.ed:self.er + self.ed + self.eh]
         self.M_r = self.M_[:, :self.er]
+        self.M_r = self.M_r*self.M_r.sum(axis=0)
         self.M_d = self.M_[:, self.er:self.er + self.ed]
         self.M_h = self.M_[:, self.er + self.ed:self.er + self.ed + self.eh]
         assert self.er + self.ed + self.eh == self.e
 
         self.reactant1_sparse = np.zeros(self.M_r.shape)
-        self.reactant1_sparse[np.arange(self.M_r.shape[1]), np.argmax(relu(self.M_r), axis=0)] = 1
-        self.reactant2_sparse = relu(self.M_r) - self.reactant1_sparse
+        self.reactant1_sparse[np.argmax(self.M_r, axis=0), np.arange(self.M_r.shape[1])] = 1
+        self.reactant2_sparse = self.relu(self.M_r) - self.reactant1_sparse
         self.reactant1 = self.reactant1_sparse.argmax(axis=0)
         self.reactant2 = self.reactant2_sparse.argmax(axis=0)
-        self.product = relu(-self.M_r).argmax(axis=0)
-        self.diff1 = relu(self.M_d).argmax(axis=0)
-        self.diff2 = relu(-self.M_d).argmax(axis=0)
+        self.product = self.relu(-self.M_r).argmax(axis=0)
+        self.diff1 = self.relu(self.M_d).argmax(axis=0)
+        self.diff2 = self.relu(-self.M_d).argmax(axis=0)
+        self.hamilto1 = self.relu(self.M_h).argmax(axis=0)
+        self.hamilto2 = self.relu(-self.M_h).argmax(axis=0)
+
+    def setting_phy_model(self):
+        self.relu_M_ = self.relu(self.M_)
+        self.relu_minus_M_= self.relu(-self.M_)
 
 
     def initial_calculate(self, ):
@@ -109,7 +119,7 @@ class System:
     def flow(self, mode="phy"):
         # gradient
         # mode : phy, bio
-        if self.mode == "phy":
+        if self.engine == "phy":
             grad_x = \
                 (np.log(self.x) + 1).T + \
                 self.a.T + \
@@ -118,11 +128,11 @@ class System:
             grad_p = ((1 / self.m) * self.p * self.x).T
 
             # flow
+            #2130
             chemical_flow_x = \
                 -np.dot(self.M_, (self.k.T * \
-                                  (np.exp(np.dot(grad_x, self.M_)) - 1) * \
-                                  (np.exp(-0.5 * np.dot(grad_x, self.M_))) * \
-                                  (np.exp(0.5 * np.dot((np.log(self.x) + 1 + self.a).T, np.abs(self.M_))))).T)
+                                  (np.exp(np.dot(grad_x, self.relu_M_)) -\
+                                   np.exp(np.dot(grad_x, self.relu_minus_M_)))).T)
             hamiltonian_flow_x = np.dot(self.M_, self.v * \
                                         (np.dot(grad_p, self.M_).T) * \
                                         (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
@@ -134,8 +144,9 @@ class System:
 
             return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
 
-        elif self.mode == "bio":
+        elif self.engine == "bio":
 
+            #2380
             grad_x = \
                 (np.log(self.x) + 1).T + \
                 self.a.T + \
@@ -146,25 +157,51 @@ class System:
             self.x_a_cal = np.exp(grad_x).T
 
             # flow
+            # 2020
             chemical_flow_x = \
                 -np.dot(self.M_r, (self.k_r * \
-                                   (-np.apply_along_axis(lambda x: x[self.product], 0, self.x_a_cal) + \
-                                    np.apply_along_axis(lambda x: x[self.reactant1], 0, self.x_a_cal) * \
-                                    np.apply_along_axis(lambda x: x[self.reactant2], 0, self.x_a_cal))))
-            diffusion_flow_x = -np.dot(self.M_d, (self.k_d * \
-                                  (-np.apply_along_axis(lambda x: x[self.diff1], 0, self.x_a_cal) + \
-                                   np.apply_along_axis(lambda x: x[self.diff2], 0, self.x_a_cal))))
+                                   (-np.take(self.x_a_cal, self.product) +\
+                                    np.take(self.x_a_cal, self.reactant1)* \
+                                    np.take(self.x_a_cal, self.reactant2)).reshape(-1,1)))
+            #1570
+            diffusion_flow_x =\
+                np.dot(self.M_d, (self.k_d * \
+                                  (-np.take(self.x_a_cal, self.diff1)+ \
+                                   np.take(self.x_a_cal, self.diff2)).reshape(-1,1)))
 
-            hamiltonian_flow_x = np.dot(self.M_, self.v * \
-                                        (np.dot(grad_p, self.M_).T) * \
-                                        (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
-            hamiltonian_flow_p = -np.dot(self.M_, self.v * \
-                                         (np.dot(grad_x, self.M_).T) * \
-                                         (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
+            #2160
+            hamiltonian_flow_x = np.dot(self.M_h, self.v_h * \
+                                        (np.dot(grad_p, self.M_h).T) * \
+                                         np.take(self.x, self.hamilto1).reshape(-1,1) * \
+                                         np.take(self.x, self.hamilto2).reshape(-1,1))
+            hamiltonian_flow_p = -np.dot(self.M_h, self.v_h * \
+                                         (np.dot(grad_x, self.M_h).T) * \
+                                         np.take(self.x, self.hamilto1).reshape(-1, 1) * \
+                                         np.take(self.x, self.hamilto2).reshape(-1, 1))
             colision_flow_p = -self.c_ * (grad_p).T
             external_homeostasis_flow_x = self.h * (self.x_h - self.x)
 
-            return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
+            '''
+            
+            print(f"x {self.x[10]}")
+            print(f"self.x_a_cal, {self.x_a_cal[10]}")
+            print(f"chemical_flow_x, {chemical_flow_x[10]}")
+            print(f"diffusion_flow_x, {diffusion_flow_x[10]}")
+            print(f"hamiltonian_flow_x, {hamiltonian_flow_x[10]}")
+            print(f"external_homeostasis_flow_x, {external_homeostasis_flow_x[10]}")
+            
+            '''
+
+
+            # exp 570
+            # take 190
+            # .T 20
+            # - 216 ~ 108
+
+
+
+
+            return chemical_flow_x + diffusion_flow_x+ hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
 
     def ode(self, t, xp):
         xp_2d = xp.reshape(2, -1)

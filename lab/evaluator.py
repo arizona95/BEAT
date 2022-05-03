@@ -16,6 +16,9 @@ class Evaluator :
 
         # accept system parameter
         self.param = param
+        self.engine = "phy"# bio, phy
+        self.ode_language = 'FORTRAN'  # FORTRAN, PYTHON
+        self.fail_fitness = -1
 
 
     def eval_genome(self, genome, config, idx=False, rootPath=False, debug=False):
@@ -36,24 +39,19 @@ class Evaluator :
         model = gene.model
 
 
-        # if show
-        #savePath=False
+        # simulator make
+        simulator = Simulator(model, engine = self.engine, ode_language=self.ode_language)
+        if simulator.checksum == False : return self.fail_fitness
 
-        #print
-        #gene.print_model_info()
         if rootPath:
             gene.model_display(savePath)
             visualize.draw_net(config, genome, True, node_names={}, filename=f"{savePath}\\net.png")
 
-        # simulator make
-        simulator = Simulator(model)
 
         # environment setting
         fitnesses = np.zeros(1)
         self.env.reset()
         input_vector = np.array([0]*self.param["input_num"])
-
-        #prepare&training
 
         '''
         ## preparing
@@ -78,9 +76,9 @@ class Evaluator :
 
         for epoch in range (300) :
 
-            simulator.input(input_vector)
+            #simulator.input(input_vector)
             success = simulator.run(0.1)
-            if success == False:  return -1
+            if success == False:  return self.fail_fitness
             output_vector = simulator.output()
             action = 1 if output_vector > 100 else 0
             state, reward, done, _ = self.env.step(action)
@@ -93,9 +91,7 @@ class Evaluator :
 
             if done: break
 
-
-
-        #sys.exit()
+        #print(f"fitnesses : {fitnesses[0]} , {idx}")
         return fitnesses[0]
 
 

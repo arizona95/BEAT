@@ -1,0 +1,170 @@
+graph G {
+	subgraph "cluster0/0/0" {
+		color=blue
+		label="0/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster0/0/1" {
+		color=blue
+		label="0/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster0/1/0" {
+		color=blue
+		label="0/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster0/1/1" {
+		color=blue
+		label="0/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster1/0/0" {
+		color=blue
+		"2/0/4-1/0/0" [label="2/0/4"]
+		label="1/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster1/0/1" {
+		color=blue
+		label="1/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster1/1/0" {
+		color=blue
+		label="1/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster1/1/1" {
+		color=blue
+		label="1/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster2/0/0" {
+		color=blue
+		"2/0/4-2/0/0" [label="2/0/4"]
+		label="2/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster2/0/1" {
+		color=blue
+		label="2/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster2/1/0" {
+		color=blue
+		"2/0/4-2/1/0" [label="2/0/4"]
+		label="2/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster2/1/1" {
+		color=blue
+		label="2/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster3/0/0" {
+		color=blue
+		"2/0/4-3/0/0" [label="2/0/4"]
+		"1/1/4-3/0/0" [label="1/1/4"]
+		label="3/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster3/0/1" {
+		color=blue
+		label="3/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster3/1/0" {
+		color=blue
+		"2/0/4-3/1/0" [label="2/0/4"]
+		"1/1/4-3/1/0" [label="1/1/4"]
+		label="3/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster3/1/1" {
+		color=blue
+		label="3/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster4/0/0" {
+		color=blue
+		"1/0/0-4/0/0" [label="1/0/0"]
+		"2/0/4-4/0/0" [label="2/0/4"]
+		"1/1/4-4/0/0" [label="1/1/4"]
+		label="4/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+		"r1-4/0/0" [label=r1]
+	}
+	subgraph "cluster4/0/1" {
+		color=blue
+		"2/0/4-4/0/1" [label="2/0/4"]
+		label="4/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster4/1/0" {
+		color=blue
+		"1/0/0-4/1/0" [label="1/0/0"]
+		"2/0/4-4/1/0" [label="2/0/4"]
+		"1/1/4-4/1/0" [label="1/1/4"]
+		label="4/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+		"r1-4/1/0" [label=r1]
+	}
+	subgraph "cluster4/1/1" {
+		color=blue
+		"2/0/4-4/1/1" [label="2/0/4"]
+		label="4/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	subgraph "cluster5/0/0" {
+		color=blue
+		"1/0/0-5/0/0" [label="1/0/0"]
+		"2/0/4-5/0/0" [label="2/0/4"]
+		"1/1/4-5/0/0" [label="1/1/4"]
+		"0/2/4-5/0/0" [label="0/2/4"]
+		label="5/0/0"
+		node [color=lightgrey shape=diamond style=filled]
+		"r1-5/0/0" [label=r1]
+	}
+	subgraph "cluster5/0/1" {
+		color=blue
+		"1/0/0-5/0/1" [label="1/0/0"]
+		"2/0/4-5/0/1" [label="2/0/4"]
+		"1/1/4-5/0/1" [label="1/1/4"]
+		label="5/0/1"
+		node [color=lightgrey shape=diamond style=filled]
+		"r1-5/0/1" [label=r1]
+	}
+	subgraph "cluster5/1/0" {
+		color=blue
+		"1/0/0-5/1/0" [label="1/0/0"]
+		"2/0/4-5/1/0" [label="2/0/4"]
+		"1/1/4-5/1/0" [label="1/1/4"]
+		"0/2/4-5/1/0" [label="0/2/4"]
+		label="5/1/0"
+		node [color=lightgrey shape=diamond style=filled]
+		"r1-5/1/0" [label=r1]
+	}
+	subgraph "cluster5/1/1" {
+		color=blue
+		"2/0/4-5/1/1" [label="2/0/4"]
+		"1/1/4-5/1/1" [label="1/1/4"]
+		label="5/1/1"
+		node [color=lightgrey shape=diamond style=filled]
+	}
+	"1/0/0-4/0/0" -- "r1-4/0/0"
+	"1/0/0-4/0/0" -- "r1-4/0/0"
+	"2/0/4-4/0/0" -- "r1-4/0/0"
+	"1/0/0-4/1/0" -- "r1-4/1/0"
+	"1/0/0-4/1/0" -- "r1-4/1/0"
+	"2/0/4-4/1/0" -- "r1-4/1/0"
+	"1/0/0-5/0/0" -- "r1-5/0/0"
+	"1/0/0-5/0/0" -- "r1-5/0/0"
+	"2/0/4-5/0/0" -- "r1-5/0/0"
+	"1/0/0-5/0/1" -- "r1-5/0/1"
+	"1/0/0-5/0/1" -- "r1-5/0/1"
+	"2/0/4-5/0/1" -- "r1-5/0/1"
+	"1/0/0-5/1/0" -- "r1-5/1/0"
+	"1/0/0-5/1/0" -- "r1-5/1/0"
+	"2/0/4-5/1/0" -- "r1-5/1/0"
+}

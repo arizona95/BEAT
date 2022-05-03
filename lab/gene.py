@@ -114,11 +114,13 @@ class Gene :
         ## make V matrix
 
         V = dict()
+        self.V = V
         for i, si in enumerate(S):
             ## fs(si) = f(0,si,0,0)[3]
             input_vector = c_0 + g_0 + si + g_0 + s_0
             output = net_output(input_vector)
             V[to_string(si)] = output[6]
+
 
         ## make D matrix
 
@@ -139,13 +141,12 @@ class Gene :
         ## 3. Generation real node
         node = dict()  # name:[x0, c, s, a, xh, h]
 
-
         for i, gi in enumerate(G):
             for j, sj in enumerate(S):
                 input_vector = c_0 + gi + sj + g_0 + s_0
                 output = net_output(input_vector)
                 x0 = 20 * output[8] - 10
-                xh = 20 * output[9] - 10
+                xh = 10 * output[9]
                 h = output[10]
                 if xh <= 0:
                     h = 0
@@ -156,7 +157,7 @@ class Gene :
                         x0,  # x0
                         gi[:-1],  # c
                         sj,  # s
-                        -np.log( A[to_string(gi)] * V[to_string(sj)])-12,  # a
+                        -np.log( A[to_string(gi)] * V[to_string(sj)] + 0.01)-12,  # a
                         xh,  # xh
                         h,  # h
                         gi,
@@ -308,7 +309,7 @@ class Gene :
                     add_S[to_string(si)] = 0
             self.model["S"][node_name] = add_S
             self.model["a"][node_name] = node[node_name][3]
-            self.model["c_"][node_name] = 1
+            self.model["c_"][node_name] = 10
             self.model["x_h"][node_name] = node[node_name][4]
             self.model["h"][node_name] = node[node_name][5]
 

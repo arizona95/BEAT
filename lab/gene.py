@@ -146,21 +146,24 @@ class Gene :
                 input_vector = c_0 + gi + sj + g_0 + s_0
                 output = net_output(input_vector)
                 x0 = 20 * output[8] - 10
-                xh = 10 * output[9]
-                h = output[10]
+                c_ = 90 * output[9] + 10
+                xh = 10 * output[10]
+                h = output[11]
+                a = -np.log( A[to_string(gi)] * V[to_string(sj)] + 0.01)-12
                 if xh <= 0:
                     h = 0
                     xh = 0
                 if x0 > 0:
                     node_name = to_string(gi) + gene_space_separator + to_string(sj)
                     node[node_name] = [
+                        gi,  # g
+                        sj,  # s
                         x0,  # x0
                         gi[:-1],  # c
-                        sj,  # s
-                        -np.log( A[to_string(gi)] * V[to_string(sj)] + 0.01)-12,  # a
+                        c_,  # c0
+                        a,  # a
                         xh,  # xh
                         h,  # h
-                        gi,
                     ]
 
         ## Generation Edge
@@ -176,7 +179,7 @@ class Gene :
             space_node[to_string(si)] = dict()
 
         for node_name in node:
-            space_node[to_string(node[node_name][2])][to_string(node[node_name][6])] = node[node_name][6]
+            space_node[to_string(node[node_name][1])][to_string(node[node_name][0])] = node[node_name][0]
 
         for react_rule_name in react_rules:
             react_rule = react_rules[react_rule_name]["rule"]
@@ -297,21 +300,21 @@ class Gene :
         self.model["h"] = dict()
 
         for node_name in node:
-            self.model["x_0"][node_name] = node[node_name][0]
+            self.model["x_0"][node_name] = node[node_name][2]
             self.model["p_0"][node_name] = 0
-            self.model["M"][node_name] = node[node_name][1]
+            self.model["M"][node_name] = node[node_name][3]
 
             add_S = dict()
             for i, si in enumerate(S):
-                if to_string(si) == to_string(node[node_name][2]):
+                if to_string(si) == to_string(node[node_name][1]):
                     add_S[to_string(si)] = 1
                 else:
                     add_S[to_string(si)] = 0
             self.model["S"][node_name] = add_S
-            self.model["a"][node_name] = node[node_name][3]
+            self.model["a"][node_name] = node[node_name][5]
             self.model["c_"][node_name] = 10
-            self.model["x_h"][node_name] = node[node_name][4]
-            self.model["h"][node_name] = node[node_name][5]
+            self.model["x_h"][node_name] = node[node_name][6]
+            self.model["h"][node_name] = node[node_name][7]
 
         self.model["x_0"] = pd.DataFrame.from_dict([self.model["x_0"]]).T
         self.model["p_0"] = pd.DataFrame.from_dict([self.model["p_0"]]).T
@@ -359,36 +362,25 @@ class Gene :
 
         input_maker = np.zeros((self.model["n"], self.neuron_num))
 
-        extenel_signal_node = [0]* self.g_g
-        extenel_signal_node[0] = 1
+        self.extenel_signal_node = [0]* self.g_g
+        self.extenel_signal_node[0] = 1
 
-        extenel_signal_splace_check = [0]* (self.model["s"] - 1)
+        self.extenel_signal_splace_check = [0]* (self.g_s - 1)
 
         for i, node_name in enumerate(self.model["x_0"].T):
             gene, space = node_name.split(self.gene_space_separator)
             gene_vector = list(map(lambda x:int(x), gene.split(self.vector_separator)))
             space_vector = list(map(lambda x:int(x),space.split(self.vector_separator)))
-            if gene_vector == extenel_signal_node and space_vector[1:] == extenel_signal_splace_check:
+            if gene_vector == self.extenel_signal_node and space_vector[1:] == self.extenel_signal_splace_check:
                 input_maker[i][space_vector[0]] = 1
 
         self.model["input_maker"] = input_maker
 
-
-
-    def print_model_info(self):
-        print(f"react_rules : {self.set['react_rules'] }")
-        print(f"G set : {self.set['G']}")
-        print(f"A set : {self.set['G']}")
-        print(f"S set: {self.set['S']}")
-        print(f"node list : \n")
-        for node in self.set["node"] :
-            print(f"{node} : {self.set['node'][node]}")
-
-        for e in self.model:
-            print(e)
-            display(self.model[e])
-
     def model_display(self, savePath=False):
+
+        self.edge_color = "blue"
+        self.input_color = "darkgreen"
+        self.output_color = "darkorange"
 
         def to_string(list) :
             return self.vector_separator.join(str(e) for e in list)
@@ -410,20 +402,40 @@ class Gene :
         react_rules = self.set["react_rules"]
 
         g = graphviz.Graph('G', filename='../graph/test.gv', engine='fdp')
-        for i, space_name_i in enumerate(space_node):
-            with g.subgraph(name="cluster" + space_name_i) as c:
-                c.attr(color='blue')
-                for node_name in space_node[space_name_i]:
-                    c.node(node_name + gene_space_separator + space_name_i, label=node_name)
-                c.attr(label=space_name_i)
+        for i, space_name in enumerate(space_node):
+            with g.subgraph(name="cluster" + space_name) as c:
+                c.attr(color=self.edge_color)
+                for node_name in space_node[space_name]:
+                    c.attr('node', shape='circle', color='black')
+                    gene_vector = list(map(lambda x: int(x), node_name.split(self.vector_separator)))
+                    space_vector = list(map(lambda x: int(x), space_name.split(self.vector_separator)))
+                    if gene_vector == self.extenel_signal_node and space_vector[1:] == self.extenel_signal_splace_check:
+                        #input node
+                        if 0 <= space_vector[0] and  space_vector[0] < self.input_num:
+                            c.attr('node', shape='doublecircle', color=self.input_color)
 
-                c.attr('node', shape='diamond', style='filled', color='lightgrey')
+                        #output node
+                        elif  self.neuron_num - self.output_num <= space_vector[0] and  space_vector[0] < self.neuron_num:
+                            c.attr('node', shape='doublecircle', color=self.output_color)
+
+                    c.node(node_name + gene_space_separator + space_name, label=node_name)
+                c.attr(label=space_name)
+
+                c.attr('node', shape='square', style='filled', color='lightgrey', width="0.47")
                 for edge_name in self.model["M_"]:
                     # chemical edge
                     if chemical_flow_character in edge_name:
-                        react_rule_name, space_name = edge_name.split(gene_space_separator)
-                        if space_name_i == space_name:
+                        react_rule_name, react_space_name = edge_name.split(gene_space_separator)
+                        if space_name == react_space_name:
                             c.node(edge_name, label=react_rule_name)
+
+        # space edge
+
+        g.attr(compound='true')
+        for i, space_name_i in enumerate(space_node):
+            for j, space_name_j in enumerate(space_node):
+                if i>j and self.model["D"][space_name_i][space_name_j]<=1 :
+                    g.edge("cluster" + space_name_i, "cluster" + space_name_j, color=self.edge_color)
 
         # edge
         for edge_name in self.model["M_"]:
@@ -450,7 +462,7 @@ class Gene :
                 if diff_or_hamilt == hamiltonian_flow_character:
                     g.edge(node_name_0, node_name_1, style="dashed")
 
-        g.render(filename=f"{savePath}\\graph.dot", view=False)
+        g.render(filename=f"{savePath}\\graph.dot", view=False, format ='png') #format : pdf, png
 
         #g.write_png(f"{savePath}\\graph.png")
         if not savePath : display(g)

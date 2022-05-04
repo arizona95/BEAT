@@ -64,11 +64,12 @@ class Checkpointer(BaseReporter):
         """ Save the current simulation state. """
         filename = '{0}{1}'.format(self.filename_prefix,generation)
         filename = f"{self.filename_prefix}\\gen_{generation+1}\\genomes"
-        print("Saving checkpoint to {0}".format(filename))
-
-        with gzip.open(filename, 'w', compresslevel=5) as f:
-            data = (generation, config, population, species_set, random.getstate())
-            pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
+        #print("Saving checkpoint to {0}".format(filename))
+        print(f"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\m {__name__}")
+        if __name__ == "__main__" :
+            with gzip.open(filename, 'w', compresslevel=5) as file:
+                data = (generation, config, population, species_set, random.getstate())
+                pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
 
     @staticmethod
     def restore_checkpoint(filename):

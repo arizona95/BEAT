@@ -140,8 +140,10 @@ class Simulator :
 
     def visualize(self, savePath=False):
         if savePath :
-            print(savePath)
-            plt.savefig(f"{savePath}/model_{str(self.history['age'])}.png", dpi=300)
+            try:
+                plt.savefig(f"{savePath}/model_{str(self.history['age'])}.png", dpi=300)
+            except :
+                pass
             with open(f"{savePath}\model.JSON", 'wb') as fw:
                 pickle.dump(self.model_dict, fw)
         else : plt.show()

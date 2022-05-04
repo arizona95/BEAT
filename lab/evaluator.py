@@ -76,13 +76,13 @@ class Evaluator :
 
         for epoch in range (300) :
 
-            #simulator.input(input_vector)
+            simulator.input(input_vector)
             success = simulator.run(0.1)
             if success == False:  return self.fail_fitness
             output_vector = simulator.output()
             action = 1 if output_vector > 100 else 0
             state, reward, done, _ = self.env.step(action)
-            input_vector = np.exp(state)
+            input_vector = np.minimum(1,np.exp(state))
             fitnesses += reward
 
             if rootPath and (done or (epoch+1)%10 == 0) :

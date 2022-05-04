@@ -21,8 +21,8 @@ def neat_cfg_change() :
     with open("neat_cfg_maker.cfg","r") as rnc :
         neat_cfg_data = rnc.read()
         num_inputs = 3*param["g_c"] + 2 + 2*param["g_s"]
-        num_hidden = 12
-        num_outputs = 13
+        num_hidden = 14
+        num_outputs = 14
 
         neat_cfg_data = neat_cfg_data.replace("num_inputs_replace", str(num_inputs))
         neat_cfg_data = neat_cfg_data.replace("num_hidden_replace", str(num_hidden))

@@ -1,0 +1,946 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2020
+
+% ready for submission
+% \usepackage{neurips_2020}
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2020}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2020}
+
+% to avoid loading the natbib package, add option nonatbib:
+     \usepackage[nonatbib]{neurips_2020}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{CJKutf8}
+\usepackage{algorithm}
+\usepackage{algorithmicx, algpseudocode}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{epsfig} 
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{tabularx} 
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{setspace}
+\setlength{\multicolsep}{6.0pt plus 2.0pt minus 1.5pt}% 50% of original values
+\usepackage[export]{adjustbox}
+\usepackage{subfloat}
+\title{Equilibrium Point Learning}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{%
+  David S.~Hippocampus\thanks{Use footnote for providing further information
+    about author (webpage, alternative address)---\emph{not} for acknowledging
+    funding agencies.} \\
+  Department of Computer Science\\
+  Cranberry-Lemon University\\
+  Pittsburgh, PA 15213 \\
+  \texttt{hippo@cs.cranberry-lemon.edu} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+\begin{document}
+\begin{CJK}{UTF8}{mj}
+\maketitle
+
+\begin{abstract}
+ %Artificial Neural Network (ANN) 의 훈련 방법으로, Artificial General Intelligence (AGI)에 도달할수 있는지 여전히 의문이 남아있습니다.
+ The question remains whether the training method of the Artificial Neural Network (ANN) can reach the Artificial General Intelligence (AGI).
+%이에, 생물학적 뉴런의 학습 방법에 의해 동기를 얻어,우리는 심층 평형 모델(DEQ) 학습에 대한 새로운 접근 방식인 평형 포인트 학습(EPL)을 통해 학습 알고리듬 공간을 탐색하는 새로운 방법을 제시합니다.
+Motivated by the biological neurons, We present a method of exploring the learning algorithm space, by a new approach to learning Deep Equilibrium Model (DEQ): Equilibrium Point Learning (EPL). 
+%핵심은, Equilibrium-Point 가 기존 ANN 의 학습 파라미터의 역할을 수행하는 것 입니다. 
+The key is that Equilibrium-Point acts as a learning parameter.
+%모델 파라미터는 학습 알고리즘 자체를 내포하게 되며, 불변의 값이 됩니다.
+In this learning method, The model parameter implies the learning algorithm itself and becomes an invariant value.
+%따라서, 별도의 학습과정(Back-propagation, Q-learning) 에 의존하지 않고, 더 효율적인 방법을 찾을수 있다는 주목할만한 이점이 있습니다.
+Therefore, there is a remarkable advantage of being able to find more efficient ways without relying on the separate learning algorithm, (like back-propagation, Q-learning).
+%이에, 우리는 DEQ의 파라미터를 진화시켜, 학습 알고리즘을 탐색하였습니다.
+To explore learning algorithm space, we evolved the parameters of DEQ in a similar way to biological neurons.
+%우리는 먼저 뉴런의 분자단위의 물리적인 움직임을 관찰하여, 이를 Convex Optimization Problem 으로 변한합니다. 
+We first observe the physical movement of neurons in their molecular units and convert them into the Convex Optimization Problem.
+%이를 통해 Equilibrium point가 존재한다고 수학적으로 증명되는 Deep Implict Layer을 디자인 합니다.
+And we design Deep Implicit Layer, which is mathematically proven to have an Equilibrium point.
+%에너지 함수가 Quadratic Function 에, 엔트로피와 운동량을 확장하여, 이들의 flow가 물리, 화학 법칙과 흡사하기 때문에,
+The energy function takes the form of a quadratic function that is extended by entropy and momentum. So, since their flow is similar to the laws of physics and chemistry,
+%Computational biology의 biomodel 과, SNN의 neuron model ( HH 모델 등)을 표현할 수 있으며, 
+It can express the BioModel of System Biology and the neural model of Spiking Neural Network (SNN).
+%이는 DEQ 의 Implict Layer을 정의하는 것과 같으므로, 기존 ANN 과 상호교환 가능한 이점이 있습니다.
+This is equivalent to defining the Implicit Layer of a DEQ, so it has the advantage of being interchangeable with an existing ANN.
+ %Dynamical System의 파라미터를  HyperNeat를 통해 진화시켰으며, 실제로, 진화할수록 세대당 평균  0.4\%  빠르게 학습하는 모델이 생성됩니다.
+ We evolved the parameters of the dynamical System through HyperNeat, and , the more we evolve, the faster we learn on average 0.2\% per generation.
+\end{abstract}
+
+ \begin{comment}
+ \end{comment}
+
+\section{Introduction}
+%생물학적 뉴런을 수학적으로 기술하기 위하여, 여러 학문적 시도들이 있습니다. (Spiking neural network, Computational biology, System biology \cite{pfeiffer2018deep}\cite{buesing2011neural}\cite{bick2020understanding}) 
+To describe biological neurons mathematically, there are several academic attempts (Spiking neural network, Computational biology, System biology \cite{pfeiffer2018deep}\cite{buesing2011neural}\cite{bick2020understanding})
+% 이는 궁극적으로, 단백질과 유전자, 이온의 상호작용 규칙인  Gene-Protein-Reaction(GPR)rules\cite{di2021gpruler}을  밝혀내어, 이를 통해 인간의 지능인   Artificial General Intelligence ( AGI) 에 도달하는 것에 목표가 있습니다. 
+Ultimately, it aims to identify the function and role of the components, like find out Gene-Protin-Reaction (GPR)\cite{di2021gpruler} rules, to reach the human intelligence, Artificial General Intelligence (AGI).
+%System biology 분야에서는, biological systems 의  mathematical analysis 를통해, Dynamical System 으로 모델링 합니다.
+In the field of system biology, parts of the neuron are modeled as a Dynamical System by mathematical analysis of experimental results.
+%BioModel\cite{chelliah2013biomodels} 은, odeSolver를 통해 시간에 따른 시뮬레이션이 가능하며, 잘 짜여진 모델들은, 실제 측정된 실험값과 동일하거나, 엇비슷한 수치를 가집니다\cite{hernjak2005modeling}. 
+The BioModel\cite{chelliah2013biomodels}, which is modeled like this, can be simulated over time with the Ordinary Differential Equations (ODE) Solver, and the well-crafted models have the same or similar values as the measured experiments\cite{hernjak2005modeling}.
+%하지만, 이는 너무 복잡하고, 방대하며, 실험적 오차 등에 의해 많은 부분이 베일에 싸여져 있습니다. 
+However, it is so complicated, so vast that much of it is veiled.
+%이런 이유로, SNN 에서는 아직 생물학적으로 알고리즘이 밝혀지지 않은 back-propagation 학습 방법을 사용하여 비선형 학습의 문제점을 해결하고 있습니다\cite{tavanaei2019bp}.
+For this reason, SNN is solving the problem of nonlinear learning using back-propagation learning methods that have not yet been biologically identified\cite{tavanaei2019bp}.
+
+%우리는 이러한 BioModel Simulation 을 ANN 의 관점으로 보면, Deep Equilibrium model (DEQ) 의 잘 설계된 Implict Layer 의 무한히 깊은 층까지, odeSolver를 통해 계산하는 방식인, Neural ODE\cite{chen2018neural} 와 흡사하다고 생각하였습니다. 
+From the ANN's point of view, We thought that this BioModel Simulation was similar to the Neural ODE\cite{chen2018neural}, which is a method of calculating to the infinitely deep layer of the weight-tied feedforward network through the odeSolver.
+%하지만, 이러한 방식을 통해 학습을 한다는 것은, back-propagation 이나,  Q-learning 과 같은 별도의 학습 알고리즘 없이,
+However, neuron learning in this way, without separate learning algorithms such as back-propagation or Q-learning.
+%odeSolver를 통해 State 가 변해가는 것, 즉, Implict Layer을 무한이 통과하는 것 자체가 학습이 되는 단 하나의 Deep Implicit Layer 을 기대하는 것과 다름없습니다. 
+In other words, The state changes through the odeSolver, i.e., just  passing of the explicit Layer infinite, is the whole learning process.
+That is not possible in ANN so far.
+
+%우리는, 이 문제에 대하여, 최근 대두되고 있는 Deep Equilibrium Model (DEQ)\cite{bai2019deep}과, 실제 뉴런의 학습방법 에서 동기를 얻어- 학습방법의 새로운 접근법인 Equilibrium Point Learning (EPL)을 제시합니다. 
+In this issue, we present a new approach  to learning DEQ model, Equilibrium Point Learning (EPL).
+%이 학습 방법은, 모델의 파라미터가 학습 알고리즘의 역할(back-propagation 같은)을 하며, 생물학적 뉴런은, 이 파라미터를 잘 찾은 case 로 생각될 수 있습니다.
+In this learning method, the parameters of the model act as learning algorithms (such as back-propagation), and biological neurons can be thought of as a case that finds this parameter well.
+%지도학습과 비지도학습을 겸용하며, Action을 걸정하는 시간과, Feedback을 받아들이는 시간이 분리되어있는 등, 제시된 학습모은 생물이 Training을 하는 방법과 유사성을 나타냅니다.\cite{glimcher2011understanding}  
+EPL are similarities to the learning method of neurons, that It uses both supervised and unsupervised learning, and separated the time for defining action and the time for accepting feedback.\cite{glimcher2011understanding} 
+% 우리는 이 학습 방법을 토대로, learning algorithm space 인 모델 파라미터 공간을 탐색하였다.
+Based on this learning method, our goal is find best learning algorithm by explore the model parameter space.
+
+%뉴런은 이 공간을 유전 알고리즘으로 탐색하였습니다. 
+Biological neurons have explored this space with genetic algorithms.
+%죽,물리적 환경에서 개체의 생존 이라는 GOAL 에 적합한 GPRr Network가 선택된 것입니다. 
+In the physical environment, dynamic systems suitable for survival(goal) were selected.
+%우리는, 이 결과물인 뉴런을 모방하려는 이전의 학문과는 달리, 이러한 일련의 진화 과정 자체를 모방하는 데에 주목합니다.
+We focus on this sequence of evolutionary processes.
+%이에, 지금까지의 뉴런 모델을 표현할 수 있는 Dynamical System을 정의합니다. 
+Therefore, we define a Dynamical system that can represent some of the neuron model, like Hodgkin huxley (HH) model in SNN.
+%이는, 생물, 화학적 현상들이 모두 표현되어야 합니다. 
+It's all about biological and chemical phenomena.
+%우리는, 분자적인 관점에서의 물리적인 시스템과 에너지를 Dynamical System 에 표현하고자 하였습니다. 
+We wanted to express the physical system and energy from a molecular perspective in the Dynamic System.
+%이것은, 결국 생물에서의 모든 뉴런모델을 표현할 수 있게 만듭니다.
+This makes it possible to represent the neuron model of system biology.
+%분자들의 움직임은 Dynamical System 의 에너지를 최소화하는, Solving Convex Optimization Problem\cite{boyd2004convex}으로 재해석하는 관점을 시사합니다 
+and the movement of molecules suggests a reinterpretation of Solving Convex Optimization Problem\cite{boyd2004convex} that minimizes the energy of the Dynamic System
+
+%또한, 이런 Dynamical System을 진화시킬수 있어야 합니다. 우리는 신경망 진화 방법중 하나인 NEAT 알고리즘을 채택하였습니다. 그중, 대규모 네트워크의 생성과, 네트워크의 패턴반복 등이 필요한 Dynamical System에 합당한 HyperNeat 알고리즘을 채택하였습니다.
+And we need to be able to evolve these dynamic systems. We adopted the NEAT algorithm, one of the methods of neural network evolution. Among them, we adopted a HyperNeat algorithm suitable for a dynamic system that requires large-scale network creation and network pattern repetition.
+
+
+\section{Related Work}
+
+\paragraph{Deep Equilibrium model} 
+%\cite{bai2019deep} DEQ 모델은, weight-tied 된 Deep Implicit Layer 에서, 루트 찾기를 통해, 무한의 Layer 을 통과한 평형점을 찾습니다. 
+The DEQ model \cite{bai2019deep} is about the weight-tied Deep Implicit Layer, finds the equilibrium point through the infinite layer by root finding.
+%기존의 Deep Implicit Layer 와는 다르게, implicit differentiation 을 사용하여 평형점을 통해 분석적인 역전파가 가능합니다.
+Unlike traditional Deep Implicit Layer, It can analytically back-propagate through the equilibrium point using implicit differentiation.
+%이를 통해 하나의 Layer 의 정보만이 필요해 메모리를 적게 쓰게 됩니다.
+This requires only single layer of information, so it can use less memory.
+%본 논문과 DEQ는 같은 아키텍쳐를 사용합니다. 우리는 DEQ와의 학습방법을 비교합니다. 
+This paper use the same architecture as DEQ. We compare learning methods with DEQ.
+
+\paragraph{Training of Spike Neural Network}
+%Spike Neural Network(SNN)은 생물학적 뉴런의 정보 처리 과정중 spiking 에서 영감을 받은 신경망 모델입니다.
+Spike Neural Network (SNN) is a neural network model inspired by spiking during the processing of information in biological neurons.
+%Na+-K+ 채널 등을 모델링하여 생물 computational biology 에 근접하지만, 계산량이 많은 hodgkin huxley(HH) 모델부터\cite{cronin1987mathematical}, 이와 비슷한 성능을 내지만 계산량이 작은 izhikevich 모델\cite{izhikevich2003simple} 등 다양한 뉴런 모델이 존재합니다.
+There are various neuron models in SNN, such as the Hodgkin huxley (HH) model \cite{cronin1987mathematical}, which is close to computational biology by modeling like Na+-K+ channels, and the izhikevich model \cite{izhikevich2003simple}, which performs similarly but has a small amount of computation.
+%본 논문에서는, 이러한 model 의 Dynamical System 을 수용하는 Implicit Layer 를 설계하는데 주목합니다.
+In this paper, we focus on designing Implicit Layer that accommodates these models of Dynamic Systems.
+%Spike-Timing-Dependent-Plasticity (STDP), BCM theory 등의 대규모 병렬 방식의 생물 친화적인 학습 규칙과, back propagation 등, 광범위한 훈련 방법이 존재합니다.
+There are large parallel bio-friendly learning rules such as Spike-Timing-Dependent-Plasticity (STDP) and BCM theory, and extensive training methods such as backpropagation.
+%\cite{huang2016parameters} 에서는, 뉴런 모델 상수를 조절하여 가장 학습이 잘되는 모델상수를 진화시킵니다.
+In \cite{huang2016parameters}, They evolve the best-learned model constants by controlling the neuron model constants.
+%\cite{kempter1999hebbian} 뉴런은, STDP \cite{caporale2008spike} 와 같은 비지도학습인 hebbian learning 을통해 학습한다는 것이 알려져 있습니다.
+\cite{huang2016parameters} Neurons are known to learn through hebbian learning, an unsupervised learning such as STDP \cite{caporale2008spike}.
+%\cite{xiao2021training} 최근, DEQ 의 implicit differentiation 을 응용하여 Equilibrium state 에서의 back-propagation 을 하는 방법이 제시되었습니다. 
+\cite{xiao2021training} Recently, a method of applying implicit differentiation of DEQ to back-propagation in the Equilibrium state was suggested.
+
+\paragraph{Training of Biological Neural Network}
+%\cite{glimcher2011understanding} 에서는, 뉴런의 action 신호와 , 그에 대한 feedback 신호가 올때 신경이 활성화되는 모습을 보여주며,
+\cite{glimcher2011understanding} shows the action signal of the neuron and the feedback signal for it to activate the nerve,
+%학습이 진행된 후에는 feedback 신호가 점점 사라지며, 이에 대해 보상신호를 예측하는 특징이 있습니다.
+After the learning progresses, the feedback signal gradually disappears, by predicting the reward signal.
+%\cite{taylor2014cerebellar}  에서는, 소뇌에서의 강화학습 알고리즘을 보여줍니다. 
+\cite{taylor2014cerebellar} shows reinforcement learning algorithms in the cerebellum.
+%소뇌에서의 세포 ( 푸르키녜, 과립세포, 별 세포) 등의 biomodel 이 정교하게 표현된 Implict Layer 가 존재한다고 한다면, 이는 Implict Layer 가 Q-Learning 알고리즘을 내포할수 있음을 시사합니다.
+If there is an Dynamical System that is exquisitely represented by BioModels such as cells (purkinje, granules, star cells) in the cerebellum, this suggests that the Dynamical System can imply a Q-learning algorithm.
+
+
+\paragraph{HyperNeat}
+%Neat \cite{stanley2002evolving}  는, 인공신경망을 진화적으로 생성하는 유전알고리즘 입니다.
+Neat \cite{stanley2002evolving} is a genetic algorithm that evolutionarily creates artificial neural networks.
+%적합성과 다양성 사이의 균형을 찾으며, 네트워크의 종을 진화시킵니다.
+It finds a balance between suitability and diversity and evolves the species in the network.
+%HyperNeat \cite{stanley2009hypercube} 는, 네트워크의 기하학적 속성을 이용하여 간접 인코딩한후, Neat 로 인해 진화된 CPPN(연결 구성 패턴 생성 네트워크)이라는 것을 통하여  네트워크를 생성하는 방법을 사용합니다.
+HyperNeat \cite {stanley2009hypercube} uses a method of creating a network through what is called a connection configuration pattern generation network (CPPN) evolved by Neat after indirect encoding using the network's geometric properties.
+%기하학적 속성을 이용하기 때문에,  규칙적인 패턴을 설계할수 있습니다.
+Geometric properties allow to design regular patterns.
+
+
+\section{Proposed EPL Method}
+%In this section, 우리는 DEQ 의 학습 방법과 비교하여,  Equilibrium-Point 가 기존 ANN 의 학습 파라미터의 역할을 수행하는 Equilibrium point Learning (EPL) 학습 방법을 소개합니다.
+In this section, we introduce an Equilibrium-Point Learning (EPL) learning method in which Equilibrium-Point acts as a learning parameter for existing ANNs, compared to the learning method of DEQ.
+%그런 다음, 모델 파라미터를  ANN 에서 학습 방법으로 잘 알려진 Back-Propagation Algorithm 과 같아지도록 훈련하는 방법에 대해 간략하게 논의 합니다. 
+Then, we briefly discuss how to train the model parameters to be the same as the Back-Propagation Algorithm, which is well known as a learning method in ANN.
+%마지막으로, 모델의 수렴성(EPL 학습의 필요조건)을 수학적으로 보장하는 Implict Layer를 디자인하는 방법에 대해 소개합니다. 이는 또한 System Biology 의 BioModel 을 수용할 수 있습니다.
+Finally, we introduce how to design Implicit Layer that mathematically guarantees the convergence of the model (requirements for EPL learning). It can also accommodate the BioModel in System Biology.
+
+\newcommand{\factorial}{\ensuremath{\mbox{\sc Factorial}}}
+\begin{algorithm}
+\caption{Compare Learning Algorithm from DEQ}\label{alg:compare_alg}
+\begin{algorithmic}[1]
+\begin{multicols}{2}
+\Procedure {Train DEQ $f _ { \theta }$}{$\bm{z},\bm{x}$} 
+    \While{epoch}
+    \State $\bm{z}^{post}\gets \bm{x}$
+   \While{$|\bm{z}^{post} - \bm{z}^{pre}|< \varepsilon $}
+      \State $\bm{z} ^ { pre } \gets \bm{z} ^ { post }$
+      \State $\bm{z} ^ { post } = f _ { \theta } (\bm{z} ^ { pre } ,\bm{x})$
+   \EndWhile\label{findequilibriumpointwhile}
+   \State  $\bm{z}^{*} \gets \bm{z}^{post}$
+   \State  compute $\ell (\bm{z}^{*}, \bm{y})$
+   \State  $\theta \gets \theta - \alpha \nabla \ell$
+    \EndWhile\label{DEQtrainingwhile}
+\EndProcedure
+
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{image/EPL.png}
+\end{figure}
+
+\columnbreak
+\Procedure {Train EPL $f _ { \theta }$}{$\bm{x}$} 
+    \State $\bm{z}^{post}\gets \theta[\bm{x}_{0}]$
+    \While{$|\bm{z}^{post} - \bm{z}^{pre}|< \varepsilon $}
+      \State $\bm{z} ^ { pre } \gets \bm{z} ^ { post }$
+      \State $\bm{z} ^ { post } = f _ { \theta } (\bm{z} ^ { pre })$
+   \EndWhile\label{findequilibriumpointwhile}
+      \State  $\bm{z}^{*} \gets \bm{z}^{post}$    \Comment{$\bm{z}^{*}_{init}$}
+    \While{epoch}
+    \State  $\bm{z}^{post} \gets \bm{z}^{*} + \boldsymbol{I}_{z} \cdot \bm{x}$   
+    \State  $\widehat{ \bm{y} }= empty list$
+   \While{$|\bm{z}^{post} - \bm{z}^{pre}|< \varepsilon $}
+    \State  $\widehat{ \bm{y} }.append(O_{z}\cdot \bm{z}^{post})$
+      \State $\bm{z} ^ { pre } \gets \bm{z} ^ { post }$
+      \State $\bm{z} ^ { post } = f _ { \theta } (\bm{z} ^ { pre })$
+   \EndWhile\label{findequilibriumpointwhile}
+   \State  $\bm{z}^{*} \gets \bm{z}^{post}$      \Comment{$\bm{z}^{*}_{self-learn}$}
+   \State  $\ell \gets$ $\ell (Active(\widehat{ \bm{y} }), \bm{y})$ \Comment{$\ell {(O_{eep},\bm{y})}$}
+   \State  $\bm{z}^{post} \gets \bm{z}^{*} +  \boldsymbol{F}_{z} \cdot \ell$
+   \While{$|\bm{z}^{post} - \bm{z}^{pre}|< \varepsilon $}
+      \State $\bm{z} ^ { pre } \gets \bm{z} ^ { post }$
+      \State $\bm{z} ^ { post } = f _ { \theta } (\bm{z} ^ { pre })$
+   \EndWhile\label{findequilibriumpointwhile}
+   \State  $\bm{z}^{*} \gets \bm{z}^{post}$      \Comment{$\bm{z}^{*}_{supervised-learn}$}
+    \EndWhile\label{euclidendwhile}
+\EndProcedure
+\end{multicols}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{EPL Learning Process}
+%DEQ 에서의 학습 과정은  평형점 $\bm{z}^{*} \in \mathbb{R}^{t \times 1}$ 가 입력값 $\bm{x} \in \mathbb{R}^{t \times 1}$ 에 대한 output 이 되며, 
+The learning process at DEQ is, Equilibrium point $\bm{z}^{*} \in \mathbb{R}^{t \times1}$ is the Output of input value $\bm{x}\in \mathbb{R}^{t \times1}$. 
+%$\bm{z}^{*}$ 와, $\bm{y}\in \mathbb{R}^{t \times 1}$ 와의 Loss 를 계산하여, Loss 가 줄어드는 방향으로 Implict Layer 의 파라미터를 업데이트 합니다. Algorithm[\ref{alg:compare_alg}]
+Then, calculate the loss of $\bm{z}^{*}$  and $\bm{y}\in \mathbb{R}^{t \times1}$, and update the parameters of the Implicit Layer in the direction that the loss decreases. ~Algorithm[\ref{alg:compare_alg}].
+%반면, 논문에서 제시하는 EPL Training 에서는, 먼저, 주어진 초기값 $x_0\in \mathbb{R}^{n \times 1}$ 으로 제일 처음 평형점 $\bm{z}^{*}_{init}\in \mathbb{R}^{n \times 1}$ 를 찾습니다. 
+On the other hand, in EPL Training presented in this paper, first, with a given initial value of $\bm{x}_0\in \mathbb{R}^{n \times1}$ in model parameter , Find the first equilibrium point $\bm{z}^{*}_{init}\in \mathbb{R}^{n \times1}$.
+%이것은 최초의, 학습되기 전의 파라미터 가 됩니다. 
+This becomes the first, pre-learned parameter.
+%이 상태에서 input $\bm{x}\in \mathbb{R}^{t \times 1}$ 를 시스템에 입력합니다. 
+In this stage, input $\bm{x} \in \mathbb{R}^{t \times1}$ Enter into the system.
+%DEQ 와는 다르게, $\bm{z}^{*}$ 를 $\bm{x}$ 로 치환하지 않고, input 상수 $I_{z}\in \mathbb{R}^{n \times t}, n>t$  를 이용하여   $\bm{z}^{*}$ 와 $\bm{x}$  의 선형결합을 시킨 벡터 $\bm{z}^{*} +  I_{z} \cdot \bm{x}$ 가, Layer 의 다음 input 이 됩니다. 
+Unlike DEQ,  Instead of $\bm{z}^{*}$ replacing with $\bm{x}$,  vector  $\bm{z}^{*} + \boldsymbol{I}_{z} \cdot \bm{x}$, using the input constant matrix $\boldsymbol{I}_{z}\in \mathbb{R}^{n \times t}, n>t$,  with a linear combination of $\bm{x}$ and  $\bm{z}^{*}$, is the next input for the layer.
+%이때 $\bm{z}$ 는 새로운 평형점$\bm{z}^{*}_{self-learn}$으로 도달하게 되며, 이는 Equilibrium point 의 self-learning 과정이 됩니다.
+When $\bm{z}$ reaches the new equilibrium point $\bm{z}^{*}_{self-learn}$, it is the self-learning process of the Equilibrium point.
+%평형점 $\bm{z}^{*}_{self-learn}$ 에 도달할 때 까지, $\bm{z}$ 와 output constant $O_{z}\in \mathbb{R}^{r \times n}$ 의 내적값 $O_{z}\cdot \bm{z}^{post}$을 의 Activation 함수를 적용한 값을, 우리는 output 으로 취급합니다. 
+Until Equilibrium point $\bm{z}^{*}_{self-learn}$ is reached, we collect $\boldsymbol{O}_{z}\cdot \bm{z}^{post}$, that the inner value of output constant matrix $\boldsymbol{O}_{z}\in \mathbb{R}^{r \times n}$ and   $\bm{z}$, Then, output is made through activation function.
+%우리는 이러한 입력값에 대한 output 을 Output of Exploration Equilibrium Point ,즉, $O_{eep}$ 이라고 이름붙힙니다.
+We name the output for these inputs as "Output of Exploration Equilibrium Point", that is, $O_{eep}$.
+%또한, 이렇게 하여 도달한 새로 도달할 평형점을 나타내는 함수를, Function of new Equilibrium Point, $ f_{nep}$ 라고 이름붙힙니다.
+In addition, the function that represents the equilibrium point at which this new arrival is reached is named "Function of New Equilibrium Point", $f_{nep}$.
+\begin{equation}
+\setlength{\jot}{2pt}
+\begin{split}
+&\forall \bm{z},\quad \bm{z} _ { 0 } \leftarrow \bm{z} , \quad \bm{z} _ { i+1 } = f _ { \theta } (\bm{z} _ { i } )
+\\
+&find \quad *\in \mathbb{N} \quad s.t\; \left | f _ { \theta } (\bm{z} _{*}) -\bm{z} _{*} \right | \leq \epsilon ,
+\\
+Let \quad  O _ { eep } &(\bm{z}) =Active( (\boldsymbol{O} _ { z } \cdot \bm{z} _ {i})_{ [0:*] } ),\quad f _ { nep } (\bm{z}) = \bm{z}_{*}
+\end{split}
+\end{equation}
+%이러한 output 값은, environment 에서의 Action 이 되어 그에 상응하는 fitness score 를 얻거나, output 기대값 $\bm{y}$ 와의 거리 계산 $\ell = \ell {(O_{eep},\bm{y})} \in \mathbb{R}^{l \times 1}$ 를 통해 Feedback (Loss) 값을 구할 수 있습니다. 
+These output values can be an action in the environment and obtain a corresponding fitness score, or a feedback (loss) value $\ell = \ell {(O_{eep},\bm{y})} \in \mathbb{R}^{l \times 1}$ can be obtained by calculating the distance from the expected output value  $\bm{y}$.
+%그후,  feedback 상수 $F_{z}\in \mathbb{R}^{n \times l}, n>l$ 를 사용하여, 평형점 $\bm{z}^{*}_{self-learn}$ 과 feedback 과의 선형결합을 시킨 벡터 $\bm{z}^{*} +  F_{z} \cdot \ell$ 가 Layer 의 다음 input 이 되도록 합니다. 
+Then, use the feedback constant $F_{z}\in \mathbb{R}^{n \times l}, n>l$, so that vector $\bm{z}^{*} +  F_{z} \cdot \ell$, which is linear combination of the equilibrium point $\bm{z}^{*}_{self-learn}$ and the feedback, is the next input of the layer.
+%$\bm{z}$ 는 다른 새로운 평형점으로 도달하게 되며, 이는 Equilibrium point 의 supervised-learning 과정이 됩니다.
+$\bm{z}$ reaches another new equilibrium point  $\bm{z}^{*}_{supervised-learn}$ , which becomes the supervision-learning process of the Equilibrium point.
+%새로운 평형점  $\bm{z}^{*}_{supervised-learn}$ 에 도달할시 하나의 학습이 종료됩니다.
+One learning ends when a new equilibrium point is reached.
+
+\subsection{Find Back-Propagation Algorithm Parametar of EPL Learning}
+%EPL 학습이 일어난다면 (Loss 값이 줄어든다면) , 이는 빙정식 \ref{eqn:train_meaning} 를 만족해야 한다는 것을 의미한다.
+If EPL learning occurs (if the loss value is reduced), this means that Equation \ref{eqn:train_meaning} must be satisfied.
+\begin{equation}
+\label{eqn:train_meaning}
+\ell (O _ { eep }(\bm{z}^{*}_{pre-train}+ \boldsymbol{I}_{z}\cdot \bm{x}), \bm{y}) > \ell (O _ { eep }(\bm{z}^{*}_{post-train} + \boldsymbol{I}_{z}\cdot \bm{x}), \bm{y})
+\end{equation}
+%만약 EPL 학습이, epoch 의 모든 step 이, Loss 를 줄이는 gradient 로 정확히 흐르는 back-propagation algorithm 과 같은 학습을 기대한다면, 만족해야 할 조건은 방정식 \ref{eqn:EPL_equall_BPA} 으로 쓸수 있다.
+If EPL learning expects learning, such as back-propagation algorithm, in which all steps of epoch flow exactly to a gradient that reduces loss, the conditions to be satisfied can be written as Equation \ref{eqn:EPL_equall_BPA}. 
+\begin{equation}
+\label{eqn:EPL_equall_BPA}
+-\Delta\bm{z}^{*} = \bm{z}^{*} -  f _ { nep }( f _ { nep } (\bm{z}^{*}+ \boldsymbol{I}_{z}\cdot \bm{x}) + \boldsymbol{F}_{z}\cdot \ell) = \alpha (\frac{ \partial \ell(O _ { eep } (\bm{z}^{*}+\boldsymbol{I}_{z}\cdot \bm{x}), \bm{y}) } { \partial \bm{z}^{*} })^{T}
+\end{equation}
+%즉, 만약 모델 파라미터가 Back-Propagation Algorithm 을 찾는것이 목적이라면, 이는 식 \ref{eqn:EPL_LOSS_BPA} 처럼, cosine-similarity 를 줄이는 것이 목적이라고 할 수 있다.
+This means that if the purpose of the model parameter is to find the Back-Propagation Algorithm, If $\boldsymbol{I}_{z},  \boldsymbol{O}_{z}$ is small, it is to reduce the cosine-similarity like this Equation \ref{eqn:EPL_LOSS_BPA}. 
+\begin{equation}
+\label{eqn:EPL_LOSS_BPA}
+\setlength{\jot}{2pt}
+\begin{split}
+Let \quad  \bm{A} = -\Delta\bm{z}^{*}  &\approx  -\frac{\partial f _ { nep }(\bm{z}^{*}+ \bm{z})}{\partial \bm{z}}(\boldsymbol{I}_{z}\cdot \bm{x} + \boldsymbol{F}_{z}\cdot \ell) , \; 
+\bm{B} = (\frac{ \partial \ell(O _ { eep } (\bm{z}^{*}+\boldsymbol{I}_{z}\cdot \bm{x}), \bm{y})}{ \partial \bm{z}^{*} })^{T}
+\\
+&\mathcal{L}(\theta, back-propagation-algorithm) = \frac{\bm{A}\cdot \bm{B} } { \left | \bm{A} \right | \left | \bm{B} \right | }
+\end{split}
+\end{equation}
+
+%이 논문에서는, Back-Propagation Algorithm 을 포함하여 무수한 Training Method 가 존재하는 $\theta$ 공간을, 유전 알고리즘으로 탐색한다.
+In this paper, we explore $\theta$ spaces in which numerous training methods exist, including Back-Propagation Algorithm, with genetic algorithms.
+
+
+\subsection{Design Implict Layer}
+
+%우리는 System Biology 의 BioModel 과 호환되는 Dynamical System $\frac{ d\bm{z} } { dt } = F_{\theta}(\bm{z}), \quad \bm{z} = (\bm{x},\bm{p}), \quad \bm{x} \in \mathbb{R}^{n \times 1}_{>0}, \bm{p} \in \mathbb{R}^{n \times 1}$, 를 Equation \ref{eqn:Dynamical_System} 과 같이 제안합니다.
+We propose a Dynamical System $\frac{ d\bm{z} } { dt } = F_{\theta}(\bm{z}),\; \bm{z} = (\bm{x},\bm{p}), \; \bm{x} \in \mathbb{R}^{n \times 1}_{>0}, \bm{p} \in \mathbb{R}^{n \times 1}$ as Equation \ref{eqn:Dynamical_System}, compatible with BioModel of System Biology.
+%이는 다음과 같이 Implict Layer $f_{\theta}$ 로 취급될 수 있습니다.
+This can be treated as Implicit Layer $f_{\theta}$ follows:
+$\frac{ d\bm{z} } { dt } = F_{\theta}(\bm{z}) \; \Leftrightarrow \; \bm{z} ^ { i+1 } = \bm{z} ^ { i } + dt \cdot F_{\theta}(\bm{z} ^ { i }) =   f_{\theta}(\bm{z}^{i}) \; \Rightarrow \;\bm{z}^{*} = \bm{z}^{*} + dt \cdot F_{\theta}(\bm{z}^{*})  \; \Leftrightarrow \; F_{\theta}(\bm{z}^{*}) = 0$
+%우리는 Dynamical System 을 Convex Optimization Problem 으로 바꾼뒤, 제시된 Dynamical System 이 Optimization Method 임을 보임으로서 수학적으로 수렴성을 증명합니다 (Appendix \ref{appendix:proof_of_condition}).
+We prove mathematically convergence by changing the Dynamic System to the Convex Optimization Problem and then showing that the proposed Dynamic System is the Optimization Method. (Appendix \ref{appendix:proof_of_condition}).
+%또한, Implict Layer 의 계산량을 현저히 줄일 수 있는 Reduced Dynamical System 을 제안합니다.
+In addition, we propose a  Reduced Dynamic System that can significantly reduce the computation of the Implicit Layer.
+
+\subsubsection{Energy}
+%Dynamical System 의 에너지함수는, 실제 물리량에 기반하여 정의합니다. 
+The energy function of the Dynamic System (DS) is defined based on the actual physical quantity.
+%분자들의 상태 (구성요소, 구성상태, 운동량, 운동방향, 위치) 가 같은것을 grouping 하여 하나의 node 로 생각합니다. 
+Consider a node by grouping the same states (component, composition state, momentum, direction of motion, position) of molecules.
+%DS 의 각각의 node 는, 질량과 운동량을 가지며, 이를 각각 $\bm{x} , \bm{p} $ 로 표현합니다.
+Each node in DS has a mass and momentum, expressed as $\bm{x}$ and $\bm{p}$ .
+%DS 에는 총 4가지 에너지: $H(\bm{x},\bm{p}) = -S _ { entrophy } +H _ { enthalpy } + U _ { electric } + E _ { kinetic }$ 의 합으로 표현되며, 물리,화학적 관점에서 보면, 이는 온도가 일정한 system 에서의 물리적 에너지가 표현 가능합니다. 
+DS represents the sum of four energies: $H(\bm{x},\bm{p}) = -S _ { entrophy } +H _ { enthalpy } + U _ { electric } + E _ { kinetic }$ , which, from a physical and chemical point of view, can be expressed as physical energy in a system with constant temperature.
+%제시된 형태의 에너지함수는 결과적으로, Quadratic function\cite{nocedal2006quadratic} 에서 엔트로피와 물리량을 확장한 형태로 이루어지게 됩니다. 
+The presented form of the energy function (Equation \ref{eqn:Energy}) is consequently an extension of entropy and physical quantity in Quadratic function\cite{nocedal2006quadratic}.
+%\cite{low1973temperature} 이를 통해, 생물, 화학적 법칙과 모델이 설명 가능합니다.
+\cite{low1973temperature} This allows us to explain the laws and models of biology and chemistry.
+($\bm{x}^{T}$ : Transpose of vector, $\bm{x} \circ \bm{y}$ : Hadamard Product)
+\begin{equation}
+\label{eqn:Energy}
+H(\bm{x},\bm{p}) = \bm{x} ^ { T } \ln( \frac{ \bm{x} } { \bm{x} ^ { * } } )+ \frac{ 1 } { 2 } \bm{x} ^ { T } \boldsymbol{V}\bm{x} + \frac{ 1  } { 2\bm{m} ^ { T } }  (\bm{p} \circ \bm{p} \circ \bm{x})
+\end{equation}
+
+\paragraph{Entrophy \& Enthalpy}
+$-S _ { entropy } (\bm{x},\bm{p}) + H _ { enthalpy } (\bm{x},\bm{p}) = \bm{x} ^ { T } \ln( \frac{ \bm{x} } { \bm{x} ^ { * } } ) = \bm{x} ^ { T } \ln({ \bm{x} }) + \bm{a}^{T}\bm{x}$ \linebreak
+%단일 분자가 그 상태로 존재할 확율은, 아레니우스 법칙에 의해, 자신의 에너지상태, 즉 엔탈피에 반비례 합니다 $ \bm{x} ^ { * } \propto e ^ { -\bm{E} _ { x } }$ . 
+The probability that a single molecule exists in that state, by Arenius's law, is inversely proportional to its own energy state, the enthalpy  $ \bm{x} ^ { * } \propto e ^ { -\bm{E} _ { x } }$ .
+%이 논문에서는 에너지상수를 $\bm{a}$ 로 치환합니다. 
+In this paper, we replace the energy constant with $\bm{a}$.
+%분자들의 화학반응 네트워크 (CRN) 은, 정의된 깁스 자유에너지 $ H-S $ 를 감소하는 흐름으로 설명될 수 있습니다.
+The molecular chemical reaction network (CRN) can be described as a flow that reduces the defined Gibbs free energy $H-S$.
+%단, Electric Potential Energy와 Kinetic Energy가 변할시, $\frac{ \partial H } { \partial \bm{x} }$ 의 나머지 두 에너지항 U, E, 즉 단일분자의 에너지가 달라지며, 이에 의해 분자가 존재할 확율도 변하게 됩니다. 
+However, when Electric Potential Energy and Kinetic Energy (the energy of the other two energy terms U, E) change, It means that the energy state of the molecule ($\frac{\partial H} {\partial \bm{x}}$) changes, which also changes the probability of a molecule's presence. 
+%이는 뉴런의 Voltage-gated sodium channels \cite{de2015voltage} 의 전압에 따른 Activation Rate 의 변화를 설명합니다.
+This explains the change in the Activation Rate according to the voltage of the neuron's Voltage-gated sodium channels \cite{de2015voltage}.
+
+
+\paragraph{Electric Potential Energy}
+$U _ { electric } (\bm{x},\bm{p}) = \frac{ 1 } { 4\pi\epsilon_0 } \bm{q}_x ^ { T } \frac{1}{\boldsymbol{R}}  \bm{q}_x  
+= \frac{ 1 } { 2 }  \bm{x} ^ { T } \boldsymbol{V}  \bm{x},  \boldsymbol{V} =\frac{diag(\bm{q}_c)^2}{2\pi\epsilon_0\boldsymbol{R} } \in \mathbb{R}^{n \times n} $\quad
+%전기적 포텐셜 에너지는,  전류를 만드는 움직임과 관련 있습니다. 
+Electrical potential energy is related to the movement that creates electric current.
+%에너지 함수의 gradient 와 수직으로 흐르는 Hamiltonian flow 를 보이는 전자의 움직임과, 전자가 움직이면서 양성자와 충돌하는 종단속도의 움직임이 각각 전류와 저항이 됩니다\cite{vilasi2001hamiltonian}. 
+The movement of electrons perpendicular to the gradient of the energy function, the movement of the Hamiltonian flow, and the movement of the longitudinal velocity at which electrons collide with protons as they move, are current and resistance\cite{vilasi2001hamiltonian}.
+
+
+\paragraph{Kinetic Energy}
+$E _ { kinetic } (\bm{x},\bm{p}) = \frac{ 1 } { 2\bm{m} ^ { T } } \left ( \bm{p} \circ \bm{p} \circ \bm{x} \right )$ 
+%분자들의 운동량 에너지를 나타냅니다.
+This is the momentum energy of the molecules.
+%$ \bm{m}  \in \mathbb{R}^{n \times 1}$ 은 분자의 질량에 해당합니다. 전기적 포텐셜 에너지는, Hamiltonian flow 로 인해 Kinetic Energy로 전환됩니다.
+$ \bm{m}  \in \mathbb{R}^{n \times 1}$ corresponds to the mass of the molecule. Electrical potential energy is converted to kinetic energy due to Hamiltonian flow.
+
+
+\subsubsection{Convex Optimization Problem}
+%분자의 모든 물리&화학적 움직임(전류, 확산, 화학반응) 은 모두, 제시한 System 의 에너지함수 $H(\bm{x},\bm{p})$ 를 감소시키는 방향, 즉 \ref{eqn:opt_probelm_DS}처럼 Solving Optimization Problem으로 설명 가능합니다. 
+All physical and chemical movements (current, diffusion, and chemical reactions) in a molecule can be explained by the direction of decreasing the proposed System's energy function $H(\bm{x},\bm{p})$, namely the Solving Convex Optimization Problem Equation \ref{eqn:opt_probelm_DS}.
+%$\bm{x}$ 들의 Elemental Matrix인 $\boldsymbol{M}\in \mathbb{R}^{n \times c}$ 가 존재하여 law of conservation of mass := $\frac{d}{dt}( \boldsymbol{M}^{T} \bm{x})=0$ 와, positive of mass 를 만족하는 convex 한 정의역을 가지게 됩니다.
+$\boldsymbol{M}\in \mathbb{R}^{n \times c}$, the elemental matrix of $\bm{x}$, exists and has a convex definition that satisfies law of conservation of mass : = $\frac{d}{dt}( \boldsymbol{M}^{T}\bm{x})=0$ and positive of mass.
+%(분자들의 충돌에 의해, 운동량 텀인 P 는 0으로 수렴합니다. )
+(By the collision of molecules, the momentum term, P, converges to zero.)
+\begin{equation}
+\label{eqn:opt_probelm_DS}
+\setlength{\jot}{2pt}
+\begin{split}
+\underset{\bm{x}}{min}\qquad&  \qquad  H(\bm{x},0)
+\\
+subject\:  to\quad& \bm{x}>0, \boldsymbol{M}^{T}(\bm{x}-\bm{x _ { 0 }} )=0
+\end{split}
+\end{equation}
+\paragraph{Local / External Dynamic System} 
+%이러한 Optimization Problem의 최종 solution 에 도달하게 된다면, 생물의 관점에서는, 에너지원(음식) 없이 무한한 시간이 흐른것과 마찬가지 입니다. 
+When we get to the final solution of this Optimization Problem, from a biological point of view, it's like infinite time has passed without energy sources (like food).
+%생물은, ATP-ADP 에너지원의 항상성을 맞추기위해, 외부로부터 끝없는 에너지원을 필요로 합니다.
+Living things need endless sources of energy from the outside to match the homeostasis of ATP-ADP energy sources.
+%이를 수용하기 위해, 우리는, $\bm{x}$의 일부분, 즉 $\bm{x_{[i:n]}}$을 를 극한으로 보내어, 이를 External System으로 취급합니다.
+To accommodate this, we send $\bm{x_{[i:n]}}$, which is a part of $\bm{x}$, to the limit, and treat it as an External System.
+%그리고 이것을 제외한 영역 $\bm{x_{[0:i-1]}}$ 만 고려하는, Local  System 으로 구분합니다.
+And we divide it into Local System, which considers $\bm{x_{[0:i-1]}}$.
+%시간이 무한대이면 이역시 운동량이 0이 되겠지만, 유한시간에서는 Equilibrium point 에도 운동량이 존재합니다. 
+If time is infinite, this momentum will also be zero, but at finite time, momentum will also be present at the Equilibrium point.
+%따라서 Local  System 의 Optimization Problem 은 다음과 같이 재정의 될 수 있습니다.
+Therefore, the Optimization Problem of the Local System can be overridden as Equation\ref{eqn:local_opt_probelm_DS}.
+\begin{equation}
+\label{eqn:local_opt_probelm_DS}
+\setlength{\jot}{2pt}
+\begin{split}
+\underset{\bm{x},\bm{p}}{min}\qquad& \qquad  H(\bm{x},\bm{p})
+\\
+subject\:  to\quad& \bm{x}>0,  \frac{ d\bm{x} } { dt }=0, \frac{ d\bm{p} } { dt }=0
+\end{split}
+\end{equation}
+
+\subsubsection{Flow}
+%우리는  $\boldsymbol{M}$ 과 orthogonal ($\boldsymbol{M}^{T} \boldsymbol{M^ { \bot }} =0_{c \times e}$) 한 stoichiometric matrices $\boldsymbol{M^ { \bot }}  \in \mathbb{R}^{n \times e}$ 를 사용하여 총 4가지 유형의 flow 를 정의합니다.
+We have $\boldsymbol{M}$ and orthogonal ($\boldsymbol{M}^{T} \boldsymbol{M^ { \bot }} =0_{c \times e}$) stoichiometric metrics $\boldsymbol{M^ { \bot }}  \in \mathbb{R}^{n \times e}$ Use to define a total of four types of flows.
+%유한한 Convex set 에 대하여 solving 하고 있음으로, 에너지는 유계 조건을 만족합니다.
+By solving the finite Convex set, the energy satisfies the bounded condition.
+%이러한 flow 의 total 이, Energy 를 감소시킨다는 것을 appendix \ref{appendix:proof_of_condition} 에 증명함으로서, Equilibrium point 로 항상 수렴한다는 것을 증명합니다.
+By proving to Appendix \ref{appendix:proof_of_condition} that the total of these flows reduces energy, Prove that it always converges to the Equilibrium point.
+
+\paragraph{Total Flow} 
+%전체적인 흐름은 다음과 같습니다.  ($r({\bm{x}}) := relu(\bm{x})$)
+The Total flow is as Equation \ref{eqn:Dynamical_System} ($r({\bm{x}}) := relu(\bm{x})$),
+%이것은 DS 를 의미합니다.
+This means Dynamical System.
+\begin{equation}
+\label{eqn:Dynamical_System}
+\resizebox{1\hsize}{!}{$\frac{ d\bm{x} } { dt } = \boldsymbol{M ^ { \bot }  } \left [ -\bm{k} \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r( \boldsymbol{M ^ { \bot } ) }} - e ^ { \frac{ \partial H } { \partial \bm{x} } r( -\boldsymbol{M ^ { \bot } }) } ) ^ { T } +\bm{v} \circ ( \frac{ \partial H } { \partial p } \boldsymbol{M ^ { \bot } } ) ^ { T } \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M ^ { \bot } } \right | } ) ^ { T } \right ] + \bm{h} \circ (\bm{x}  _ { h } -\bm{x} )$}
+
+\resizebox{.95\hsize}{!}{$\frac{ d\bm{p} } { dt } = -\boldsymbol{M ^ { \bot }  } \left [ \bm{v} \circ ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M ^ { \bot } } ) ^ { T }\circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M ^ { \bot } } \right | } ) ^ { T } \right ] -\bm{c} \odot ( \frac{ \partial H } { \partial \bm{p} } ) ^ { T }\qquad\qquad\qquad\qquad\qquad\qquad\;$}
+\end{equation}
+%점 ${\bm{x},\bm{p}}$ 에서의 gradient $( \frac{ \partial H } { \partial \bm{x} }  \in \mathbb{R}^{1 \times n}, \frac{ \partial H } { \partial \bm{p} }  \in \mathbb{R}^{1 \times n})$  를 계산하면 다음과 같습니다. 
+The gradient $( \frac{ \partial H } { \partial \bm{x} }  \in \mathbb{R}^{1 \times n}, \frac{ \partial H } { \partial \bm{p} }  \in \mathbb{R}^{1 \times n})$  at point $(\bm{x},\bm{p})$ is calculated as Equation \ref{eqn:gradient}.
+\begin{equation}
+\label{eqn:gradient}
+\frac{ \partial H } { \partial \bm{x} } = (\ln(\bm{x})+1) ^ { T } + \bm{a} ^ { T } +\bm{x} ^ { T } \boldsymbol{V}  + \left ( \frac{ \bm{p} \circ \bm{p}  } { 2\bm{m} } \right ) ^ { T }
+\quad
+\frac{ \partial H } { \partial \bm{p} } =( \frac{ \bm{p} \circ \bm{x} } { \bm{m} } ) ^ { T }
+\end{equation}
+
+\paragraph{Chemical Flow}
+$\frac{ d\bm{x} } { dt } = -\boldsymbol{M ^ { \bot }  } \left [ -\bm{k} \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r( \boldsymbol{M ^ { \bot } ) }} - e ^ { \frac{ \partial H } { \partial \bm{x} } r( -\boldsymbol{M ^ { \bot } }) } ) ^ { T } \right ]  , \quad \bm{k} \in \mathbb{R}^{e \times 1}$
+%Chemical flow 로, 화학반응현상과 확산현상 을 설명할 수 있습니다. 
+\newline This flow can explain chemical reaction and diffusion.
+
+\paragraph{Hamiltonian Flow}
+$\newline
+\frac{ d\bm{x} } { dt } = \boldsymbol{M ^ { \bot }  }\left [ \bm{v} \circ ( \frac{ \partial H } { \partial p } \boldsymbol{M ^ { \bot } } ) ^ { T } \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M ^ { \bot } } \right | } ) ^ { T }  \right ] ,
+\frac{ d\bm{p} } { dt } =-\boldsymbol{M ^ { \bot }  } \left [ \bm{v} \circ ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M ^ { \bot } } ) ^ { T }\circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M ^ { \bot } } \right | } ) ^ { T } \right ]$
+$\bm{v} \in \mathbb{R}^{e \times 1}$
+%이 흐름은 전류를 설명할 수 있습니다. Hamiltonian Flow 만으로는, 저항이 없는 전류와 같습니다. 이는 전체 계의 에너지를 보존시킵니다. 
+This flow can account for the current. With Hamiltonian Flow alone, it's like a current without resistance. This preserves the energy of the entire system.
+%convex Optimization flow 의 해를 찾는 문제에서는 전혀 고려하지 않는 term 이지만, 실제 생물학에선는 이와같은 flow 가 전자의 흐름을 유발시킵니다. 
+It's a term that's never considered in the problem of finding the solution of the convex optimization flow, but in real biology, this flow causes the flow of electrons.
+%이는, 단지 fixed point 를 찾아 움직이는게 아닌, 점점더 학습된 fixed point 로 가는 알고리즘적인 역할을 하기 위해 중요합니다.
+It's important to play an algorithmic role in going to an increasingly learned fixed point, not just looking for fixed points.
+
+
+
+\paragraph{Collision Flow}
+$\frac{ d\bm{p} } { dt } = -\bm{c} \odot ( \frac{ \partial H } { \partial \bm{p} } ) ^ { T }, \quad
+\bm{c} \in \mathbb{R}^{e \times 1}$
+%분자들의 충돌에 의해 운동량의 감소를 의미합니다. 
+It means that the momentum decreases due to the collision of molecules.
+%Hamiltonian Flow 와는 달리, 이러한 Flow 는 System 의 에너지를 감소시킵니다. 
+Unlike Hamiltonian Flow, these flows reduce the energy of the system.
+%실제 물리적 현상에서는, 저항에서 열에너지가 발산되듯이, 분자들의 병진 또는 회전운동, 즉 열에너지로 바뀌게 됩니다. 
+In the actual physical phenomenon, just as heat energy is emitted from resistance, it is transformed into the translational or rotational motion of molecules, the thermal energy.
+%하지만 이러한 온도는 빠르게 주변으로 전파됩니다. 
+But these temperatures quickly spread around.
+%따라서 이 항을 무시함으로서 계산량을 감소시킬 수 있습니다.
+Therefore, it can reduce the amount of computation by ignoring this term.
+
+
+\paragraph{External Homeostasis Flow}
+$\frac{ d\bm{x} } { dt } =  \bm{h} \circ (\bm{x}  _ { h } -\bm{x} ),\quad
+\bm{h} \in \mathbb{R}^{n \times 1}, \quad
+\bm{x}  _ { h } \in \mathbb{R}^{n \times 1}$
+%externel node 와 연결되어있는 local node 들은, 그 평형점 $\bm{x}  _ { h }$ 를 향해 흐릅니다.
+Local nodes connected to an external node flow toward its equilibrium point $\bm{x}  _ { h }$.
+%이것은 3가지 flow 와는 다르게,  Local Dynamical System 의 에너지를 증가시킬 수 있으며, law of conservation of mass 도 만족하지 않습니다.
+Unlike the three flows, this can increase the energy of the Local Dynamic System, and the law of conservation of mass is not satisfied.
+%하지만 이는 기존의 목표인 에너지의 발산을 초래하는 flow 가 아닙니다.(appendix \ref{appendix:proof_of_condition})
+However, this is not a flow that results in the dissipation of energy (Appendix \ref{appendix:proof_of_condition})
+
+\subsubsection{Reduced Dynamical System}
+%우리는 위에 정의된 system 을 , odesolver 로 풀어서 평형점을 찾을것 입니다. 
+We will solve the system defined above with odeSolver to find the equilibrium point.
+%그러나, 잦은 log 와 exp 함수 때문에 계산 난이도가 높습니다.
+However, the computational difficulty is high due to frequent log and exp functions.
+%따라서 우리는 정의한 Dynamical System 의 축소모형인 Reduced Dynamical System (RDS) 을 제시합니다.
+Therefore, we present a Reduced Dynamical System (RDS), which is a scale down model of the defined dynamical system.
+\begin{equation}
+RDS := F_{\bm{\theta}}(\bm{x},\bm{p}), \quad \bm{\theta} = [\bm{x}_0, \boldsymbol{M}, \boldsymbol{M ^ { \bot } }, \boldsymbol{S}, \boldsymbol{D},  \bm{m}_{c}, \bm{q}_{c},  \bm{a}, \bm{k}, \bm{v} , \bm{c}, \bm{x}_h, \bm{h}]
+\end{equation}
+%각 Node 에 유전자 정보와 공간 정보 를 부여합니다. 이는 추후 시스템의 진화시 HyperNeat 에서의 substrate 가 됩니다.
+Give each Node its genetic and spatial information. This will become a substrate in HyperNeat as the system evolves in the future.
+%대부분의 log 와 exp 계산은, 노드들의 space 를 grouping 함으로 인해 곱함수로 바꿀수 있습니다.
+Most log and exp calculations can be converted to multiplication functions by grouping the spaces of nodes.
+
+\paragraph{Gene of Entity}
+%Every $\bm{x}_ { i } \in \mathbb{X}$ , 함수  $f _ { g } : \mathbb{X}  \mapsto \mathbb{G} = \left \{ \bm{g} _ { 1 } , \bm{g} _ { 2 } , ... ,\bm{g} _ { m } \right \} , \bm{g} _ { i } \in \mathbb{R}^{g \times 1} $  에 의해 유전자 공간 $\mathbb{G}$ 로 mapping 됩니다.  
+For all $\bm{x}_ { i } \in \mathbb{X}$, the function $f _ { g } : \mathbb{X}  \mapsto \mathbb{G} = \left \{ \bm{g} _ { 1 } , \bm{g} _ { 2 } , ... ,\bm{g} _ { m } \right \} , \bm{g} _ { i } \in \mathbb{R}^{g \times 1} $ maps to the genetic space $\mathbb{G}$.
+%Every $\bm{g}_ { i }$, 함수 $f_{c} : \mathbb{G}  \mapsto  \mathbb{C} = \left \{ \bm{c} _ { 1 } , \bm{c} _ { 2 } , ... ,\bm{c} _ { k } \right \} , \bm{c} _ { i } \in \mathbb{R}^{c \times 1}$ 에 의해 component 공간 $\mathbb{C}$ 로 mapping 됩니다. 
+For all $\bm{g}_ { i }$, the function $f_{c} : \mathbb{G}  \mapsto  \mathbb{C} = \left \{ \bm{c} _ { 1 } , \bm{c} _ { 2 } , ... ,\bm{c} _ { k } \right \} , \bm{c} _ { i } \in \mathbb{R}^{c \times 1}$ maps to the component space $\mathbb{C}$.
+%각 구성요소는 질량과 charge 를 가지며, 이는 각각 $\bm{m}_c \in \mathbb{R}^{c \times 1} $, $\bm{q}_c \in \mathbb{R}^{c \times 1} $ 로 표현합니다.
+Each component has a mass and a charge, which is expressed as  $\bm{m}_c \in \mathbb{R}^{c \times 1} $ and  $\bm{q}_c \in \mathbb{R}^{c \times 1} $.
+%즉, $\bm{x}_ { i }$ 의 질량과 전하량은 각각 $f_c(f_g(\bm{x}_i))^{T} \cdot \bm{m}_c $ , $f_c(f_g(\bm{x}_i))^{T} \cdot \bm{q}_c $  가 됩니다.
+That is, the mass and charge of $\bm{x}_ { i }$ are $f_c(f_g(\bm{x}_i))^{T} \cdot \bm{m}_c $ and $f_c(f_g(\bm{x}_i))^{T} \cdot \bm{q}_c $.
+%임의의 유전자 $\bm{g}_{i},\bm{g}_{j},\bm{g}_{k}$  에 대해,
+For any gene $\bm{g}_{i},\bm{g}_{j},\bm{g}_{k}$, 
+%Whether a chemical reaction $\bm{g}_{i}+\bm{g}_{j} \Rightarrow \bm{g}_{k}$ is satisfied can be determined as a Reaction function  $f_{ r }$,  that $f _ { r }  (\bm{g}_{i},\bm{g}_{j} ) =\bm{g}_{k}$ and  $f_c(\bm{g}_i)+f_c(\bm{g}_j) = f_c(\bm{g}_k)$ .
+Whether a chemical reaction $\bm{g}_{i}+\bm{g}_{j} \Rightarrow \bm{g}_{k}$ is satisfied can be determined as a Reaction function  $f_{ r }$,  that $f _ { r }  (\bm{g}_{i},\bm{g}_{j} ) =\bm{g}_{k}$ and  $f_c(\bm{g}_i)+f_c(\bm{g}_j) = f_c(\bm{g}_k)$ .
+%RDS 에서는, 두개의 reactant (두개가 같아도 된다) 가 하나의 product 를 만드는 행위만 허용된다.
+In RDS, only two reactants (two may be the same) are allowed to create one product.
+%HH 모델의 Na+ channel 는 3개의 활성인자가 결합해야 활성요소의 기능으로 작동할 수 있다.
+The Na+ channel of the HH model can operate as a function of the active element only when three active factors are combined.
+%이러한 다분자 product 등은 \cite{fink2009markov} 와 같이, Markov 모델 chemical reaction network 로 표현 가능하다.
+Such a multi-molecular product and the like can be expressed by the Markov model chemical reaction network, such as \cite{fink2009markov}.
+
+\paragraph{Space of Entity}
+%Every $\bm{x}_ { i } \in \mathbb{X}$ has their own Space $\bm{s _ { i }}$, 이를 mapping 하는 함수는 다음과 같이 정의됩니다.  
+Every $\bm{x}_ { i } \in \mathbb{X}$  has their own Space $\bm{s _ { i }}$, a function that maps it is defined as follows:
+$f _ { s } : \mathbb{X}  = \left \{ \bm{x} _ { 1 } ,\bm{x} _ { 2 } , ... ,\bm{x} _ { n } \right \} \mapsto \mathbb{S}  = \left \{ \bm{s} _ { 1 } , \bm{s}  _ { 2 } , ... ,\bm{s}  _ { s } \right \}$ .
+Let a space Matrix $\boldsymbol{S} \in \mathbb{R}^{n \times s}$ as follows: 
+$\boldsymbol{S} _ { ij } := \begin{cases} 0 & if \quad f _ { s } (\bm{x} _ { i } ) \neq \bm{s} _ { j }  \\ 1 & if \quad f _ { s } (\bm{x} _ { i } ) = \bm{s} _ { j } \end{cases}$.
+Let a Distance Matrix $\boldsymbol{D}\in \mathbb{R}^{s \times s}$ , 
+%이것은 space 끼리의 distance 를 결정하는 matrix 입니다. 
+This is the matrix that determines the distance between spaces.
+%계산상의 이득을 위해서, 우리는 이러한 Distance Matrix 의 역수 $\frac{1}{\boldsymbol{D}}$ 를 sparse matrix 로 만듭니다. 
+For computational gain, we make the inverse of these Distance Matrix $\frac{1}{\boldsymbol{D}}$ sparse matrix.
+%즉, 이웃하지 않은 space 들의 거리를 무한대로 만들어, 전기적 포텐셜 에너지를 계산하는것을 제외시킵니다.
+In other words, it makes the distance of the neighboring spaces infinite, leaving them out of the calculate electrical potential energy.
+%새롭게 정의된 gene-space 정보에 의해, Electric Potential Matrix $\boldsymbol{V}$ 는, 다음과 같이 계산될 수 있습니다.
+With the newly defined gen-space information, the Electric Potential Matrix $\boldsymbol{V}$ can be calculated as follows:
+$\bm{q} = diag((\boldsymbol{M}\bm{q} _ { c } ) ^ { T } )\boldsymbol{S},\quad \boldsymbol{V}  = \bm{q}( \frac{ 1 } { \boldsymbol{D}}) \bm{q} ^ { T }$
+
+\paragraph{Reduce Flow and Calculate} 
+%구성요소의 space 가 다름/같음에 따라, 허용되는 flow 를 정해놓는다.
+As the space of the components is different/equivalent, an allowable flow is determined.
+%같은 space 에서는 chemical reaction 이 가능한 노드들의 chemical flow 만이 용납되며, 
+In the same space, only the chemical flow of nodes capable of chemical reaction is allowed
+%다른 space 에서는, 유전자 정보가 같은 노드들의 diffusion flow 와 hamiltonian flow 가 가능하다.
+In other spaces, diffusion flow and Hamiltonian flow of nodes with the same genetic information are possible.
+%이런 제약을 통해, 3가지 이유로, 계산량을 현저히 줄일 수 있다.
+Through these constraints, the calculation volume can be significantly reduced for three reasons.
+%1. $\boldsymbol{D}$ 가 sparse matrix 가 되어 ,$\boldsymbol{V}$ 또한 sparse matrix 가 된다.
+\newline1. $\boldsymbol{D}$ becomes sparse matrix, so $\boldsymbol{V}$ also becomes sparse matrix.
+%2. chemical reaction 에서, 같은 공간에서의 flow 가 일어나기 때문에, Electric Potential Energy are not changed.
+\newline2. In the chemical reaction, the flow in the same space occurs, so electric potential energy is not changed.
+$
+\because \frac{ dU _ { electric } } { d(chemical\; react) } \propto \frac{d\bm{x} ^ { T } \bm{q}}{d(chemical\; react)} \propto
+\boldsymbol{M} ^ { \bot }_{ch}  diag((\boldsymbol{M}\bm{q} _ { c } ) ^ { T } )\boldsymbol{S} \propto  \boldsymbol{M} ^ { \bot }_{ch} \boldsymbol{M}  = 0 _ { 1 \times s } 
+$
+%3. chemical flow 가 2개의 reactant, 1개의 product 를 갖기 때문에, log 와 exp term 을 하나의 곱셈으로 대체할 수 있다.
+\newline3.Since the chemical flow has two reactants, one product, log and expterm can be replaced by one multiplication.
+%(ex) $a+b\Leftrightarrow c$ 의 reaction 에서, 기존은 $e^{\ln(a)+\ln(b)} - e^{\ln(c)}$ 였다면, $a*b-c$ 로 대체하여 계산이 가능하다.)
+(ex) In the reaction of $a+b\Leftrightarrow c$, the existing one is $e^{\ln(a)+\ln(b)} - e^{\ln(c)}$ If so, it can be calculated by replacing it with $a*b-c$)
+
+\section{Experiment}
+%이 논문에서는, 모델의 학습 알고리즘을 구현하야 하는 Dynamical System 입장에서, 각각 노드가 따로 진화한다면, 진화속도가 현저히 느려질 수 있다. 
+When biological cells are expressed, the composition of the dynamic system varies depending on the concentration of surrounding substances and proteins. And it's symmetrical in the same kind of cell.
+%이런 이유로, 우리는 대칭, 반복, 변화, 등의 규칙적인 패턴을 설계할 수 있는 HyperNeat 알고리즘을 이용하여 Dynamical System 을 진화시키는것을 선택했다.
+For this reason, we chose to evolve Dynamic Systems using HyperNeat (Figure \ref{subfig:hyperNeat}) that can design regular patterns such as symmetry, repetition, variation, and so on.
+
+\begin{figure}[H]
+\centering
+\subfloat[\centering Using space and gene information to HyperNeat substrate]{{\label{subfig:hyperNeat}}{\includegraphics[scale=0.4]{image/HyperNeat.png} }}%
+\subfloat[\centering Example of DS ]{{\label{subfig:example_of_DS}}{\includegraphics[scale=0.25]{image/2.png} }}%
+\caption{Generation Dynamical System by HyperNeat and Example}
+\end{figure}
+
+%Algorithm[\ref{alg:expression_alg}] 과 같이, cppn 의 입력값은 $(\bm{g}_{i},\bm{s}_{i},\bm{g}_{j},\bm{s}_{j},)$ 가 됩니다.
+For example, Algorithm \ref{alg:expression_alg}, the input value of cppn is  $(\bm{g}_{i},\bm{s}_{i},\bm{g}_{j},\bm{s}_{j},)$ .
+%cppn 의 입력의 특정 부분을 비활성시켜 필요한 함수들을 정의합니다. 
+Defines the required functions by disabling a specific part of the input of the cppn.
+
+\newcommand{\factorial}{\ensuremath{\mbox{\sc Factorial}}}
+\begin{algorithm}
+\caption{Expression Algorithm}\label{alg:expression_alg}
+\begin{algorithmic}[1]
+\Procedure {Expression by $CPPN$}{$\bm{g}_{i},\bm{s}_{i},\bm{g}_{i},\bm{s}_{i}$} 
+      \State $\bm{g}_{i}$ exist $\gets \tanh^{-1}(CPPN(\bm{g}_{i},0,\bm{g}_{i},0)) >0$   \Comment{Generation gene map}
+      \State $\bm{s}_{i}$ exist $\gets \tanh^{-1}(CPPN(0,\bm{s}_{i},0,\bm{s}_{i})) >0$   \Comment{Generation Space map}
+      \State node $(\bm{g}_{i},\bm{s}_{i})$ exist $\gets \tanh^{-1}(CPPN(\bm{g}_{i},\bm{s}_{i},\bm{g}_{i},\bm{s}_{i})) >0$   \Comment{Generation node}
+      \State edge $(\bm{g}_{i},\bm{s}_{i}) \gets (\bm{g}_{j},\bm{s}_{j})$ exist $\gets \tanh^{-1}(CPPN(\bm{g}_{i},\bm{s}_{i},\bm{g}_{j},\bm{s}_{j})) >0$   \Comment{Generation edge}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+%생성된 DS 의 예시는 \ref{subfig:example_of_DS} 과 같습니다.
+An example of the generated DS is shown in Figure \ref{subfig:example_of_DS}.
+%spcae 는 파란색 사각형, node 는 원의 형태로 표시하였습니다.
+Spcae is marked with a blue square and node is marked with a circle.
+%input 은 초록색, output 은 주황색 노드로 표시하였습니다. 
+I marked input node as green and output node as orange node.
+%space 가 이웃하면, 서로 연결됩니다.
+When spaces are neighborhood, they are connected to each other.
+%node 가 chemical reaction 을 가졌다면, reaction rule type 과 함께 회색 사각형으로 표시됩니다.
+If a node has a chemical reaction, it is shown as a gray square with the reaction rule type.
+%다른 공간으로부터의 diffusion flow 는 실선, hamiltonian flow 는 점선으로 나타냅니다.
+Diffusion flow from other spaces is represented by solid lines and Hamiltonian flow is represented by dotted lines.
+%externel flow 는 표시되지 않습니다. 단지 모델 파라미터 형태로 저장됩니다.
+The external flow is not displayed. It is stored only in the form of model parameters.
+
+\section{Result}
+%우리는 openai 의 CartPole-v1 과 FrozenLake-v0 gym 환경을 학습하였습니다. 
+We learned CartPole-v1 and FrozenLake-v0 environments in OpenAI.
+%그래픽카드는 RTX 2070 을 사용하였으며, 100 개 인구를 50세대까지, 총 87시간 진화시켰습니다. 
+we evolved 100 populations to 50 generations, Using the RTX 2070, totaling 87 hours.
+%그 결과, CartPole 은 10-20 세데 부터, FrozenLake 는 30-40 세대 부터 학습이 가능한 수준이 되었습니다.
+As a result, Cartpole has been able to learn from the generation of 10-20, and Frozen Lake from the generation of 30-40.
+%또한, 목표 ( fitness 에는, environment 의 fitness 와 학습속도, 메모리 사용 점수를 포함시켰다.) 에 도달후, 1 세데당 평균 0.2\% 필요한 학습시간의 감소을 확인할 수 있었습니다.
+In addition, after reaching the goal (fitness included environment reward, learning speed, and memory usage), it was confirmed that the average required learning time decreased by 0.2 per generation.
+%그 결과, 처음 1~4세대는 input(초록색)과 output(주황색) 노드들이 서로 연결도 안된, 단순한 반복 형태의 generation 되었습니다. 
+As a result, the first of 1-4 generations had simple repetitive generations where the input and output nodes were not even connected (Figure \ref{subfig:gen_1}).
+% 5~9 세대는, 이를 파악하여 input(초록색)과 output(주황색) 노드들이 서로 조금이라도 긍정적인 영향을 주는 개체가 살아남았습니다.  
+The 5-9 generation, understanding this, survived by individuals whose input and output nodes had a positive impact on each other even a little bit.
+% 10~20 세대는, 처음과 달리 더욱 다양한 화학반응 패턴들이 들어났으며, N:N 다중 연결 구조도 확인되었습니다.
+In the 10-20 generation, more diverse chemical reaction patterns were introduced, and N:N multiple connections were also identified (Figure \ref{subfig:gen_10}).
+%[라벨2] 그리고 , 놀랍게도, output 의 반응이 마치 spiking neron model 와 닮아가기 시작합니다.
+And, surprisingly, the output response starts to resemble the spiking neuron model (Figure \ref{subfig:result_10}).
+% 50세대는,  space 들이 군집화를 이루어, neuron 이라고 볼수 있는 개체의 단위를 형성합니다.
+In the 40-50 generation, spaces cluster, forming a unit of individuals that can be seen as neurons (Figure \ref{subfig:gen_50}).
+%또한, input 에 따른 output 이 조금더 민감하게 받아들어졌으며, SNN 의 Adaptive LIF 모델과 매우 유사한 output 모델이 형성됩니다.
+In addition, the output according to the input was taken a little more sensitively, and an output model very similar to SNN's Adaptive LIF model is formed (Figure \ref{subfig:result_50}).
+\begin{figure}[H]
+    \centering
+    \subfloat[\centering average(avg) and best result per generation]{{\label{subfig:tr_result}}{\includegraphics[width=0.5\textwidth]{image/total.png} }}%
+    \subfloat[\centering Reduced training time (\%)]{{\label{subfig:tr_speed}}{\includegraphics[width=0.5\textwidth]{image/training_time.png} }}%
+    %\subfloat[\centering gen 50]{{\label{subfig:gen_50}}{\adjincludegraphics[width=0.33\textwidth, clip, trim={2000 1600 1800 3700}]{image/Evolution3.png} }}%
+    \caption{Training results for two environments}%
+    \\
+    \subfloat[\centering gen 1]{{\label{subfig:result_1}}{\includegraphics[width=0.33\textwidth, clip, trim={10 10 10 10}]{image/Result1.png} }}%
+    \subfloat[\centering gen 10]{{\label{subfig:result_10}}{\includegraphics[width=0.33\textwidth, clip, trim={10 10 10 10}]{image/Result2.png} }}%
+    \subfloat[\centering gen 50]{{\label{subfig:result_50}}{\includegraphics[width=0.33\textwidth, clip, trim={30 10 50 20}]{image/Result3.png} }}%
+    \caption{best fitness examples of 1,10,50 generation}%
+    \label{fig:example}%
+\end{figure}
+\section{Conclusion}
+%우리는 뉴런의 생물학적 특성과 학습방법을 고찰하여, Equilibrium Point 를 Learning 시켜, 기존 ANN 의 학습 파라미터의 역할을 하는 학습방법의 새로운 접근법을 제시합니다.
+We consider the biological properties and learning methods of neurons, and we presented a new learning method for ANN.
+%이 학습법 에서는, 모델 파라미터는, Training Algorithm 자체의 의미를 내포하게 됩니다. 
+In this learning method, the model parameters imply the meaning of the Training Algorithm itself.
+%따라서 우리는 모델 파라미터를 진화시켜 back-propagation 알고리즘을 사용하지 않고 훈련 방법을 검색하였습니다. 
+Therefore, we evolved model parameters to search for training methods without using back-propagation algorithms.
+%그 결과, 학습가능한 Implict layer 가 진화적으로 선택되었으며, 진화적으로 학습알고리즘을 찾을수 있다는 것을 의미합니다.
+As a result, the dynamical system has been selected evolutionarily, which means that we can find learnable Implicit layer
+%진화적 알고리즘이 좋을수록, odesolver 의 속도가 더 빠를수록 보다 나은 학습방법을 찾을수 있습니다. 
+The better the evolutionary algorithm, the faster the odeSolver can find better ways to learn.
+%혹은 기존의 학습방법으로 풀수 없었던 문제를 푸는 방법을 찾을 수 있을 것이라 기대합니다.
+Or, I hope we can find a way to solve problems that could not be solved with the existing learning method.
+
+\small
+\bibliographystyle{plain}
+\bibliography{reference.bib}
+
+%\pagebreak
+\appendix
+\section{Proof : Flow satisfies the condition}
+\label{appendix:proof_of_condition}
+
+%하나의 코어 아이디어 중 하나는, 이러한 Flow 들이 Condition 을 만족하는가 이다.
+One of the core ideas is whether these flows satisfy Condition.
+%이는, 첫번째로, system 이 에너지가 감소하는 방향으로 흐르는 Decrease Energy 와,
+First, the system flows in the direction of decreasing energy
+%두번째로, x 가 $\boldsymbol{M}^{T}x = C$ 를 만족하는 subspace 에서 움직인다는, Conservation of Mass 에 관한것,
+Second, about Conservation of Mass, where x moves in convex satisfying $\boldsymbol{M}^{T}x = C$
+%마지막으로 이러한 flow 는 x 를 음수로 만들지 않는다는 Positive Of Mass 에 관한 증명이다.
+Finally, this flow is a proof of Positive Of Mass that x is not negative.
+%기호 $\boldsymbol{M}_{+}$ 는 어떠한 양의 matrix 를 의미하며, 정확한 값을 의미하지 않는다. 
+The symbol $\boldsymbol{M}_{+}$ means any positive matrix, not an exact value.
+ex) $2 \cdot \boldsymbol{M}_{+} = \boldsymbol{M}_{+}$
+
+\subsection{Chemical Flow}
+
+\paragraph{Flow}
+\begin{equation}
+\frac{ d\bm{x} } { dt } = -\boldsymbol{M} ^ { \bot } \left [ \bm{k} ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r( \boldsymbol{M} ^ { \bot } ) } - e ^ { \frac{ \partial H } { \partial \bm{x} } r( -\boldsymbol{M} ^ { \bot } ) } ) \right ] ^ { T }
+\end{equation}
+\begin{equation}
+= -\boldsymbol{M} ^ { \bot } \left [ \bm{k} ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1) \circ e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } \right ] ^ { T }
+\end{equation}
+
+\paragraph{Decrease Energy}
+
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ dH } { dt } &= \frac{ \partial H } { \partial \bm{x} } \frac{ d\bm{x} } { dt } + \frac{ \partial H } { \partial \bm{p} } \frac{ d\bm{p} } { dt }
+\\
+&= - \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } \left [ \bm{k} ^ { T } \circ \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } \circ ( \frac{ e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1 } { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } ) \circ e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } \right ] ^ { T }
+\\
+&=-( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } )diag \left [ \bm{k} \circ ( \frac{ e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1 } { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } ) ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } ) ^ { T } \right ] ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } ) ^ { T } <0
+\end{split}
+\end{equation}
+
+
+\paragraph{Conservation Of Mass}
+
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ d } { dt } (\boldsymbol{M} ^ { T } \bm{x}) &=\boldsymbol{M} ^ { T } \frac{ d\bm{x} } { dt } = -\boldsymbol{M} ^ { T } \boldsymbol{M} ^ { \bot } \left [ \bm{k} ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1) \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } ) \right ] ^ { T }
+\\
+&= 0 _ { c \times e } \left [ \bm{k} ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1) \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } ) \right ] ^ { T } =0
+\end{split}
+\end{equation}
+
+
+\paragraph{Positive Of Mass}
+
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ d\bm{x} } { dt } &= -\boldsymbol{M} ^ { \bot } \left [ \bm{k} ^ { T } \circ (e ^ { \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } } -1) \circ e ^ { \frac{ \partial H } { \partial \bm{x} } r(-\boldsymbol{M} ^ { \bot } ) } \right ] ^ { T }
+\\
+&= \boldsymbol{M} _ { + } (r( -\boldsymbol{M} ^ { \bot } ) -r( \boldsymbol{M} ^ { \bot } ) )(e ^ { \frac{ \partial H } { \partial \bm{x} } r (\boldsymbol{M} ^ { \bot } ) } -e ^ { \frac{ \partial H } { \partial \bm{x} } r (-\boldsymbol{M} ^ { \bot } ) } ) ^ { T }
+\\
+&\geq - \boldsymbol{M} _ { + } r(\boldsymbol{M} ^ { \bot } ) \left [ e ^ { ( \frac{ \partial H } { \partial \bm{x} } r (\boldsymbol{M} ^ { \bot } )) ^ { T } } \circ \bm{k} \right ] - \boldsymbol{M} _ { + } r(-\boldsymbol{M} ^ { \bot } ) \left [ e ^ { ( \frac{ \partial H } { \partial \bm{x} } R (-\boldsymbol{M} ^ { \bot } )) ^ { T } } \circ \bm{k} \right ]
+\\
+&- r(\boldsymbol{M} ^ { \bot } ) \left [ e ^ { ( \frac{ \partial H } { \partial \bm{x} } r (\boldsymbol{M} ^ { \bot } )) ^ { T } } \circ \bm{k} \right ] =- R(\boldsymbol{M} ^ { \bot } ) \left [ e ^ { ((\ln(\bm{x}) ^ { T } +h(\bm{x},p)) r (\boldsymbol{M} ^ { \bot } )) ^ { T } } \circ \bm{k} \right ]
+\\
+&=- r(\boldsymbol{M} ^ { \bot } ) diag(e ^ { (\ln(\bm{x}) ^ { T } R (\boldsymbol{M} ^ { \bot } )) ^ { T } } ) \left [ e ^ { (h(\bm{x},p) R (\boldsymbol{M} ^ { \bot } )) ^ { T } } \circ \bm{k} \right ]
+\\
+&\left [ - r(\boldsymbol{M} ^ { \bot } ) diag(e ^ { (\ln(\bm{x}) ^ { T } r (\boldsymbol{M} ^ { \bot } )) ^ { T } } ) \right ] _ { i } = - r(\boldsymbol{M} ^ { \bot } ) _ { i } \prod _ { } ^ { } \bm{x} _ { i } ^ { r(\boldsymbol{M} ^ { \bot } ) _ { i } ^ { T } }
+\\
+&- \sum _ { } ^ { } r(\boldsymbol{M} ^ { \bot } ) _ { ij } \prod _ { } ^ { } \bm{x} _ { i } ^ { r(\boldsymbol{M} ^ { \bot } ) _ { ij } } = \sum _ { } ^ { } \begin{cases} 0 & if r(\boldsymbol{M} ^ { \bot } ) _ { ij } = 0 \\  f(\bm{x},p) \circ \bm{x} ^ { R(\boldsymbol{M} ^ { \bot } ) _ { ij } } & if r(\boldsymbol{M} ^ { \bot } ) _ { ij } \neq 0 \end{cases}
+\end{split}
+\end{equation}
+
+\subsection{Hamiltonian Flow}
+
+\paragraph{Flow}
+\begin{equation}
+\frac{ d\bm{x} } { dt } =\boldsymbol{M} ^ { \bot } \left [ \bm{v} ^ { T } \circ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) \right ] ^ { T }
+\end{equation}
+\begin{equation}
+\frac{ d\bm{p} } { dt } =\boldsymbol{M} ^ { \bot } \left [ \bm{v} ^ { T } \circ ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } ) \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) \right ] ^ { T }
+\end{equation}
+
+
+\paragraph{Conservation Energy}
+
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ dH } { dt } &= \frac{ \partial H } { \partial \bm{x} } \frac{ d\bm{x} } { dt } + \frac{ \partial H } { \partial \bm{p} } \frac{ d\bm{p} } { dt }
+\\
+&= \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } \left [ \bm{v} ^ { T } \circ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) \right ] ^ { T } - \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } \left [ \bm{v} ^ { T } \circ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) \right ] ^ { T }
+\\
+&= ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } \left [ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \right ] - \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } \left [ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \right ] ) \circ \bm{v} \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) ^ { T } =0
+\\
+&\because let \quad f = \left [ \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } \right ] ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \in \mathbb{R}^{1 \times 1}
+\\
+f &= f ^ { T } = ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) \left [ ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } ) ^ { T } \right ] = \left [ \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } \right ] ( \frac{ \partial H } { \partial \bm{x} } \boldsymbol{M} ^ { \bot } ) ^ { T }
+\end{split}
+\end{equation}
+
+\paragraph{Conservation Of Mass}
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ d } { dt } (\boldsymbol{M} ^ { T } \bm{x}) &=\boldsymbol{M} ^ { T } \frac{ d\bm{x} } { dt } = \boldsymbol{M} ^ { T } \boldsymbol{M} ^ { \bot } \left [ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \circ \bm{v} \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) ^ { T } \right ]
+\\
+&= 0 _ { c \times e } \left [ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \circ \bm{v} \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) ^ { T } \right ] =0
+\end{split}
+\end{equation}
+
+\paragraph{Positive Of Mass}
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ d\bm{x} } { dt } &=\boldsymbol{M} ^ { \bot } \left [ ( \frac{ \partial H } { \partial \bm{p} } \boldsymbol{M} ^ { \bot } ) ^ { T } \circ \bm{v} \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) ^ { T } \right ]
+=\boldsymbol{M} ^ { \bot } (\boldsymbol{M} ^ { \bot } ) ^ { T } \left [ \frac{ 1 } { m } \circ p \circ \bm{v}  \circ (e ^ { \ln(\bm{x}) ^ { T } \left | \boldsymbol{M} ^ { \bot } \right | } ) ^ { T } \right ] \circ \bm{x}
+\end{split}
+\end{equation}
+
+\subsection{Collision Flow}
+\paragraph{Flow}
+\begin{equation}
+\frac{ d\bm{p} } { dt } = -c \circ ( \frac{ \partial H } { \partial \bm{p} } ) ^ { T }
+\end{equation}
+
+\paragraph{Discreate Energy}
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ dH } { dt } = \frac{ \partial H } { \partial \bm{x} } \frac{ d\bm{x} } { dt } + \frac{ \partial H } { \partial \bm{p} } \frac{ d\bm{p} } { dt } = - \frac{ \partial H } { \partial \bm{p} } \left [ ( \frac{ \partial H } { \partial \bm{p} } ) ^ { T } \circ c \right ] = - \left [ \frac{ \partial H } { \partial \bm{p} } \circ \frac{ \partial H } { \partial \bm{p} } \right ] c <0
+\end{split}
+\end{equation}
+
+\subsection{External Homeostasis Flow}
+%External Flow 는, 외부의 무한대의 질량을 가지고 있는 개체로부터 Dynamical flow 가 있다고 가정합니다. 
+External Flow assumes that there is a dynamic flow from an object with an external infinite mass.
+%이때, 전체 에너지는 실제로 양의 무한대가 됩니다. 
+At this point, the total energy actually becomes an infinite amount.
+%하지만, 에너지의 기준점을 외부의 무한대의 질량에 맞추면, 새로 정의된 전체 에너지 $H '$ 값의 gradient 로 흐름을 알 수 있습니다.
+However, by aligning the reference point of each molecule's energy with the mass of the external infinity, we can see the flow to the gradient of the newly defined total energy $H'$.
+%질량보존은 이러한 flow 에서는 성립하지 않습니다.
+Mass conservation does not work with these flows.
+\paragraph{Flow}
+\begin{equation}
+\frac{ d\bm{x} } { dt } = \bm{h} \circ (\bm{x} _ { h } -\bm{x})
+\end{equation}
+
+\paragraph{Discreate Energy}
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+let H ' &= H -\bm{x} ^ { T } \ln(\bm{x} _ { h }) , \frac{ \partial H ' } { \partial \bm{x} } = \frac{ \partial H } { \partial \bm{x} } -\ln(\bm{x} _ { h }) ^ { T }
+\\
+\frac{ d\bm{x} ' } { dt } &= \frac{ d\bm{x} } { dt } + \bm{h} \circ (e ^ { \ln(\bm{x} _ { h }) -\ln(\bm{x}) } - 1) \circ e ^ { \ln(\bm{x}) } = \frac{ d\bm{x} } { dt } + h \circ ( \frac{ \bm{x} _ { h } } { \bm{x} } -1)\bm{x} = \frac{ d\bm{x} } { dt } + \bm{h} \circ (\bm{x} _ { h } -\bm{x})
+\end{split}
+\end{equation}
+
+
+\paragraph{Positive Of Mass}
+\begin{equation}
+\setlength{\jot}{10pt}
+\begin{split}
+\frac{ d\bm{x} } { dt } =\bm{h} \circ (\bm{x} _ { h } -\bm{x}) \geq \bm{h} \circ \bm{x} = \boldsymbol{M} _ { + } \bm{x}
+\end{split}
+\end{equation}
+
+
+\section{Explanation of Bio Model}
+%HH 모델을 설명하기 위해선, current, 와 voltage-gate channel, membrane potential 이 설명가능하여야 한다.
+To express the HH model in DS, current, voltage-gate channel, and membrane potential must be explainable
+%HH 모델은, 뉴런의 3개의 공간 ( Extracellular space, cell membrane, interacellular space ) 에 대해 모델링함으로 설명할 수 있습니다.
+This can be explained by modeling the three spaces of neurons (Extracellar Space, Cell Membrane, Interacellar Space).
+%그림 fig4 에, HH 모델의 4개의 채널( Voltage-gated Na+ channel, Voltage-gated K+ channel, K+ Leak channel, Na+/K+ pump) 중 하나를 Dynamic System 으로바꾼 것이다.
+\ref{fig:Explanation_HH_model} shows one of the four channels (Voltage-gated Na+ channel, Voltage-gated K+ channel, K+ Leak channel, and Na+/K+ pump) of the HH model to Dynamic System.
+
+\paragraph{Fick's second Law}
+%Fick 의 확산법칙 $\frac{\partial n}{\partial t} = D\nabla ^2 n(x)$
+Fick's diffusion law $\frac{\partialn}{\partialt} = D\nabla^2n(x)$
+%이란, fig4 의 연속된 space $s_{[0:n+1]}$ 들의 요소인 $g_{[0:n+1]$ 의 Diffusion flow 로 설명될 수 있습니다.
+This can be described by the Diffusion flow of $g_{[0:n+1]$, an element of successive spaces $s_{[0:n+1]}$.
+%dt 마다, 각각 자신의 mass 에 비례하는 양을 양옆 space 에 배출하기 때문에,
+For each $dt$, each emits an amount proportional to its mass to both sides of the space
+%이들의 공식은 마치 2 차미분($\frac{dx_i}{dt}= \alpha x_{i-1} + x_{i+1}- 2x_i$ ) 으로 설명될 수 있습니다.
+Their formula can be described as a quadratic differential $\frac{dx_i}{dt} = \alpha x_{i-1} + x_{i+1}-2x_i$.
+%n 이 극한으로 갈시, Fick's second Law 공식을 설명할 수 있습니다.
+If $n$  go to this limit, it can explain the Fick's second law formula.
+
+\paragraph{Nernst equation}
+%막전위를 결정하는 네른스트 방정식 $E = E_0 + \frac{RT}{nF} \ln \frac{x_{in}}{x_{out}}$ 은,
+Nernst equation determining the membrane potential $E = E_0 + \frac{RT}{nF} \ln \frac{x_{in}}{x_{out}}}$ ,
+%Nernst-Planck equation $\frac{\partial c}{\partial t}+ \nabla \cdot \bm{J}=0$ 로부터 유도될 수 있다.
+It can be derived from Nernst-Planck equation $\frac{\partial c}{\partial t}+ \nabla \cdot \bm{J}=0$ .
+%이때, 분자들의 흐름인 $\bm{J}$ 는, $-D\nabla c + \frac{Dze}{k_B T}c\bm{E}$ 이며, 이것은 각각
+At this point, the flow of molecules, $\bm{J}$, is $-D\nablac + \frac{Dze}{k_BT}c\bm{E}$
+%$g_{[0:n+1]$ 의 Diffusion flow + Hamiltonian flow 로 설명할 수 있습니다.
+Can be described as Diffusion flow + Hamiltonian flow of $g_{[0:n+1]$.
+%각각의 농도평형점을 맞추기 위해서는 Diffusion 과 Hamiltonian flow 가 합이 0이 되어야 합니다.
+The sum of the Diffusion and Hamiltonian flows must be zero to meet each concentration equilibrium point.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image/Explanation_HH_model.png} }
+    \caption{Explanation Hodgkin Huxley model by Dynamic System}%
+    \label{fig:Explanation_HH_model}%
+\end{figure}
+
+\section{Detail of result}
+
+\begin{table}[H]
+\caption{Performance of CartPole-V1 and FrozenLake-V0 . Results are average on 100 populations.}
+\centering
+\begin{multicols}{2}
+{CartPole-v1}
+\begin{tabular}{SSSS} \toprule
+    generation  & training & Best & Params \\ & Speed & Fitness &  \\ \midrule
+    1-5     &   -   &   10   &   1.2k   \\
+    5-10     &   -   &   33   &  22k  \\
+    11-20   &   5m01s   &   99   &  30k  \\
+    21-40   &   4m50s   &   98    &  25k  \\
+    41-50   &   4m42s   &   99    &  24k \\ \bottomrule
+\end{tabular}
+{FrozenLake-v0}
+\begin{tabular}{SSSS} \toprule
+    generation  & training & Best & Params \\ & Speed & Fitness &  \\ \midrule
+    1-5     &   -   &   5     &  0.8k    \\
+    5-10     &   -   &   7    &  1.4k  \\
+    11-20   &   -   &   11     &  17k   \\
+    21-40   &   13m34s   &   89     &  28k  \\
+    41-50   &   13m21s   &    91   &  60k  \\ \bottomrule
+\end{tabular}
+\end{multicols}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[\centering gen 1]{{\label{subfig:gen_1}}{\includegraphics[width=0.5\textwidth]{image/Evolution1.png} }}%
+    \subfloat[\centering gen 10]{{\label{subfig:gen_10}}{\includegraphics[width=0.5\textwidth]{image/Evolution2.png} }}%
+    \\
+    \subfloat[\centering gen 50]{{\label{subfig:gen_50}}{\adjincludegraphics[width=1\textwidth, clip, trim={2000 1600 1800 3700}]{image/Evolution3.png} }}%
+    \caption{best fit examples of 1,10,50 generation}%
+    \label{fig:example}%
+\end{figure}
+
+
+\end{CJK}
+\end{document}

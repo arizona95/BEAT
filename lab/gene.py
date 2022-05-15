@@ -27,6 +27,26 @@ class Gene :
         self.diffusion_flow_character = "d"
         self.hamiltonian_flow_character = "h"
 
+        self.output_controll_constant = {
+            # name: [a, b] -> (a-b)*output + b : a ~ b
+            'm_c' : [1, 0.01],                          # mass of component
+            'q_c' : [0.01, -0.01],                      # charge of component
+            'r_s' : [self.max_state, -self.max_state],  # react and state decision
+            'k'   : [1, 0],                             # react rate
+            'A'   : [4,0],                              # enthalpy of gene
+            'S'   : [1,-1],                             # space exist decision
+            'V'   : [1, 0],                             # volume matrix
+            'D'   : [2, 0],                             # distance matrix
+            'x0'  : [10, -10],                          # initial value
+            'c_'  : [100, 10],                          # collision value
+            'x_h' : [10, -0.01],                        # externel homeostasis value
+            'h'   : [1, 0],                             # homeostasis speed value
+            'diff' : [1000, -1000],                     # diffusion speed value
+            'hamilt': [10, -10],                        # hamilt speed value
+
+        }
+
+
     def expression(self):
 
         def to_string(list) :
@@ -34,6 +54,11 @@ class Gene :
 
         def net_output(input_vector):
             return self.net.activate([np.array(input_vector)]).numpy()[0]
+
+        def rescale(value, type) :
+            a = self.output_controll_constant[type][0]
+            b = self.output_controll_constant[type][1]
+            return (a-b)*value +b
 
         # make zero vector
         c_0 = [0] * self.g_c
@@ -57,8 +82,8 @@ class Gene :
             c_vector[i] = 1
             input_vector = c_vector + g_0 + s_0 + g_0 + s_0
             output = net_output(input_vector)
-            m_c.append(output[0])
-            q_c.append((2 * output[1] - 1)/100)
+            m_c.append(rescale(output[0], "m_c"))
+            q_c.append(rescale(output[1], "q_c"))
 
         # 1-2. make init of Gene Map G0
         react_rules = dict()
@@ -78,8 +103,8 @@ class Gene :
                 for gj in new_G:
                     input_vector = c_0 + gi + s_0 + gj + s_0
                     output = net_output(input_vector)
-                    react_or_not = self.max_state * (2*output[2]-1)
-                    react_rate = output[3]
+                    react_or_not = rescale(output[2], "r_s")
+                    react_rate = rescale(output[3], "k")
                     if react_or_not >= 0:
                         new_g = list(np.array(gi[:-1]) + np.array(gj[:-1])) + [int(react_or_not)]
                         add_G.append(new_g)
@@ -96,7 +121,7 @@ class Gene :
         for i, gi in enumerate(G):
             input_vector = c_0 + gi + s_0 + g_0 + s_0
             output = net_output(input_vector)
-            A[to_string(gi)] = 5 * output[4]
+            A[to_string(gi)] = rescale(output[4], "A")
 
         # 2. Generation Space Map S_SET
         S = list()
@@ -107,7 +132,7 @@ class Gene :
         for si in S_substrate:
             input_vector = c_0 + g_0 + si + g_0 + s_0
             output = net_output(input_vector)
-            space_or_not = 2 * output[5] - 1
+            space_or_not = rescale(output[5], "S")
             if space_or_not >= 0:
                 S.append(si)
 
@@ -119,7 +144,7 @@ class Gene :
             ## fs(si) = f(0,si,0,0)[3]
             input_vector = c_0 + g_0 + si + g_0 + s_0
             output = net_output(input_vector)
-            V[to_string(si)] = output[6]
+            V[to_string(si)] = rescale(output[6], "V")
 
 
         ## make D matrix
@@ -130,7 +155,7 @@ class Gene :
                 if i != j:
                     input_vector = c_0 + g_0 + si + g_0 + sj
                     output = net_output(input_vector)
-                    distance = 2 * output[7]
+                    distance = rescale(output[7], "D")
                     if distance < 1:  ## neighbor
                         D[i][j] = distance
                         D[j][i] = distance
@@ -145,11 +170,11 @@ class Gene :
             for j, sj in enumerate(S):
                 input_vector = c_0 + gi + sj + g_0 + s_0
                 output = net_output(input_vector)
-                x0 = 20 * output[8] - 10
-                c_ = 90 * output[9] + 10
-                xh = 10 * output[10]
-                h = output[11]
-                a = -np.log( A[to_string(gi)] * V[to_string(sj)] + 0.01)-12
+                x0 = rescale(output[8], "x0")
+                c_ = rescale(output[9], "c_")
+                xh = rescale(output[10], "x_h")
+                h = rescale(output[11], "h")
+                a = -np.log( A[to_string(gi)] * V[to_string(sj)] + 0.01)-10
                 if xh <= 0:
                     h = 0
                     xh = 0
@@ -223,7 +248,7 @@ class Gene :
 
                                 ##print(f"input_vector: {input_vector}")
                                 # diff edge
-                                diff_k = 2 * float(net_output(input_vector)[11]) - 1
+                                diff_k = rescale(output[12], "diff")
                                 if diff_k > 0:  # edge connect
 
                                     edge_name = diffusion_flow_character + \
@@ -261,7 +286,7 @@ class Gene :
                                 input_vector = c_0 + space_node[space_name_i][node_name_n] + \
                                                si + space_node[space_name_j][node_name_m] + sj
                                 # hamilt edge
-                                hamilt_k = 2 * float(net_output(input_vector)[12]) - 1
+                                hamilt_k = rescale(output[13], "hamilt")
                                 if hamilt_k > 0:  # edge connect
 
                                     edge_name = hamiltonian_flow_character + \
@@ -312,7 +337,7 @@ class Gene :
                     add_S[to_string(si)] = 0
             self.model["S"][node_name] = add_S
             self.model["a"][node_name] = node[node_name][5]
-            self.model["c_"][node_name] = 10
+            self.model["c_"][node_name] = node[node_name][4]
             self.model["x_h"][node_name] = node[node_name][6]
             self.model["h"][node_name] = node[node_name][7]
 
@@ -462,7 +487,7 @@ class Gene :
                 if diff_or_hamilt == hamiltonian_flow_character:
                     g.edge(node_name_0, node_name_1, style="dashed")
 
-        g.render(filename=f"{savePath}\\graph.dot", view=False, format ='png') #format : pdf, png
+        g.render(filename=f"{savePath}\\graph", view=False, format ='png') #format : pdf, png
 
         #g.write_png(f"{savePath}\\graph.png")
         if not savePath : display(g)

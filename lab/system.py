@@ -181,24 +181,28 @@ class System:
             colision_flow_p = -self.c_ * (grad_p).T
             external_homeostasis_flow_x = self.h * (self.x_h - self.x)
 
-            '''
-            
-            print(f"x {self.x[10]}")
-            print(f"self.x_a_cal, {self.x_a_cal[10]}")
-            print(f"chemical_flow_x, {chemical_flow_x[10]}")
-            print(f"diffusion_flow_x, {diffusion_flow_x[10]}")
-            print(f"hamiltonian_flow_x, {hamiltonian_flow_x[10]}")
-            print(f"external_homeostasis_flow_x, {external_homeostasis_flow_x[10]}")
-            
-            '''
+
+
+
+            #debug_diffusion_flow_x = np.dot(self.M_d[:,11].reshape(-1,1), (self.k_d[11] * \
+            #                      (-np.take(self.x_a_cal, self.diff1)+ \
+            #                       np.take(self.x_a_cal, self.diff2))[11]))
+
+            #print(f"x {self.x.T}")
+            #print(f"self.x_a_cal, {self.x_a_cal}")
+            #print(f"chemical_flow_x, {chemical_flow_x.T}")
+            #print(f"diffusion_flow_x, {diffusion_flow_x.T}")
+            #print(f"hamiltonian_flow_x, {hamiltonian_flow_x.T}")
+            #print(f"external_homeostasis_flow_x, {external_homeostasis_flow_x.T}")
+            #print(f"chemical_flow_x {chemical_flow_x.T}")
+            #print(f"diffusion_flow_x {diffusion_flow_x.T}")
+            #print(f"hamiltonian_flow_x {hamiltonian_flow_x.T}")
 
 
             # exp 570
             # take 190
             # .T 20
             # - 216 ~ 108
-
-
 
 
             return chemical_flow_x + diffusion_flow_x+ hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p

@@ -1,0 +1,1852 @@
+graph G {
+	subgraph "cluster0/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-0/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-0/0/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-0/0/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-0/0/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-0/0/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-0/0/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-0/0/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-0/0/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-0/0/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-0/0/0" [label="0/4/5"]
+		label="0/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-0/0/0" [label=r1]
+		"r2-0/0/0" [label=r2]
+		"r3-0/0/0" [label=r3]
+		"r4-0/0/0" [label=r4]
+		"r5-0/0/0" [label=r5]
+		"r6-0/0/0" [label=r6]
+		"r7-0/0/0" [label=r7]
+		"r8-0/0/0" [label=r8]
+		"r9-0/0/0" [label=r9]
+		"r10-0/0/0" [label=r10]
+		"r11-0/0/0" [label=r11]
+		"r12-0/0/0" [label=r12]
+		"r13-0/0/0" [label=r13]
+		"r14-0/0/0" [label=r14]
+		"r15-0/0/0" [label=r15]
+		"r16-0/0/0" [label=r16]
+		"r17-0/0/0" [label=r17]
+		"r18-0/0/0" [label=r18]
+	}
+	subgraph "cluster0/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-0/0/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-0/0/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-0/0/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-0/0/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-0/0/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-0/0/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-0/0/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-0/0/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-0/0/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-0/0/1" [label="0/4/5"]
+		label="0/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-0/0/1" [label=r1]
+		"r2-0/0/1" [label=r2]
+		"r3-0/0/1" [label=r3]
+		"r4-0/0/1" [label=r4]
+		"r5-0/0/1" [label=r5]
+		"r6-0/0/1" [label=r6]
+		"r7-0/0/1" [label=r7]
+		"r8-0/0/1" [label=r8]
+		"r9-0/0/1" [label=r9]
+		"r10-0/0/1" [label=r10]
+		"r11-0/0/1" [label=r11]
+		"r12-0/0/1" [label=r12]
+		"r13-0/0/1" [label=r13]
+		"r14-0/0/1" [label=r14]
+		"r15-0/0/1" [label=r15]
+		"r16-0/0/1" [label=r16]
+		"r17-0/0/1" [label=r17]
+		"r18-0/0/1" [label=r18]
+	}
+	subgraph "cluster0/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-0/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-0/1/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-0/1/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-0/1/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-0/1/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-0/1/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-0/1/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-0/1/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-0/1/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-0/1/0" [label="0/4/5"]
+		label="0/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-0/1/0" [label=r1]
+		"r2-0/1/0" [label=r2]
+		"r3-0/1/0" [label=r3]
+		"r4-0/1/0" [label=r4]
+		"r5-0/1/0" [label=r5]
+		"r6-0/1/0" [label=r6]
+		"r7-0/1/0" [label=r7]
+		"r8-0/1/0" [label=r8]
+		"r9-0/1/0" [label=r9]
+		"r10-0/1/0" [label=r10]
+		"r11-0/1/0" [label=r11]
+		"r12-0/1/0" [label=r12]
+		"r13-0/1/0" [label=r13]
+		"r14-0/1/0" [label=r14]
+		"r15-0/1/0" [label=r15]
+		"r16-0/1/0" [label=r16]
+		"r17-0/1/0" [label=r17]
+		"r18-0/1/0" [label=r18]
+	}
+	subgraph "cluster0/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-0/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-0/1/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-0/1/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-0/1/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-0/1/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-0/1/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-0/1/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-0/1/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-0/1/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-0/1/1" [label="0/4/5"]
+		label="0/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-0/1/1" [label=r1]
+		"r2-0/1/1" [label=r2]
+		"r3-0/1/1" [label=r3]
+		"r4-0/1/1" [label=r4]
+		"r5-0/1/1" [label=r5]
+		"r6-0/1/1" [label=r6]
+		"r7-0/1/1" [label=r7]
+		"r8-0/1/1" [label=r8]
+		"r9-0/1/1" [label=r9]
+		"r10-0/1/1" [label=r10]
+		"r11-0/1/1" [label=r11]
+		"r12-0/1/1" [label=r12]
+		"r13-0/1/1" [label=r13]
+		"r14-0/1/1" [label=r14]
+		"r15-0/1/1" [label=r15]
+		"r16-0/1/1" [label=r16]
+		"r17-0/1/1" [label=r17]
+		"r18-0/1/1" [label=r18]
+	}
+	subgraph "cluster1/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-1/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/0/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-1/0/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-1/0/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-1/0/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-1/0/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-1/0/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-1/0/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-1/0/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-1/0/0" [label="0/4/5"]
+		label="1/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-1/0/0" [label=r1]
+		"r2-1/0/0" [label=r2]
+		"r3-1/0/0" [label=r3]
+		"r4-1/0/0" [label=r4]
+		"r5-1/0/0" [label=r5]
+		"r6-1/0/0" [label=r6]
+		"r7-1/0/0" [label=r7]
+		"r8-1/0/0" [label=r8]
+		"r9-1/0/0" [label=r9]
+		"r10-1/0/0" [label=r10]
+		"r11-1/0/0" [label=r11]
+		"r12-1/0/0" [label=r12]
+		"r13-1/0/0" [label=r13]
+		"r14-1/0/0" [label=r14]
+		"r15-1/0/0" [label=r15]
+		"r16-1/0/0" [label=r16]
+		"r17-1/0/0" [label=r17]
+		"r18-1/0/0" [label=r18]
+	}
+	subgraph "cluster1/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/0/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/0/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-1/0/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-1/0/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-1/0/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-1/0/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-1/0/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-1/0/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-1/0/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-1/0/1" [label="0/4/5"]
+		label="1/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-1/0/1" [label=r1]
+		"r2-1/0/1" [label=r2]
+		"r3-1/0/1" [label=r3]
+		"r4-1/0/1" [label=r4]
+		"r5-1/0/1" [label=r5]
+		"r6-1/0/1" [label=r6]
+		"r7-1/0/1" [label=r7]
+		"r8-1/0/1" [label=r8]
+		"r9-1/0/1" [label=r9]
+		"r10-1/0/1" [label=r10]
+		"r11-1/0/1" [label=r11]
+		"r12-1/0/1" [label=r12]
+		"r13-1/0/1" [label=r13]
+		"r14-1/0/1" [label=r14]
+		"r15-1/0/1" [label=r15]
+		"r16-1/0/1" [label=r16]
+		"r17-1/0/1" [label=r17]
+		"r18-1/0/1" [label=r18]
+	}
+	subgraph "cluster1/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/1/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-1/1/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-1/1/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-1/1/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-1/1/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-1/1/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-1/1/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-1/1/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-1/1/0" [label="0/4/5"]
+		label="1/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-1/1/0" [label=r1]
+		"r2-1/1/0" [label=r2]
+		"r3-1/1/0" [label=r3]
+		"r4-1/1/0" [label=r4]
+		"r5-1/1/0" [label=r5]
+		"r6-1/1/0" [label=r6]
+		"r7-1/1/0" [label=r7]
+		"r8-1/1/0" [label=r8]
+		"r9-1/1/0" [label=r9]
+		"r10-1/1/0" [label=r10]
+		"r11-1/1/0" [label=r11]
+		"r12-1/1/0" [label=r12]
+		"r13-1/1/0" [label=r13]
+		"r14-1/1/0" [label=r14]
+		"r15-1/1/0" [label=r15]
+		"r16-1/1/0" [label=r16]
+		"r17-1/1/0" [label=r17]
+		"r18-1/1/0" [label=r18]
+	}
+	subgraph "cluster1/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/1/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-1/1/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-1/1/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-1/1/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-1/1/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-1/1/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-1/1/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-1/1/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-1/1/1" [label="0/4/5"]
+		label="1/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-1/1/1" [label=r1]
+		"r2-1/1/1" [label=r2]
+		"r3-1/1/1" [label=r3]
+		"r4-1/1/1" [label=r4]
+		"r5-1/1/1" [label=r5]
+		"r6-1/1/1" [label=r6]
+		"r7-1/1/1" [label=r7]
+		"r8-1/1/1" [label=r8]
+		"r9-1/1/1" [label=r9]
+		"r10-1/1/1" [label=r10]
+		"r11-1/1/1" [label=r11]
+		"r12-1/1/1" [label=r12]
+		"r13-1/1/1" [label=r13]
+		"r14-1/1/1" [label=r14]
+		"r15-1/1/1" [label=r15]
+		"r16-1/1/1" [label=r16]
+		"r17-1/1/1" [label=r17]
+		"r18-1/1/1" [label=r18]
+	}
+	subgraph "cluster2/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-2/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/0/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-2/0/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-2/0/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-2/0/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-2/0/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-2/0/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-2/0/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-2/0/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-2/0/0" [label="0/4/5"]
+		label="2/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-2/0/0" [label=r1]
+		"r2-2/0/0" [label=r2]
+		"r3-2/0/0" [label=r3]
+		"r4-2/0/0" [label=r4]
+		"r5-2/0/0" [label=r5]
+		"r6-2/0/0" [label=r6]
+		"r7-2/0/0" [label=r7]
+		"r8-2/0/0" [label=r8]
+		"r9-2/0/0" [label=r9]
+		"r10-2/0/0" [label=r10]
+		"r11-2/0/0" [label=r11]
+		"r12-2/0/0" [label=r12]
+		"r13-2/0/0" [label=r13]
+		"r14-2/0/0" [label=r14]
+		"r15-2/0/0" [label=r15]
+		"r16-2/0/0" [label=r16]
+		"r17-2/0/0" [label=r17]
+		"r18-2/0/0" [label=r18]
+	}
+	subgraph "cluster2/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/0/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/0/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-2/0/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-2/0/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-2/0/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-2/0/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-2/0/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-2/0/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-2/0/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-2/0/1" [label="0/4/5"]
+		label="2/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-2/0/1" [label=r1]
+		"r2-2/0/1" [label=r2]
+		"r3-2/0/1" [label=r3]
+		"r4-2/0/1" [label=r4]
+		"r5-2/0/1" [label=r5]
+		"r6-2/0/1" [label=r6]
+		"r7-2/0/1" [label=r7]
+		"r8-2/0/1" [label=r8]
+		"r9-2/0/1" [label=r9]
+		"r10-2/0/1" [label=r10]
+		"r11-2/0/1" [label=r11]
+		"r12-2/0/1" [label=r12]
+		"r13-2/0/1" [label=r13]
+		"r14-2/0/1" [label=r14]
+		"r15-2/0/1" [label=r15]
+		"r16-2/0/1" [label=r16]
+		"r17-2/0/1" [label=r17]
+		"r18-2/0/1" [label=r18]
+	}
+	subgraph "cluster2/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/1/0" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-2/1/0" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-2/1/0" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-2/1/0" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-2/1/0" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-2/1/0" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-2/1/0" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-2/1/0" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-2/1/0" [label="0/4/5"]
+		label="2/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-2/1/0" [label=r1]
+		"r2-2/1/0" [label=r2]
+		"r3-2/1/0" [label=r3]
+		"r4-2/1/0" [label=r4]
+		"r5-2/1/0" [label=r5]
+		"r6-2/1/0" [label=r6]
+		"r7-2/1/0" [label=r7]
+		"r8-2/1/0" [label=r8]
+		"r9-2/1/0" [label=r9]
+		"r10-2/1/0" [label=r10]
+		"r11-2/1/0" [label=r11]
+		"r12-2/1/0" [label=r12]
+		"r13-2/1/0" [label=r13]
+		"r14-2/1/0" [label=r14]
+		"r15-2/1/0" [label=r15]
+		"r16-2/1/0" [label=r16]
+		"r17-2/1/0" [label=r17]
+		"r18-2/1/0" [label=r18]
+	}
+	subgraph "cluster2/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/1/1" [label="0/1/0"]
+		node [color=black shape=circle]
+		"1/1/4-2/1/1" [label="1/1/4"]
+		node [color=black shape=circle]
+		"0/2/4-2/1/1" [label="0/2/4"]
+		node [color=black shape=circle]
+		"2/1/4-2/1/1" [label="2/1/4"]
+		node [color=black shape=circle]
+		"1/2/5-2/1/1" [label="1/2/5"]
+		node [color=black shape=circle]
+		"0/3/5-2/1/1" [label="0/3/5"]
+		node [color=black shape=circle]
+		"2/2/5-2/1/1" [label="2/2/5"]
+		node [color=black shape=circle]
+		"1/3/5-2/1/1" [label="1/3/5"]
+		node [color=black shape=circle]
+		"0/4/5-2/1/1" [label="0/4/5"]
+		label="2/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+		"r1-2/1/1" [label=r1]
+		"r2-2/1/1" [label=r2]
+		"r3-2/1/1" [label=r3]
+		"r4-2/1/1" [label=r4]
+		"r5-2/1/1" [label=r5]
+		"r6-2/1/1" [label=r6]
+		"r7-2/1/1" [label=r7]
+		"r8-2/1/1" [label=r8]
+		"r9-2/1/1" [label=r9]
+		"r10-2/1/1" [label=r10]
+		"r11-2/1/1" [label=r11]
+		"r12-2/1/1" [label=r12]
+		"r13-2/1/1" [label=r13]
+		"r14-2/1/1" [label=r14]
+		"r15-2/1/1" [label=r15]
+		"r16-2/1/1" [label=r16]
+		"r17-2/1/1" [label=r17]
+		"r18-2/1/1" [label=r18]
+	}
+	subgraph "cluster3/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-3/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-3/0/0" [label="0/1/0"]
+		label="3/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/0/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-3/0/1" [label="0/1/0"]
+		label="3/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-3/1/0" [label="0/1/0"]
+		label="3/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-3/1/1" [label="0/1/0"]
+		label="3/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/0/0" {
+		color=blue
+		label="4/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/0/1" {
+		color=blue
+		label="4/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/1/0" {
+		color=blue
+		label="4/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/1/1" {
+		color=blue
+		label="4/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/0/0" {
+		color=blue
+		label="5/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/0/1" {
+		color=blue
+		label="5/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/1/0" {
+		color=blue
+		label="5/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/1/1" {
+		color=blue
+		label="5/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	compound=true
+	"cluster0/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster0/1/0" -- "cluster0/0/0" [color=blue]
+	"cluster0/1/0" -- "cluster0/0/1" [color=blue]
+	"cluster0/1/1" -- "cluster0/0/0" [color=blue]
+	"cluster0/1/1" -- "cluster0/0/1" [color=blue]
+	"cluster0/1/1" -- "cluster0/1/0" [color=blue]
+	"cluster1/0/0" -- "cluster0/0/0" [color=blue]
+	"cluster1/0/0" -- "cluster0/0/1" [color=blue]
+	"cluster1/0/0" -- "cluster0/1/0" [color=blue]
+	"cluster1/0/0" -- "cluster0/1/1" [color=blue]
+	"cluster1/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster1/0/1" -- "cluster0/0/1" [color=blue]
+	"cluster1/0/1" -- "cluster0/1/0" [color=blue]
+	"cluster1/0/1" -- "cluster0/1/1" [color=blue]
+	"cluster1/0/1" -- "cluster1/0/0" [color=blue]
+	"cluster1/1/0" -- "cluster0/0/0" [color=blue]
+	"cluster1/1/1" -- "cluster0/0/0" [color=blue]
+	"cluster1/1/1" -- "cluster0/0/1" [color=blue]
+	"cluster1/1/1" -- "cluster0/1/0" [color=blue]
+	"cluster1/1/1" -- "cluster0/1/1" [color=blue]
+	"cluster1/1/1" -- "cluster1/0/0" [color=blue]
+	"cluster1/1/1" -- "cluster1/0/1" [color=blue]
+	"cluster1/1/1" -- "cluster1/1/0" [color=blue]
+	"cluster2/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster2/0/1" -- "cluster0/0/1" [color=blue]
+	"cluster2/0/1" -- "cluster0/1/0" [color=blue]
+	"cluster2/0/1" -- "cluster0/1/1" [color=blue]
+	"cluster2/0/1" -- "cluster1/0/0" [color=blue]
+	"cluster2/0/1" -- "cluster1/0/1" [color=blue]
+	"cluster2/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster2/0/1" -- "cluster1/1/1" [color=blue]
+	"cluster2/0/1" -- "cluster2/0/0" [color=blue]
+	"cluster2/1/0" -- "cluster0/0/0" [color=blue]
+	"cluster2/1/1" -- "cluster0/0/0" [color=blue]
+	"cluster2/1/1" -- "cluster0/0/1" [color=blue]
+	"cluster2/1/1" -- "cluster0/1/0" [color=blue]
+	"cluster2/1/1" -- "cluster0/1/1" [color=blue]
+	"cluster2/1/1" -- "cluster1/0/0" [color=blue]
+	"cluster2/1/1" -- "cluster1/0/1" [color=blue]
+	"cluster2/1/1" -- "cluster1/1/0" [color=blue]
+	"cluster2/1/1" -- "cluster1/1/1" [color=blue]
+	"cluster2/1/1" -- "cluster2/0/0" [color=blue]
+	"cluster2/1/1" -- "cluster2/0/1" [color=blue]
+	"cluster2/1/1" -- "cluster2/1/0" [color=blue]
+	"cluster3/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster3/0/1" -- "cluster0/0/1" [color=blue]
+	"cluster3/0/1" -- "cluster0/1/0" [color=blue]
+	"cluster3/0/1" -- "cluster0/1/1" [color=blue]
+	"cluster3/0/1" -- "cluster1/0/0" [color=blue]
+	"cluster3/0/1" -- "cluster1/0/1" [color=blue]
+	"cluster3/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster3/0/1" -- "cluster1/1/1" [color=blue]
+	"cluster3/0/1" -- "cluster2/0/0" [color=blue]
+	"cluster3/0/1" -- "cluster2/0/1" [color=blue]
+	"cluster3/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster3/0/1" -- "cluster2/1/1" [color=blue]
+	"cluster3/0/1" -- "cluster3/0/0" [color=blue]
+	"cluster3/1/0" -- "cluster0/0/0" [color=blue]
+	"cluster3/1/1" -- "cluster0/0/0" [color=blue]
+	"cluster3/1/1" -- "cluster0/0/1" [color=blue]
+	"cluster3/1/1" -- "cluster0/1/0" [color=blue]
+	"cluster3/1/1" -- "cluster0/1/1" [color=blue]
+	"cluster3/1/1" -- "cluster1/0/0" [color=blue]
+	"cluster3/1/1" -- "cluster1/0/1" [color=blue]
+	"cluster3/1/1" -- "cluster1/1/0" [color=blue]
+	"cluster3/1/1" -- "cluster1/1/1" [color=blue]
+	"cluster3/1/1" -- "cluster2/0/0" [color=blue]
+	"cluster3/1/1" -- "cluster2/0/1" [color=blue]
+	"cluster3/1/1" -- "cluster2/1/1" [color=blue]
+	"cluster3/1/1" -- "cluster3/0/1" [color=blue]
+	"cluster4/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster4/0/1" -- "cluster0/0/1" [color=blue]
+	"cluster4/0/1" -- "cluster0/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster0/1/1" [color=blue]
+	"cluster4/0/1" -- "cluster1/0/0" [color=blue]
+	"cluster4/0/1" -- "cluster1/0/1" [color=blue]
+	"cluster4/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster1/1/1" [color=blue]
+	"cluster4/0/1" -- "cluster2/0/0" [color=blue]
+	"cluster4/0/1" -- "cluster2/0/1" [color=blue]
+	"cluster4/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster2/1/1" [color=blue]
+	"cluster4/0/1" -- "cluster3/0/0" [color=blue]
+	"cluster4/0/1" -- "cluster3/0/1" [color=blue]
+	"cluster4/0/1" -- "cluster3/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster3/1/1" [color=blue]
+	"cluster4/0/1" -- "cluster4/0/0" [color=blue]
+	"cluster4/1/1" -- "cluster0/0/0" [color=blue]
+	"cluster4/1/1" -- "cluster0/0/1" [color=blue]
+	"cluster4/1/1" -- "cluster0/1/0" [color=blue]
+	"cluster4/1/1" -- "cluster0/1/1" [color=blue]
+	"cluster4/1/1" -- "cluster1/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster0/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster0/0/1" [color=blue]
+	"cluster5/0/1" -- "cluster0/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster0/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster1/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster1/0/1" [color=blue]
+	"cluster5/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster1/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster2/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster2/0/1" [color=blue]
+	"cluster5/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster2/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster3/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster3/0/1" [color=blue]
+	"cluster5/0/1" -- "cluster3/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster3/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster4/0/0" [color=blue]
+	"cluster5/0/1" -- "cluster4/0/1" [color=blue]
+	"cluster5/0/1" -- "cluster4/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster4/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster5/0/0" [color=blue]
+	"1/0/0-0/0/0" -- "r1-0/0/0"
+	"0/1/0-0/0/0" -- "r1-0/0/0"
+	"1/1/4-0/0/0" -- "r1-0/0/0"
+	"1/0/0-0/0/1" -- "r1-0/0/1"
+	"0/1/0-0/0/1" -- "r1-0/0/1"
+	"1/1/4-0/0/1" -- "r1-0/0/1"
+	"1/0/0-0/1/0" -- "r1-0/1/0"
+	"0/1/0-0/1/0" -- "r1-0/1/0"
+	"1/1/4-0/1/0" -- "r1-0/1/0"
+	"1/0/0-0/1/1" -- "r1-0/1/1"
+	"0/1/0-0/1/1" -- "r1-0/1/1"
+	"1/1/4-0/1/1" -- "r1-0/1/1"
+	"1/0/0-1/0/0" -- "r1-1/0/0"
+	"0/1/0-1/0/0" -- "r1-1/0/0"
+	"1/1/4-1/0/0" -- "r1-1/0/0"
+	"1/0/0-1/0/1" -- "r1-1/0/1"
+	"0/1/0-1/0/1" -- "r1-1/0/1"
+	"1/1/4-1/0/1" -- "r1-1/0/1"
+	"1/0/0-1/1/0" -- "r1-1/1/0"
+	"0/1/0-1/1/0" -- "r1-1/1/0"
+	"1/1/4-1/1/0" -- "r1-1/1/0"
+	"1/0/0-1/1/1" -- "r1-1/1/1"
+	"0/1/0-1/1/1" -- "r1-1/1/1"
+	"1/1/4-1/1/1" -- "r1-1/1/1"
+	"1/0/0-2/0/0" -- "r1-2/0/0"
+	"0/1/0-2/0/0" -- "r1-2/0/0"
+	"1/1/4-2/0/0" -- "r1-2/0/0"
+	"1/0/0-2/0/1" -- "r1-2/0/1"
+	"0/1/0-2/0/1" -- "r1-2/0/1"
+	"1/1/4-2/0/1" -- "r1-2/0/1"
+	"1/0/0-2/1/0" -- "r1-2/1/0"
+	"0/1/0-2/1/0" -- "r1-2/1/0"
+	"1/1/4-2/1/0" -- "r1-2/1/0"
+	"1/0/0-2/1/1" -- "r1-2/1/1"
+	"0/1/0-2/1/1" -- "r1-2/1/1"
+	"1/1/4-2/1/1" -- "r1-2/1/1"
+	"0/1/0-0/0/0" -- "r2-0/0/0"
+	"1/0/0-0/0/0" -- "r2-0/0/0"
+	"1/1/4-0/0/0" -- "r2-0/0/0"
+	"0/1/0-0/0/1" -- "r2-0/0/1"
+	"1/0/0-0/0/1" -- "r2-0/0/1"
+	"1/1/4-0/0/1" -- "r2-0/0/1"
+	"0/1/0-0/1/0" -- "r2-0/1/0"
+	"1/0/0-0/1/0" -- "r2-0/1/0"
+	"1/1/4-0/1/0" -- "r2-0/1/0"
+	"0/1/0-0/1/1" -- "r2-0/1/1"
+	"1/0/0-0/1/1" -- "r2-0/1/1"
+	"1/1/4-0/1/1" -- "r2-0/1/1"
+	"0/1/0-1/0/0" -- "r2-1/0/0"
+	"1/0/0-1/0/0" -- "r2-1/0/0"
+	"1/1/4-1/0/0" -- "r2-1/0/0"
+	"0/1/0-1/0/1" -- "r2-1/0/1"
+	"1/0/0-1/0/1" -- "r2-1/0/1"
+	"1/1/4-1/0/1" -- "r2-1/0/1"
+	"0/1/0-1/1/0" -- "r2-1/1/0"
+	"1/0/0-1/1/0" -- "r2-1/1/0"
+	"1/1/4-1/1/0" -- "r2-1/1/0"
+	"0/1/0-1/1/1" -- "r2-1/1/1"
+	"1/0/0-1/1/1" -- "r2-1/1/1"
+	"1/1/4-1/1/1" -- "r2-1/1/1"
+	"0/1/0-2/0/0" -- "r2-2/0/0"
+	"1/0/0-2/0/0" -- "r2-2/0/0"
+	"1/1/4-2/0/0" -- "r2-2/0/0"
+	"0/1/0-2/0/1" -- "r2-2/0/1"
+	"1/0/0-2/0/1" -- "r2-2/0/1"
+	"1/1/4-2/0/1" -- "r2-2/0/1"
+	"0/1/0-2/1/0" -- "r2-2/1/0"
+	"1/0/0-2/1/0" -- "r2-2/1/0"
+	"1/1/4-2/1/0" -- "r2-2/1/0"
+	"0/1/0-2/1/1" -- "r2-2/1/1"
+	"1/0/0-2/1/1" -- "r2-2/1/1"
+	"1/1/4-2/1/1" -- "r2-2/1/1"
+	"0/1/0-0/0/0" -- "r3-0/0/0"
+	"0/1/0-0/0/0" -- "r3-0/0/0"
+	"0/2/4-0/0/0" -- "r3-0/0/0"
+	"0/1/0-0/0/1" -- "r3-0/0/1"
+	"0/1/0-0/0/1" -- "r3-0/0/1"
+	"0/2/4-0/0/1" -- "r3-0/0/1"
+	"0/1/0-0/1/0" -- "r3-0/1/0"
+	"0/1/0-0/1/0" -- "r3-0/1/0"
+	"0/2/4-0/1/0" -- "r3-0/1/0"
+	"0/1/0-0/1/1" -- "r3-0/1/1"
+	"0/1/0-0/1/1" -- "r3-0/1/1"
+	"0/2/4-0/1/1" -- "r3-0/1/1"
+	"0/1/0-1/0/0" -- "r3-1/0/0"
+	"0/1/0-1/0/0" -- "r3-1/0/0"
+	"0/2/4-1/0/0" -- "r3-1/0/0"
+	"0/1/0-1/0/1" -- "r3-1/0/1"
+	"0/1/0-1/0/1" -- "r3-1/0/1"
+	"0/2/4-1/0/1" -- "r3-1/0/1"
+	"0/1/0-1/1/0" -- "r3-1/1/0"
+	"0/1/0-1/1/0" -- "r3-1/1/0"
+	"0/2/4-1/1/0" -- "r3-1/1/0"
+	"0/1/0-1/1/1" -- "r3-1/1/1"
+	"0/1/0-1/1/1" -- "r3-1/1/1"
+	"0/2/4-1/1/1" -- "r3-1/1/1"
+	"0/1/0-2/0/0" -- "r3-2/0/0"
+	"0/1/0-2/0/0" -- "r3-2/0/0"
+	"0/2/4-2/0/0" -- "r3-2/0/0"
+	"0/1/0-2/0/1" -- "r3-2/0/1"
+	"0/1/0-2/0/1" -- "r3-2/0/1"
+	"0/2/4-2/0/1" -- "r3-2/0/1"
+	"0/1/0-2/1/0" -- "r3-2/1/0"
+	"0/1/0-2/1/0" -- "r3-2/1/0"
+	"0/2/4-2/1/0" -- "r3-2/1/0"
+	"0/1/0-2/1/1" -- "r3-2/1/1"
+	"0/1/0-2/1/1" -- "r3-2/1/1"
+	"0/2/4-2/1/1" -- "r3-2/1/1"
+	"1/0/0-0/0/0" -- "r4-0/0/0"
+	"1/1/4-0/0/0" -- "r4-0/0/0"
+	"2/1/4-0/0/0" -- "r4-0/0/0"
+	"1/0/0-0/0/1" -- "r4-0/0/1"
+	"1/1/4-0/0/1" -- "r4-0/0/1"
+	"2/1/4-0/0/1" -- "r4-0/0/1"
+	"1/0/0-0/1/0" -- "r4-0/1/0"
+	"1/1/4-0/1/0" -- "r4-0/1/0"
+	"2/1/4-0/1/0" -- "r4-0/1/0"
+	"1/0/0-0/1/1" -- "r4-0/1/1"
+	"1/1/4-0/1/1" -- "r4-0/1/1"
+	"2/1/4-0/1/1" -- "r4-0/1/1"
+	"1/0/0-1/0/0" -- "r4-1/0/0"
+	"1/1/4-1/0/0" -- "r4-1/0/0"
+	"2/1/4-1/0/0" -- "r4-1/0/0"
+	"1/0/0-1/0/1" -- "r4-1/0/1"
+	"1/1/4-1/0/1" -- "r4-1/0/1"
+	"2/1/4-1/0/1" -- "r4-1/0/1"
+	"1/0/0-1/1/0" -- "r4-1/1/0"
+	"1/1/4-1/1/0" -- "r4-1/1/0"
+	"2/1/4-1/1/0" -- "r4-1/1/0"
+	"1/0/0-1/1/1" -- "r4-1/1/1"
+	"1/1/4-1/1/1" -- "r4-1/1/1"
+	"2/1/4-1/1/1" -- "r4-1/1/1"
+	"1/0/0-2/0/0" -- "r4-2/0/0"
+	"1/1/4-2/0/0" -- "r4-2/0/0"
+	"2/1/4-2/0/0" -- "r4-2/0/0"
+	"1/0/0-2/0/1" -- "r4-2/0/1"
+	"1/1/4-2/0/1" -- "r4-2/0/1"
+	"2/1/4-2/0/1" -- "r4-2/0/1"
+	"1/0/0-2/1/0" -- "r4-2/1/0"
+	"1/1/4-2/1/0" -- "r4-2/1/0"
+	"2/1/4-2/1/0" -- "r4-2/1/0"
+	"1/0/0-2/1/1" -- "r4-2/1/1"
+	"1/1/4-2/1/1" -- "r4-2/1/1"
+	"2/1/4-2/1/1" -- "r4-2/1/1"
+	"1/0/0-0/0/0" -- "r5-0/0/0"
+	"1/1/4-0/0/0" -- "r5-0/0/0"
+	"2/1/4-0/0/0" -- "r5-0/0/0"
+	"1/0/0-0/0/1" -- "r5-0/0/1"
+	"1/1/4-0/0/1" -- "r5-0/0/1"
+	"2/1/4-0/0/1" -- "r5-0/0/1"
+	"1/0/0-0/1/0" -- "r5-0/1/0"
+	"1/1/4-0/1/0" -- "r5-0/1/0"
+	"2/1/4-0/1/0" -- "r5-0/1/0"
+	"1/0/0-0/1/1" -- "r5-0/1/1"
+	"1/1/4-0/1/1" -- "r5-0/1/1"
+	"2/1/4-0/1/1" -- "r5-0/1/1"
+	"1/0/0-1/0/0" -- "r5-1/0/0"
+	"1/1/4-1/0/0" -- "r5-1/0/0"
+	"2/1/4-1/0/0" -- "r5-1/0/0"
+	"1/0/0-1/0/1" -- "r5-1/0/1"
+	"1/1/4-1/0/1" -- "r5-1/0/1"
+	"2/1/4-1/0/1" -- "r5-1/0/1"
+	"1/0/0-1/1/0" -- "r5-1/1/0"
+	"1/1/4-1/1/0" -- "r5-1/1/0"
+	"2/1/4-1/1/0" -- "r5-1/1/0"
+	"1/0/0-1/1/1" -- "r5-1/1/1"
+	"1/1/4-1/1/1" -- "r5-1/1/1"
+	"2/1/4-1/1/1" -- "r5-1/1/1"
+	"1/0/0-2/0/0" -- "r5-2/0/0"
+	"1/1/4-2/0/0" -- "r5-2/0/0"
+	"2/1/4-2/0/0" -- "r5-2/0/0"
+	"1/0/0-2/0/1" -- "r5-2/0/1"
+	"1/1/4-2/0/1" -- "r5-2/0/1"
+	"2/1/4-2/0/1" -- "r5-2/0/1"
+	"1/0/0-2/1/0" -- "r5-2/1/0"
+	"1/1/4-2/1/0" -- "r5-2/1/0"
+	"2/1/4-2/1/0" -- "r5-2/1/0"
+	"1/0/0-2/1/1" -- "r5-2/1/1"
+	"1/1/4-2/1/1" -- "r5-2/1/1"
+	"2/1/4-2/1/1" -- "r5-2/1/1"
+	"1/0/0-0/0/0" -- "r6-0/0/0"
+	"0/2/4-0/0/0" -- "r6-0/0/0"
+	"1/2/5-0/0/0" -- "r6-0/0/0"
+	"1/0/0-0/0/1" -- "r6-0/0/1"
+	"0/2/4-0/0/1" -- "r6-0/0/1"
+	"1/2/5-0/0/1" -- "r6-0/0/1"
+	"1/0/0-0/1/0" -- "r6-0/1/0"
+	"0/2/4-0/1/0" -- "r6-0/1/0"
+	"1/2/5-0/1/0" -- "r6-0/1/0"
+	"1/0/0-0/1/1" -- "r6-0/1/1"
+	"0/2/4-0/1/1" -- "r6-0/1/1"
+	"1/2/5-0/1/1" -- "r6-0/1/1"
+	"1/0/0-1/0/0" -- "r6-1/0/0"
+	"0/2/4-1/0/0" -- "r6-1/0/0"
+	"1/2/5-1/0/0" -- "r6-1/0/0"
+	"1/0/0-1/0/1" -- "r6-1/0/1"
+	"0/2/4-1/0/1" -- "r6-1/0/1"
+	"1/2/5-1/0/1" -- "r6-1/0/1"
+	"1/0/0-1/1/0" -- "r6-1/1/0"
+	"0/2/4-1/1/0" -- "r6-1/1/0"
+	"1/2/5-1/1/0" -- "r6-1/1/0"
+	"1/0/0-1/1/1" -- "r6-1/1/1"
+	"0/2/4-1/1/1" -- "r6-1/1/1"
+	"1/2/5-1/1/1" -- "r6-1/1/1"
+	"1/0/0-2/0/0" -- "r6-2/0/0"
+	"0/2/4-2/0/0" -- "r6-2/0/0"
+	"1/2/5-2/0/0" -- "r6-2/0/0"
+	"1/0/0-2/0/1" -- "r6-2/0/1"
+	"0/2/4-2/0/1" -- "r6-2/0/1"
+	"1/2/5-2/0/1" -- "r6-2/0/1"
+	"1/0/0-2/1/0" -- "r6-2/1/0"
+	"0/2/4-2/1/0" -- "r6-2/1/0"
+	"1/2/5-2/1/0" -- "r6-2/1/0"
+	"1/0/0-2/1/1" -- "r6-2/1/1"
+	"0/2/4-2/1/1" -- "r6-2/1/1"
+	"1/2/5-2/1/1" -- "r6-2/1/1"
+	"0/1/0-0/0/0" -- "r7-0/0/0"
+	"1/1/4-0/0/0" -- "r7-0/0/0"
+	"1/2/5-0/0/0" -- "r7-0/0/0"
+	"0/1/0-0/0/1" -- "r7-0/0/1"
+	"1/1/4-0/0/1" -- "r7-0/0/1"
+	"1/2/5-0/0/1" -- "r7-0/0/1"
+	"0/1/0-0/1/0" -- "r7-0/1/0"
+	"1/1/4-0/1/0" -- "r7-0/1/0"
+	"1/2/5-0/1/0" -- "r7-0/1/0"
+	"0/1/0-0/1/1" -- "r7-0/1/1"
+	"1/1/4-0/1/1" -- "r7-0/1/1"
+	"1/2/5-0/1/1" -- "r7-0/1/1"
+	"0/1/0-1/0/0" -- "r7-1/0/0"
+	"1/1/4-1/0/0" -- "r7-1/0/0"
+	"1/2/5-1/0/0" -- "r7-1/0/0"
+	"0/1/0-1/0/1" -- "r7-1/0/1"
+	"1/1/4-1/0/1" -- "r7-1/0/1"
+	"1/2/5-1/0/1" -- "r7-1/0/1"
+	"0/1/0-1/1/0" -- "r7-1/1/0"
+	"1/1/4-1/1/0" -- "r7-1/1/0"
+	"1/2/5-1/1/0" -- "r7-1/1/0"
+	"0/1/0-1/1/1" -- "r7-1/1/1"
+	"1/1/4-1/1/1" -- "r7-1/1/1"
+	"1/2/5-1/1/1" -- "r7-1/1/1"
+	"0/1/0-2/0/0" -- "r7-2/0/0"
+	"1/1/4-2/0/0" -- "r7-2/0/0"
+	"1/2/5-2/0/0" -- "r7-2/0/0"
+	"0/1/0-2/0/1" -- "r7-2/0/1"
+	"1/1/4-2/0/1" -- "r7-2/0/1"
+	"1/2/5-2/0/1" -- "r7-2/0/1"
+	"0/1/0-2/1/0" -- "r7-2/1/0"
+	"1/1/4-2/1/0" -- "r7-2/1/0"
+	"1/2/5-2/1/0" -- "r7-2/1/0"
+	"0/1/0-2/1/1" -- "r7-2/1/1"
+	"1/1/4-2/1/1" -- "r7-2/1/1"
+	"1/2/5-2/1/1" -- "r7-2/1/1"
+	"0/1/0-0/0/0" -- "r8-0/0/0"
+	"1/1/4-0/0/0" -- "r8-0/0/0"
+	"1/2/5-0/0/0" -- "r8-0/0/0"
+	"0/1/0-0/0/1" -- "r8-0/0/1"
+	"1/1/4-0/0/1" -- "r8-0/0/1"
+	"1/2/5-0/0/1" -- "r8-0/0/1"
+	"0/1/0-0/1/0" -- "r8-0/1/0"
+	"1/1/4-0/1/0" -- "r8-0/1/0"
+	"1/2/5-0/1/0" -- "r8-0/1/0"
+	"0/1/0-0/1/1" -- "r8-0/1/1"
+	"1/1/4-0/1/1" -- "r8-0/1/1"
+	"1/2/5-0/1/1" -- "r8-0/1/1"
+	"0/1/0-1/0/0" -- "r8-1/0/0"
+	"1/1/4-1/0/0" -- "r8-1/0/0"
+	"1/2/5-1/0/0" -- "r8-1/0/0"
+	"0/1/0-1/0/1" -- "r8-1/0/1"
+	"1/1/4-1/0/1" -- "r8-1/0/1"
+	"1/2/5-1/0/1" -- "r8-1/0/1"
+	"0/1/0-1/1/0" -- "r8-1/1/0"
+	"1/1/4-1/1/0" -- "r8-1/1/0"
+	"1/2/5-1/1/0" -- "r8-1/1/0"
+	"0/1/0-1/1/1" -- "r8-1/1/1"
+	"1/1/4-1/1/1" -- "r8-1/1/1"
+	"1/2/5-1/1/1" -- "r8-1/1/1"
+	"0/1/0-2/0/0" -- "r8-2/0/0"
+	"1/1/4-2/0/0" -- "r8-2/0/0"
+	"1/2/5-2/0/0" -- "r8-2/0/0"
+	"0/1/0-2/0/1" -- "r8-2/0/1"
+	"1/1/4-2/0/1" -- "r8-2/0/1"
+	"1/2/5-2/0/1" -- "r8-2/0/1"
+	"0/1/0-2/1/0" -- "r8-2/1/0"
+	"1/1/4-2/1/0" -- "r8-2/1/0"
+	"1/2/5-2/1/0" -- "r8-2/1/0"
+	"0/1/0-2/1/1" -- "r8-2/1/1"
+	"1/1/4-2/1/1" -- "r8-2/1/1"
+	"1/2/5-2/1/1" -- "r8-2/1/1"
+	"0/1/0-0/0/0" -- "r9-0/0/0"
+	"0/2/4-0/0/0" -- "r9-0/0/0"
+	"0/3/5-0/0/0" -- "r9-0/0/0"
+	"0/1/0-0/0/1" -- "r9-0/0/1"
+	"0/2/4-0/0/1" -- "r9-0/0/1"
+	"0/3/5-0/0/1" -- "r9-0/0/1"
+	"0/1/0-0/1/0" -- "r9-0/1/0"
+	"0/2/4-0/1/0" -- "r9-0/1/0"
+	"0/3/5-0/1/0" -- "r9-0/1/0"
+	"0/1/0-0/1/1" -- "r9-0/1/1"
+	"0/2/4-0/1/1" -- "r9-0/1/1"
+	"0/3/5-0/1/1" -- "r9-0/1/1"
+	"0/1/0-1/0/0" -- "r9-1/0/0"
+	"0/2/4-1/0/0" -- "r9-1/0/0"
+	"0/3/5-1/0/0" -- "r9-1/0/0"
+	"0/1/0-1/0/1" -- "r9-1/0/1"
+	"0/2/4-1/0/1" -- "r9-1/0/1"
+	"0/3/5-1/0/1" -- "r9-1/0/1"
+	"0/1/0-1/1/0" -- "r9-1/1/0"
+	"0/2/4-1/1/0" -- "r9-1/1/0"
+	"0/3/5-1/1/0" -- "r9-1/1/0"
+	"0/1/0-1/1/1" -- "r9-1/1/1"
+	"0/2/4-1/1/1" -- "r9-1/1/1"
+	"0/3/5-1/1/1" -- "r9-1/1/1"
+	"0/1/0-2/0/0" -- "r9-2/0/0"
+	"0/2/4-2/0/0" -- "r9-2/0/0"
+	"0/3/5-2/0/0" -- "r9-2/0/0"
+	"0/1/0-2/0/1" -- "r9-2/0/1"
+	"0/2/4-2/0/1" -- "r9-2/0/1"
+	"0/3/5-2/0/1" -- "r9-2/0/1"
+	"0/1/0-2/1/0" -- "r9-2/1/0"
+	"0/2/4-2/1/0" -- "r9-2/1/0"
+	"0/3/5-2/1/0" -- "r9-2/1/0"
+	"0/1/0-2/1/1" -- "r9-2/1/1"
+	"0/2/4-2/1/1" -- "r9-2/1/1"
+	"0/3/5-2/1/1" -- "r9-2/1/1"
+	"1/1/4-0/0/0" -- "r10-0/0/0"
+	"1/1/4-0/0/0" -- "r10-0/0/0"
+	"2/2/5-0/0/0" -- "r10-0/0/0"
+	"1/1/4-0/0/1" -- "r10-0/0/1"
+	"1/1/4-0/0/1" -- "r10-0/0/1"
+	"2/2/5-0/0/1" -- "r10-0/0/1"
+	"1/1/4-0/1/0" -- "r10-0/1/0"
+	"1/1/4-0/1/0" -- "r10-0/1/0"
+	"2/2/5-0/1/0" -- "r10-0/1/0"
+	"1/1/4-0/1/1" -- "r10-0/1/1"
+	"1/1/4-0/1/1" -- "r10-0/1/1"
+	"2/2/5-0/1/1" -- "r10-0/1/1"
+	"1/1/4-1/0/0" -- "r10-1/0/0"
+	"1/1/4-1/0/0" -- "r10-1/0/0"
+	"2/2/5-1/0/0" -- "r10-1/0/0"
+	"1/1/4-1/0/1" -- "r10-1/0/1"
+	"1/1/4-1/0/1" -- "r10-1/0/1"
+	"2/2/5-1/0/1" -- "r10-1/0/1"
+	"1/1/4-1/1/0" -- "r10-1/1/0"
+	"1/1/4-1/1/0" -- "r10-1/1/0"
+	"2/2/5-1/1/0" -- "r10-1/1/0"
+	"1/1/4-1/1/1" -- "r10-1/1/1"
+	"1/1/4-1/1/1" -- "r10-1/1/1"
+	"2/2/5-1/1/1" -- "r10-1/1/1"
+	"1/1/4-2/0/0" -- "r10-2/0/0"
+	"1/1/4-2/0/0" -- "r10-2/0/0"
+	"2/2/5-2/0/0" -- "r10-2/0/0"
+	"1/1/4-2/0/1" -- "r10-2/0/1"
+	"1/1/4-2/0/1" -- "r10-2/0/1"
+	"2/2/5-2/0/1" -- "r10-2/0/1"
+	"1/1/4-2/1/0" -- "r10-2/1/0"
+	"1/1/4-2/1/0" -- "r10-2/1/0"
+	"2/2/5-2/1/0" -- "r10-2/1/0"
+	"1/1/4-2/1/1" -- "r10-2/1/1"
+	"1/1/4-2/1/1" -- "r10-2/1/1"
+	"2/2/5-2/1/1" -- "r10-2/1/1"
+	"1/1/4-0/0/0" -- "r11-0/0/0"
+	"1/1/4-0/0/0" -- "r11-0/0/0"
+	"2/2/5-0/0/0" -- "r11-0/0/0"
+	"1/1/4-0/0/1" -- "r11-0/0/1"
+	"1/1/4-0/0/1" -- "r11-0/0/1"
+	"2/2/5-0/0/1" -- "r11-0/0/1"
+	"1/1/4-0/1/0" -- "r11-0/1/0"
+	"1/1/4-0/1/0" -- "r11-0/1/0"
+	"2/2/5-0/1/0" -- "r11-0/1/0"
+	"1/1/4-0/1/1" -- "r11-0/1/1"
+	"1/1/4-0/1/1" -- "r11-0/1/1"
+	"2/2/5-0/1/1" -- "r11-0/1/1"
+	"1/1/4-1/0/0" -- "r11-1/0/0"
+	"1/1/4-1/0/0" -- "r11-1/0/0"
+	"2/2/5-1/0/0" -- "r11-1/0/0"
+	"1/1/4-1/0/1" -- "r11-1/0/1"
+	"1/1/4-1/0/1" -- "r11-1/0/1"
+	"2/2/5-1/0/1" -- "r11-1/0/1"
+	"1/1/4-1/1/0" -- "r11-1/1/0"
+	"1/1/4-1/1/0" -- "r11-1/1/0"
+	"2/2/5-1/1/0" -- "r11-1/1/0"
+	"1/1/4-1/1/1" -- "r11-1/1/1"
+	"1/1/4-1/1/1" -- "r11-1/1/1"
+	"2/2/5-1/1/1" -- "r11-1/1/1"
+	"1/1/4-2/0/0" -- "r11-2/0/0"
+	"1/1/4-2/0/0" -- "r11-2/0/0"
+	"2/2/5-2/0/0" -- "r11-2/0/0"
+	"1/1/4-2/0/1" -- "r11-2/0/1"
+	"1/1/4-2/0/1" -- "r11-2/0/1"
+	"2/2/5-2/0/1" -- "r11-2/0/1"
+	"1/1/4-2/1/0" -- "r11-2/1/0"
+	"1/1/4-2/1/0" -- "r11-2/1/0"
+	"2/2/5-2/1/0" -- "r11-2/1/0"
+	"1/1/4-2/1/1" -- "r11-2/1/1"
+	"1/1/4-2/1/1" -- "r11-2/1/1"
+	"2/2/5-2/1/1" -- "r11-2/1/1"
+	"1/1/4-0/0/0" -- "r12-0/0/0"
+	"0/2/4-0/0/0" -- "r12-0/0/0"
+	"1/3/5-0/0/0" -- "r12-0/0/0"
+	"1/1/4-0/0/1" -- "r12-0/0/1"
+	"0/2/4-0/0/1" -- "r12-0/0/1"
+	"1/3/5-0/0/1" -- "r12-0/0/1"
+	"1/1/4-0/1/0" -- "r12-0/1/0"
+	"0/2/4-0/1/0" -- "r12-0/1/0"
+	"1/3/5-0/1/0" -- "r12-0/1/0"
+	"1/1/4-0/1/1" -- "r12-0/1/1"
+	"0/2/4-0/1/1" -- "r12-0/1/1"
+	"1/3/5-0/1/1" -- "r12-0/1/1"
+	"1/1/4-1/0/0" -- "r12-1/0/0"
+	"0/2/4-1/0/0" -- "r12-1/0/0"
+	"1/3/5-1/0/0" -- "r12-1/0/0"
+	"1/1/4-1/0/1" -- "r12-1/0/1"
+	"0/2/4-1/0/1" -- "r12-1/0/1"
+	"1/3/5-1/0/1" -- "r12-1/0/1"
+	"1/1/4-1/1/0" -- "r12-1/1/0"
+	"0/2/4-1/1/0" -- "r12-1/1/0"
+	"1/3/5-1/1/0" -- "r12-1/1/0"
+	"1/1/4-1/1/1" -- "r12-1/1/1"
+	"0/2/4-1/1/1" -- "r12-1/1/1"
+	"1/3/5-1/1/1" -- "r12-1/1/1"
+	"1/1/4-2/0/0" -- "r12-2/0/0"
+	"0/2/4-2/0/0" -- "r12-2/0/0"
+	"1/3/5-2/0/0" -- "r12-2/0/0"
+	"1/1/4-2/0/1" -- "r12-2/0/1"
+	"0/2/4-2/0/1" -- "r12-2/0/1"
+	"1/3/5-2/0/1" -- "r12-2/0/1"
+	"1/1/4-2/1/0" -- "r12-2/1/0"
+	"0/2/4-2/1/0" -- "r12-2/1/0"
+	"1/3/5-2/1/0" -- "r12-2/1/0"
+	"1/1/4-2/1/1" -- "r12-2/1/1"
+	"0/2/4-2/1/1" -- "r12-2/1/1"
+	"1/3/5-2/1/1" -- "r12-2/1/1"
+	"1/1/4-0/0/0" -- "r13-0/0/0"
+	"1/1/4-0/0/0" -- "r13-0/0/0"
+	"2/2/5-0/0/0" -- "r13-0/0/0"
+	"1/1/4-0/0/1" -- "r13-0/0/1"
+	"1/1/4-0/0/1" -- "r13-0/0/1"
+	"2/2/5-0/0/1" -- "r13-0/0/1"
+	"1/1/4-0/1/0" -- "r13-0/1/0"
+	"1/1/4-0/1/0" -- "r13-0/1/0"
+	"2/2/5-0/1/0" -- "r13-0/1/0"
+	"1/1/4-0/1/1" -- "r13-0/1/1"
+	"1/1/4-0/1/1" -- "r13-0/1/1"
+	"2/2/5-0/1/1" -- "r13-0/1/1"
+	"1/1/4-1/0/0" -- "r13-1/0/0"
+	"1/1/4-1/0/0" -- "r13-1/0/0"
+	"2/2/5-1/0/0" -- "r13-1/0/0"
+	"1/1/4-1/0/1" -- "r13-1/0/1"
+	"1/1/4-1/0/1" -- "r13-1/0/1"
+	"2/2/5-1/0/1" -- "r13-1/0/1"
+	"1/1/4-1/1/0" -- "r13-1/1/0"
+	"1/1/4-1/1/0" -- "r13-1/1/0"
+	"2/2/5-1/1/0" -- "r13-1/1/0"
+	"1/1/4-1/1/1" -- "r13-1/1/1"
+	"1/1/4-1/1/1" -- "r13-1/1/1"
+	"2/2/5-1/1/1" -- "r13-1/1/1"
+	"1/1/4-2/0/0" -- "r13-2/0/0"
+	"1/1/4-2/0/0" -- "r13-2/0/0"
+	"2/2/5-2/0/0" -- "r13-2/0/0"
+	"1/1/4-2/0/1" -- "r13-2/0/1"
+	"1/1/4-2/0/1" -- "r13-2/0/1"
+	"2/2/5-2/0/1" -- "r13-2/0/1"
+	"1/1/4-2/1/0" -- "r13-2/1/0"
+	"1/1/4-2/1/0" -- "r13-2/1/0"
+	"2/2/5-2/1/0" -- "r13-2/1/0"
+	"1/1/4-2/1/1" -- "r13-2/1/1"
+	"1/1/4-2/1/1" -- "r13-2/1/1"
+	"2/2/5-2/1/1" -- "r13-2/1/1"
+	"1/1/4-0/0/0" -- "r14-0/0/0"
+	"1/1/4-0/0/0" -- "r14-0/0/0"
+	"2/2/5-0/0/0" -- "r14-0/0/0"
+	"1/1/4-0/0/1" -- "r14-0/0/1"
+	"1/1/4-0/0/1" -- "r14-0/0/1"
+	"2/2/5-0/0/1" -- "r14-0/0/1"
+	"1/1/4-0/1/0" -- "r14-0/1/0"
+	"1/1/4-0/1/0" -- "r14-0/1/0"
+	"2/2/5-0/1/0" -- "r14-0/1/0"
+	"1/1/4-0/1/1" -- "r14-0/1/1"
+	"1/1/4-0/1/1" -- "r14-0/1/1"
+	"2/2/5-0/1/1" -- "r14-0/1/1"
+	"1/1/4-1/0/0" -- "r14-1/0/0"
+	"1/1/4-1/0/0" -- "r14-1/0/0"
+	"2/2/5-1/0/0" -- "r14-1/0/0"
+	"1/1/4-1/0/1" -- "r14-1/0/1"
+	"1/1/4-1/0/1" -- "r14-1/0/1"
+	"2/2/5-1/0/1" -- "r14-1/0/1"
+	"1/1/4-1/1/0" -- "r14-1/1/0"
+	"1/1/4-1/1/0" -- "r14-1/1/0"
+	"2/2/5-1/1/0" -- "r14-1/1/0"
+	"1/1/4-1/1/1" -- "r14-1/1/1"
+	"1/1/4-1/1/1" -- "r14-1/1/1"
+	"2/2/5-1/1/1" -- "r14-1/1/1"
+	"1/1/4-2/0/0" -- "r14-2/0/0"
+	"1/1/4-2/0/0" -- "r14-2/0/0"
+	"2/2/5-2/0/0" -- "r14-2/0/0"
+	"1/1/4-2/0/1" -- "r14-2/0/1"
+	"1/1/4-2/0/1" -- "r14-2/0/1"
+	"2/2/5-2/0/1" -- "r14-2/0/1"
+	"1/1/4-2/1/0" -- "r14-2/1/0"
+	"1/1/4-2/1/0" -- "r14-2/1/0"
+	"2/2/5-2/1/0" -- "r14-2/1/0"
+	"1/1/4-2/1/1" -- "r14-2/1/1"
+	"1/1/4-2/1/1" -- "r14-2/1/1"
+	"2/2/5-2/1/1" -- "r14-2/1/1"
+	"1/1/4-0/0/0" -- "r15-0/0/0"
+	"0/2/4-0/0/0" -- "r15-0/0/0"
+	"1/3/5-0/0/0" -- "r15-0/0/0"
+	"1/1/4-0/0/1" -- "r15-0/0/1"
+	"0/2/4-0/0/1" -- "r15-0/0/1"
+	"1/3/5-0/0/1" -- "r15-0/0/1"
+	"1/1/4-0/1/0" -- "r15-0/1/0"
+	"0/2/4-0/1/0" -- "r15-0/1/0"
+	"1/3/5-0/1/0" -- "r15-0/1/0"
+	"1/1/4-0/1/1" -- "r15-0/1/1"
+	"0/2/4-0/1/1" -- "r15-0/1/1"
+	"1/3/5-0/1/1" -- "r15-0/1/1"
+	"1/1/4-1/0/0" -- "r15-1/0/0"
+	"0/2/4-1/0/0" -- "r15-1/0/0"
+	"1/3/5-1/0/0" -- "r15-1/0/0"
+	"1/1/4-1/0/1" -- "r15-1/0/1"
+	"0/2/4-1/0/1" -- "r15-1/0/1"
+	"1/3/5-1/0/1" -- "r15-1/0/1"
+	"1/1/4-1/1/0" -- "r15-1/1/0"
+	"0/2/4-1/1/0" -- "r15-1/1/0"
+	"1/3/5-1/1/0" -- "r15-1/1/0"
+	"1/1/4-1/1/1" -- "r15-1/1/1"
+	"0/2/4-1/1/1" -- "r15-1/1/1"
+	"1/3/5-1/1/1" -- "r15-1/1/1"
+	"1/1/4-2/0/0" -- "r15-2/0/0"
+	"0/2/4-2/0/0" -- "r15-2/0/0"
+	"1/3/5-2/0/0" -- "r15-2/0/0"
+	"1/1/4-2/0/1" -- "r15-2/0/1"
+	"0/2/4-2/0/1" -- "r15-2/0/1"
+	"1/3/5-2/0/1" -- "r15-2/0/1"
+	"1/1/4-2/1/0" -- "r15-2/1/0"
+	"0/2/4-2/1/0" -- "r15-2/1/0"
+	"1/3/5-2/1/0" -- "r15-2/1/0"
+	"1/1/4-2/1/1" -- "r15-2/1/1"
+	"0/2/4-2/1/1" -- "r15-2/1/1"
+	"1/3/5-2/1/1" -- "r15-2/1/1"
+	"0/2/4-0/0/0" -- "r16-0/0/0"
+	"1/1/4-0/0/0" -- "r16-0/0/0"
+	"1/3/5-0/0/0" -- "r16-0/0/0"
+	"0/2/4-0/0/1" -- "r16-0/0/1"
+	"1/1/4-0/0/1" -- "r16-0/0/1"
+	"1/3/5-0/0/1" -- "r16-0/0/1"
+	"0/2/4-0/1/0" -- "r16-0/1/0"
+	"1/1/4-0/1/0" -- "r16-0/1/0"
+	"1/3/5-0/1/0" -- "r16-0/1/0"
+	"0/2/4-0/1/1" -- "r16-0/1/1"
+	"1/1/4-0/1/1" -- "r16-0/1/1"
+	"1/3/5-0/1/1" -- "r16-0/1/1"
+	"0/2/4-1/0/0" -- "r16-1/0/0"
+	"1/1/4-1/0/0" -- "r16-1/0/0"
+	"1/3/5-1/0/0" -- "r16-1/0/0"
+	"0/2/4-1/0/1" -- "r16-1/0/1"
+	"1/1/4-1/0/1" -- "r16-1/0/1"
+	"1/3/5-1/0/1" -- "r16-1/0/1"
+	"0/2/4-1/1/0" -- "r16-1/1/0"
+	"1/1/4-1/1/0" -- "r16-1/1/0"
+	"1/3/5-1/1/0" -- "r16-1/1/0"
+	"0/2/4-1/1/1" -- "r16-1/1/1"
+	"1/1/4-1/1/1" -- "r16-1/1/1"
+	"1/3/5-1/1/1" -- "r16-1/1/1"
+	"0/2/4-2/0/0" -- "r16-2/0/0"
+	"1/1/4-2/0/0" -- "r16-2/0/0"
+	"1/3/5-2/0/0" -- "r16-2/0/0"
+	"0/2/4-2/0/1" -- "r16-2/0/1"
+	"1/1/4-2/0/1" -- "r16-2/0/1"
+	"1/3/5-2/0/1" -- "r16-2/0/1"
+	"0/2/4-2/1/0" -- "r16-2/1/0"
+	"1/1/4-2/1/0" -- "r16-2/1/0"
+	"1/3/5-2/1/0" -- "r16-2/1/0"
+	"0/2/4-2/1/1" -- "r16-2/1/1"
+	"1/1/4-2/1/1" -- "r16-2/1/1"
+	"1/3/5-2/1/1" -- "r16-2/1/1"
+	"0/2/4-0/0/0" -- "r17-0/0/0"
+	"1/1/4-0/0/0" -- "r17-0/0/0"
+	"1/3/5-0/0/0" -- "r17-0/0/0"
+	"0/2/4-0/0/1" -- "r17-0/0/1"
+	"1/1/4-0/0/1" -- "r17-0/0/1"
+	"1/3/5-0/0/1" -- "r17-0/0/1"
+	"0/2/4-0/1/0" -- "r17-0/1/0"
+	"1/1/4-0/1/0" -- "r17-0/1/0"
+	"1/3/5-0/1/0" -- "r17-0/1/0"
+	"0/2/4-0/1/1" -- "r17-0/1/1"
+	"1/1/4-0/1/1" -- "r17-0/1/1"
+	"1/3/5-0/1/1" -- "r17-0/1/1"
+	"0/2/4-1/0/0" -- "r17-1/0/0"
+	"1/1/4-1/0/0" -- "r17-1/0/0"
+	"1/3/5-1/0/0" -- "r17-1/0/0"
+	"0/2/4-1/0/1" -- "r17-1/0/1"
+	"1/1/4-1/0/1" -- "r17-1/0/1"
+	"1/3/5-1/0/1" -- "r17-1/0/1"
+	"0/2/4-1/1/0" -- "r17-1/1/0"
+	"1/1/4-1/1/0" -- "r17-1/1/0"
+	"1/3/5-1/1/0" -- "r17-1/1/0"
+	"0/2/4-1/1/1" -- "r17-1/1/1"
+	"1/1/4-1/1/1" -- "r17-1/1/1"
+	"1/3/5-1/1/1" -- "r17-1/1/1"
+	"0/2/4-2/0/0" -- "r17-2/0/0"
+	"1/1/4-2/0/0" -- "r17-2/0/0"
+	"1/3/5-2/0/0" -- "r17-2/0/0"
+	"0/2/4-2/0/1" -- "r17-2/0/1"
+	"1/1/4-2/0/1" -- "r17-2/0/1"
+	"1/3/5-2/0/1" -- "r17-2/0/1"
+	"0/2/4-2/1/0" -- "r17-2/1/0"
+	"1/1/4-2/1/0" -- "r17-2/1/0"
+	"1/3/5-2/1/0" -- "r17-2/1/0"
+	"0/2/4-2/1/1" -- "r17-2/1/1"
+	"1/1/4-2/1/1" -- "r17-2/1/1"
+	"1/3/5-2/1/1" -- "r17-2/1/1"
+	"0/2/4-0/0/0" -- "r18-0/0/0"
+	"0/2/4-0/0/0" -- "r18-0/0/0"
+	"0/4/5-0/0/0" -- "r18-0/0/0"
+	"0/2/4-0/0/1" -- "r18-0/0/1"
+	"0/2/4-0/0/1" -- "r18-0/0/1"
+	"0/4/5-0/0/1" -- "r18-0/0/1"
+	"0/2/4-0/1/0" -- "r18-0/1/0"
+	"0/2/4-0/1/0" -- "r18-0/1/0"
+	"0/4/5-0/1/0" -- "r18-0/1/0"
+	"0/2/4-0/1/1" -- "r18-0/1/1"
+	"0/2/4-0/1/1" -- "r18-0/1/1"
+	"0/4/5-0/1/1" -- "r18-0/1/1"
+	"0/2/4-1/0/0" -- "r18-1/0/0"
+	"0/2/4-1/0/0" -- "r18-1/0/0"
+	"0/4/5-1/0/0" -- "r18-1/0/0"
+	"0/2/4-1/0/1" -- "r18-1/0/1"
+	"0/2/4-1/0/1" -- "r18-1/0/1"
+	"0/4/5-1/0/1" -- "r18-1/0/1"
+	"0/2/4-1/1/0" -- "r18-1/1/0"
+	"0/2/4-1/1/0" -- "r18-1/1/0"
+	"0/4/5-1/1/0" -- "r18-1/1/0"
+	"0/2/4-1/1/1" -- "r18-1/1/1"
+	"0/2/4-1/1/1" -- "r18-1/1/1"
+	"0/4/5-1/1/1" -- "r18-1/1/1"
+	"0/2/4-2/0/0" -- "r18-2/0/0"
+	"0/2/4-2/0/0" -- "r18-2/0/0"
+	"0/4/5-2/0/0" -- "r18-2/0/0"
+	"0/2/4-2/0/1" -- "r18-2/0/1"
+	"0/2/4-2/0/1" -- "r18-2/0/1"
+	"0/4/5-2/0/1" -- "r18-2/0/1"
+	"0/2/4-2/1/0" -- "r18-2/1/0"
+	"0/2/4-2/1/0" -- "r18-2/1/0"
+	"0/4/5-2/1/0" -- "r18-2/1/0"
+	"0/2/4-2/1/1" -- "r18-2/1/1"
+	"0/2/4-2/1/1" -- "r18-2/1/1"
+	"0/4/5-2/1/1" -- "r18-2/1/1"
+	"1/0/0-0/0/0" -- "1/0/0-0/0/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-0/0/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-0/0/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-0/0/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-0/0/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-0/0/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-0/0/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-0/0/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-0/0/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-0/0/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-0/1/0" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-0/1/0" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-0/1/0" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-0/1/0" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-0/1/0" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-0/1/0" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-0/1/0" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-0/1/0" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-0/1/0" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-0/1/0" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-0/1/0" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-0/1/0" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-0/1/0" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-0/1/0" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-0/1/0" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-0/1/0" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-0/1/0" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-0/1/0" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-0/1/0" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-0/1/0" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-0/1/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-0/1/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-0/1/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-0/1/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-0/1/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-0/1/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-0/1/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-0/1/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-0/1/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-0/1/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-0/1/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-0/1/1" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-0/1/1" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-0/1/1" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-0/1/1" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-0/1/1" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-0/1/1" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-0/1/1" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-0/1/1" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-0/1/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-0/1/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-0/1/1" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-0/1/1" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-0/1/1" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-0/1/1" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-0/1/1" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-0/1/1" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-0/1/1" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-0/1/1" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-0/1/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-1/0/0" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-1/0/0" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-1/0/0" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-1/0/0" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-1/0/0" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-1/0/0" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-1/0/0" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-1/0/0" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-1/0/0" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-1/0/0" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-1/0/0" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-1/0/0" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-1/0/0" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-1/0/0" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-1/0/0" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-1/0/0" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-1/0/0" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-1/0/0" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-1/0/0" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-1/0/0" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-1/0/0" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-1/0/0" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-1/0/0" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-1/0/0" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-1/0/0" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-1/0/0" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-1/0/0" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-1/0/0" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-1/0/0" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-1/0/0" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-1/0/0" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-1/0/0" [style=dashed]
+	"1/1/4-0/1/1" -- "1/1/4-1/0/0" [style=dashed]
+	"0/2/4-0/1/1" -- "0/2/4-1/0/0" [style=dashed]
+	"2/1/4-0/1/1" -- "2/1/4-1/0/0" [style=dashed]
+	"1/2/5-0/1/1" -- "1/2/5-1/0/0" [style=dashed]
+	"0/3/5-0/1/1" -- "0/3/5-1/0/0" [style=dashed]
+	"2/2/5-0/1/1" -- "2/2/5-1/0/0" [style=dashed]
+	"1/3/5-0/1/1" -- "1/3/5-1/0/0" [style=dashed]
+	"0/4/5-0/1/1" -- "0/4/5-1/0/0" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-1/0/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-1/0/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-1/0/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-1/0/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-1/0/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-1/0/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-1/0/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-1/0/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-1/0/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-1/0/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-1/0/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-1/0/1" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-1/0/1" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-1/0/1" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-1/0/1" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-1/0/1" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-1/0/1" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-1/0/1" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-1/0/1" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-1/0/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-1/0/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-1/0/1" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-1/0/1" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-1/0/1" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-1/0/1" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-1/0/1" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-1/0/1" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-1/0/1" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-1/0/1" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-1/0/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-1/0/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-1/0/1" [style=dashed]
+	"1/1/4-0/1/1" -- "1/1/4-1/0/1" [style=dashed]
+	"0/2/4-0/1/1" -- "0/2/4-1/0/1" [style=dashed]
+	"2/1/4-0/1/1" -- "2/1/4-1/0/1" [style=dashed]
+	"1/2/5-0/1/1" -- "1/2/5-1/0/1" [style=dashed]
+	"0/3/5-0/1/1" -- "0/3/5-1/0/1" [style=dashed]
+	"2/2/5-0/1/1" -- "2/2/5-1/0/1" [style=dashed]
+	"1/3/5-0/1/1" -- "1/3/5-1/0/1" [style=dashed]
+	"0/4/5-0/1/1" -- "0/4/5-1/0/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-1/0/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-1/0/1" [style=dashed]
+	"1/1/4-1/0/0" -- "1/1/4-1/0/1" [style=dashed]
+	"0/2/4-1/0/0" -- "0/2/4-1/0/1" [style=dashed]
+	"2/1/4-1/0/0" -- "2/1/4-1/0/1" [style=dashed]
+	"1/2/5-1/0/0" -- "1/2/5-1/0/1" [style=dashed]
+	"0/3/5-1/0/0" -- "0/3/5-1/0/1" [style=dashed]
+	"2/2/5-1/0/0" -- "2/2/5-1/0/1" [style=dashed]
+	"1/3/5-1/0/0" -- "1/3/5-1/0/1" [style=dashed]
+	"0/4/5-1/0/0" -- "0/4/5-1/0/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-1/1/0" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-1/1/0" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-1/1/0" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-1/1/0" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-1/1/0" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-1/1/0" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-1/1/0" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-1/1/0" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-1/1/0" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-1/1/0" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-0/1/1" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-0/1/1" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-0/1/1" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-0/1/1" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-0/1/1" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-0/1/1" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-0/1/1" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-0/1/1" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-1/0/0" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-1/0/0" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-1/0/0" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-1/0/0" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-1/0/0" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-1/0/0" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-1/0/0" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-1/0/0" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-1/0/1" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-1/0/1" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-1/0/1" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-1/0/1" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-1/0/1" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-1/0/1" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-1/0/1" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-1/0/1" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-1/0/1" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-1/0/1" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-1/1/0" -- "1/0/0-1/1/1" [style=dashed]
+	"0/1/0-1/1/0" -- "0/1/0-1/1/1" [style=dashed]
+	"1/1/4-1/1/0" -- "1/1/4-1/1/1" [style=dashed]
+	"0/2/4-1/1/0" -- "0/2/4-1/1/1" [style=dashed]
+	"2/1/4-1/1/0" -- "2/1/4-1/1/1" [style=dashed]
+	"1/2/5-1/1/0" -- "1/2/5-1/1/1" [style=dashed]
+	"0/3/5-1/1/0" -- "0/3/5-1/1/1" [style=dashed]
+	"2/2/5-1/1/0" -- "2/2/5-1/1/1" [style=dashed]
+	"1/3/5-1/1/0" -- "1/3/5-1/1/1" [style=dashed]
+	"0/4/5-1/1/0" -- "0/4/5-1/1/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-0/1/1" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-0/1/1" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-0/1/1" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-0/1/1" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-0/1/1" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-0/1/1" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-0/1/1" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-0/1/1" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-1/0/0" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-1/0/0" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-1/0/0" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-1/0/0" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-1/0/0" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-1/0/0" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-1/0/0" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-1/0/0" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-1/0/1" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-1/0/1" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-1/0/1" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-1/0/1" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-1/0/1" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-1/0/1" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-1/0/1" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-1/0/1" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-1/0/1" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-1/0/1" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-1/1/0" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-1/1/0" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-1/1/0" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-1/1/0" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-1/1/0" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-1/1/0" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-1/1/0" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-1/1/0" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-1/1/0" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-1/1/0" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-1/1/1" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-1/1/1" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-1/1/1" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-1/1/1" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-1/1/1" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-1/1/1" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-1/1/1" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-1/1/1" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-1/1/1" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-1/1/1" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-2/0/0" -- "1/0/0-2/0/1" [style=dashed]
+	"0/1/0-2/0/0" -- "0/1/0-2/0/1" [style=dashed]
+	"1/1/4-2/0/0" -- "1/1/4-2/0/1" [style=dashed]
+	"0/2/4-2/0/0" -- "0/2/4-2/0/1" [style=dashed]
+	"2/1/4-2/0/0" -- "2/1/4-2/0/1" [style=dashed]
+	"1/2/5-2/0/0" -- "1/2/5-2/0/1" [style=dashed]
+	"0/3/5-2/0/0" -- "0/3/5-2/0/1" [style=dashed]
+	"2/2/5-2/0/0" -- "2/2/5-2/0/1" [style=dashed]
+	"1/3/5-2/0/0" -- "1/3/5-2/0/1" [style=dashed]
+	"0/4/5-2/0/0" -- "0/4/5-2/0/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-2/1/0" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-2/1/0" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-2/1/0" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-2/1/0" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-2/1/0" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-2/1/0" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-2/1/0" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-2/1/0" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-2/1/0" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-2/1/0" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-0/0/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-0/0/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-0/0/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-0/0/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-0/0/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-0/0/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-0/0/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-0/0/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-0/0/1" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-0/0/1" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-0/0/1" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-0/0/1" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-0/0/1" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-0/0/1" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-0/0/1" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-0/0/1" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-0/1/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-0/1/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-0/1/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-0/1/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-0/1/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-0/1/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-0/1/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-0/1/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-0/1/1" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-0/1/1" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-0/1/1" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-0/1/1" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-0/1/1" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-0/1/1" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-0/1/1" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-0/1/1" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-1/0/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-1/0/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-1/0/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-1/0/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-1/0/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-1/0/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-1/0/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-1/0/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-1/0/1" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-1/0/1" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-1/0/1" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-1/0/1" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-1/0/1" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-1/0/1" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-1/0/1" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-1/0/1" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-1/0/1" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-1/0/1" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-1/1/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-1/1/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-1/1/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-1/1/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-1/1/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-1/1/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-1/1/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-1/1/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-1/1/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-1/1/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-1/1/1" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-1/1/1" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-1/1/1" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-1/1/1" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-1/1/1" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-1/1/1" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-1/1/1" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-1/1/1" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-1/1/1" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-1/1/1" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-2/0/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-2/0/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-2/0/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-2/0/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-2/0/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-2/0/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-2/0/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-2/0/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-2/0/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-2/0/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-2/0/1" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-2/0/1" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-2/0/1" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-2/0/1" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-2/0/1" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-2/0/1" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-2/0/1" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-2/0/1" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-2/0/1" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-2/0/1" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-2/1/0" -- "1/0/0-2/1/1" [style=dashed]
+	"0/1/0-2/1/0" -- "0/1/0-2/1/1" [style=dashed]
+	"1/1/4-2/1/0" -- "1/1/4-2/1/1" [style=dashed]
+	"0/2/4-2/1/0" -- "0/2/4-2/1/1" [style=dashed]
+	"2/1/4-2/1/0" -- "2/1/4-2/1/1" [style=dashed]
+	"1/2/5-2/1/0" -- "1/2/5-2/1/1" [style=dashed]
+	"0/3/5-2/1/0" -- "0/3/5-2/1/1" [style=dashed]
+	"2/2/5-2/1/0" -- "2/2/5-2/1/1" [style=dashed]
+	"1/3/5-2/1/0" -- "1/3/5-2/1/1" [style=dashed]
+	"0/4/5-2/1/0" -- "0/4/5-2/1/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-1/0/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-1/0/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-1/1/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-1/1/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-1/1/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-1/1/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-2/0/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-2/0/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-2/0/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-2/0/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-2/1/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-2/1/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-2/1/1" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-2/1/1" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-3/0/0" -- "1/0/0-3/0/1" [style=dashed]
+	"0/1/0-3/0/0" -- "0/1/0-3/0/1" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-3/1/0" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-3/1/0" [style=dashed]
+	"1/0/0-0/0/0" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-0/0/0" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-0/0/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-0/0/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-0/1/0" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-0/1/0" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-0/1/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-0/1/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-1/0/0" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-1/0/0" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-1/0/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-1/0/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-1/1/0" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-1/1/0" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-1/1/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-1/1/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-2/0/0" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-2/0/0" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-2/0/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-2/0/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-2/1/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-2/1/1" -- "0/1/0-3/1/1" [style=dashed]
+	"1/0/0-3/0/1" -- "1/0/0-3/1/1" [style=dashed]
+	"0/1/0-3/0/1" -- "0/1/0-3/1/1" [style=dashed]
+}

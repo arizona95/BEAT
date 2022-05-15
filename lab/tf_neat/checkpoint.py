@@ -1,6 +1,6 @@
 """Uses `pickle` to save and restore populations (and other aspects of the simulation state)."""
 from __future__ import print_function
-
+import os
 import gzip
 import random
 import time
@@ -12,7 +12,7 @@ except ImportError:
 
 from tf_neat.population import Population
 from neat.reporting import BaseReporter
-
+from neat.reporting import ReporterSet
 
 class Checkpointer(BaseReporter):
     """
@@ -62,14 +62,20 @@ class Checkpointer(BaseReporter):
 
     def save_checkpoint(self, config, population, species_set, generation):
         """ Save the current simulation state. """
-        filename = '{0}{1}'.format(self.filename_prefix,generation)
-        filename = f"{self.filename_prefix}\\gen_{generation+1}\\genomes"
-        #print("Saving checkpoint to {0}".format(filename))
-        print(f"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\m {__name__}")
-        if __name__ == "__main__" :
-            with gzip.open(filename, 'w', compresslevel=5) as file:
-                data = (generation, config, population, species_set, random.getstate())
-                pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
+        #filename = '{0}{1}'.format(self.filename_prefix,generation)
+        filename = f"{self.filename_prefix}\\gen_{generation+1}"
+
+        if not os.path.exists(filename):   os.makedirs(filename)
+        filename = f"{filename}\\genomes"
+
+        print("Saving checkpoint to {0}".format(filename))
+
+        new_species_set = species_set
+        new_species_set.reporters = ReporterSet()
+
+        with gzip.open(filename, 'w', compresslevel=5) as file:
+            data = (generation, config, population, new_species_set, random.getstate())
+            pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
 
     @staticmethod
     def restore_checkpoint(filename):

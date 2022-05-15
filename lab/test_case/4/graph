@@ -1,0 +1,310 @@
+graph G {
+	subgraph "cluster0/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-0/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-0/0/0" [label="0/1/0"]
+		label="0/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster0/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-0/0/1" [label="1/0/0"]
+		label="0/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster0/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-0/1/0" [label="1/0/0"]
+		label="0/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster0/1/1" {
+		color=blue
+		label="0/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster1/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-1/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/0/0" [label="0/1/0"]
+		label="1/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster1/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/0/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/0/1" [label="0/1/0"]
+		label="1/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster1/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/1/0" [label="0/1/0"]
+		label="1/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster1/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-1/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-1/1/1" [label="0/1/0"]
+		label="1/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster2/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-2/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/0/0" [label="0/1/0"]
+		label="2/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster2/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/0/1" [label="1/0/0"]
+		label="2/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster2/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/1/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/1/0" [label="0/1/0"]
+		label="2/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster2/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-2/1/1" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-2/1/1" [label="0/1/0"]
+		label="2/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkgreen shape=doublecircle]
+		"1/0/0-3/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-3/0/0" [label="0/1/0"]
+		label="3/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/0/1" [label="1/0/0"]
+		label="3/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/1/0" [label="1/0/0"]
+		label="3/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster3/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-3/1/1" [label="1/0/0"]
+		label="3/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-4/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-4/0/0" [label="0/1/0"]
+		label="4/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-4/0/1" [label="1/0/0"]
+		label="4/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-4/1/0" [label="1/0/0"]
+		label="4/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster4/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-4/1/1" [label="1/0/0"]
+		label="4/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/0/0" {
+		color=blue
+		node [color=black shape=circle]
+		node [color=darkorange shape=doublecircle]
+		"1/0/0-5/0/0" [label="1/0/0"]
+		node [color=black shape=circle]
+		"0/1/0-5/0/0" [label="0/1/0"]
+		label="5/0/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/0/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-5/0/1" [label="1/0/0"]
+		label="5/0/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/1/0" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-5/1/0" [label="1/0/0"]
+		label="5/1/0"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	subgraph "cluster5/1/1" {
+		color=blue
+		node [color=black shape=circle]
+		"1/0/0-5/1/1" [label="1/0/0"]
+		label="5/1/1"
+		node [color=lightgrey shape=square style=filled width=0.47]
+	}
+	compound=true
+	"cluster2/0/0" -- "cluster1/1/0" [color=blue]
+	"cluster2/1/0" -- "cluster1/1/1" [color=blue]
+	"cluster3/0/0" -- "cluster1/1/0" [color=blue]
+	"cluster3/0/0" -- "cluster1/1/1" [color=blue]
+	"cluster3/0/0" -- "cluster2/0/1" [color=blue]
+	"cluster3/0/0" -- "cluster2/1/0" [color=blue]
+	"cluster3/0/0" -- "cluster2/1/1" [color=blue]
+	"cluster3/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster3/1/0" -- "cluster1/1/1" [color=blue]
+	"cluster3/1/0" -- "cluster2/1/1" [color=blue]
+	"cluster4/0/0" -- "cluster0/1/1" [color=blue]
+	"cluster4/0/0" -- "cluster1/1/0" [color=blue]
+	"cluster4/0/0" -- "cluster1/1/1" [color=blue]
+	"cluster4/0/0" -- "cluster2/0/1" [color=blue]
+	"cluster4/0/0" -- "cluster2/1/0" [color=blue]
+	"cluster4/0/0" -- "cluster2/1/1" [color=blue]
+	"cluster4/0/0" -- "cluster3/0/1" [color=blue]
+	"cluster4/0/0" -- "cluster3/1/0" [color=blue]
+	"cluster4/0/0" -- "cluster3/1/1" [color=blue]
+	"cluster4/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster3/1/0" [color=blue]
+	"cluster4/0/1" -- "cluster3/1/1" [color=blue]
+	"cluster4/1/0" -- "cluster1/1/1" [color=blue]
+	"cluster4/1/0" -- "cluster2/1/1" [color=blue]
+	"cluster4/1/0" -- "cluster3/1/1" [color=blue]
+	"cluster5/0/0" -- "cluster0/1/1" [color=blue]
+	"cluster5/0/0" -- "cluster1/1/0" [color=blue]
+	"cluster5/0/0" -- "cluster1/1/1" [color=blue]
+	"cluster5/0/0" -- "cluster2/0/1" [color=blue]
+	"cluster5/0/0" -- "cluster2/1/0" [color=blue]
+	"cluster5/0/0" -- "cluster2/1/1" [color=blue]
+	"cluster5/0/0" -- "cluster3/0/1" [color=blue]
+	"cluster5/0/0" -- "cluster3/1/0" [color=blue]
+	"cluster5/0/0" -- "cluster3/1/1" [color=blue]
+	"cluster5/0/0" -- "cluster4/0/1" [color=blue]
+	"cluster5/0/0" -- "cluster4/1/0" [color=blue]
+	"cluster5/0/0" -- "cluster4/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster1/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster2/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster3/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster3/1/1" [color=blue]
+	"cluster5/0/1" -- "cluster4/1/0" [color=blue]
+	"cluster5/0/1" -- "cluster4/1/1" [color=blue]
+	"cluster5/1/0" -- "cluster1/1/1" [color=blue]
+	"cluster5/1/0" -- "cluster2/1/1" [color=blue]
+	"cluster5/1/0" -- "cluster3/1/1" [color=blue]
+	"cluster5/1/0" -- "cluster4/1/0" [color=blue]
+	"cluster5/1/0" -- "cluster4/1/1" [color=blue]
+	"cluster5/1/0" -- "cluster5/0/1" [color=blue]
+	"cluster5/1/1" -- "cluster5/1/0" [color=blue]
+	"1/0/0-1/1/0" -- "1/0/0-2/0/0" [style=bold]
+	"0/1/0-1/1/0" -- "0/1/0-2/0/0" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-2/1/0" [style=bold]
+	"0/1/0-1/1/1" -- "0/1/0-2/1/0" [style=bold]
+	"1/0/0-1/1/0" -- "1/0/0-3/0/0" [style=bold]
+	"0/1/0-1/1/0" -- "0/1/0-3/0/0" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-3/0/0" [style=bold]
+	"0/1/0-1/1/1" -- "0/1/0-3/0/0" [style=bold]
+	"1/0/0-2/0/1" -- "1/0/0-3/0/0" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-3/0/0" [style=bold]
+	"0/1/0-2/1/0" -- "0/1/0-3/0/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-3/0/0" [style=bold]
+	"0/1/0-2/1/1" -- "0/1/0-3/0/0" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-3/0/1" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-3/1/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-3/1/0" [style=bold]
+	"1/0/0-1/1/0" -- "1/0/0-4/0/0" [style=bold]
+	"0/1/0-1/1/0" -- "0/1/0-4/0/0" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-4/0/0" [style=bold]
+	"0/1/0-1/1/1" -- "0/1/0-4/0/0" [style=bold]
+	"1/0/0-2/0/1" -- "1/0/0-4/0/0" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-4/0/0" [style=bold]
+	"0/1/0-2/1/0" -- "0/1/0-4/0/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-4/0/0" [style=bold]
+	"0/1/0-2/1/1" -- "0/1/0-4/0/0" [style=bold]
+	"1/0/0-3/0/1" -- "1/0/0-4/0/0" [style=bold]
+	"1/0/0-3/1/0" -- "1/0/0-4/0/0" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-4/0/0" [style=bold]
+	"1/0/0-1/1/0" -- "1/0/0-4/0/1" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-4/0/1" [style=bold]
+	"1/0/0-3/1/0" -- "1/0/0-4/0/1" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-4/0/1" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-4/1/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-4/1/0" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-4/1/0" [style=bold]
+	"1/0/0-1/1/0" -- "1/0/0-5/0/0" [style=bold]
+	"0/1/0-1/1/0" -- "0/1/0-5/0/0" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-5/0/0" [style=bold]
+	"0/1/0-1/1/1" -- "0/1/0-5/0/0" [style=bold]
+	"1/0/0-2/0/1" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-5/0/0" [style=bold]
+	"0/1/0-2/1/0" -- "0/1/0-5/0/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-5/0/0" [style=bold]
+	"0/1/0-2/1/1" -- "0/1/0-5/0/0" [style=bold]
+	"1/0/0-3/0/1" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-3/1/0" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-4/0/1" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-4/1/0" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-4/1/1" -- "1/0/0-5/0/0" [style=bold]
+	"1/0/0-1/1/0" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-2/1/0" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-3/1/0" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-4/1/0" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-4/1/1" -- "1/0/0-5/0/1" [style=bold]
+	"1/0/0-1/1/1" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-2/1/1" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-3/1/1" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-4/1/0" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-4/1/1" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-5/0/1" -- "1/0/0-5/1/0" [style=bold]
+	"1/0/0-5/1/0" -- "1/0/0-5/1/1" [style=bold]
+}

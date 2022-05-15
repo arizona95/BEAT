@@ -27,10 +27,10 @@ class Evaluator :
         plt.clf()
         if rootPath:
         # make idx save folder
-            savePath = f"{rootPath}\{str(idx)}"
+            savePath = f"{rootPath}\\{str(idx)}"
             os.makedirs(savePath)
 
-            with open(f"{savePath}\genome.JSON", 'wb') as fw:
+            with open(f"{savePath}\\genome.JSON", 'wb') as fw:
                 pickle.dump(genome, fw)
 
         net = self.make_net(genome, config, 1)
@@ -77,12 +77,13 @@ class Evaluator :
         for epoch in range (300) :
 
             simulator.input(input_vector)
-            success = simulator.run(0.1)
+            success = simulator.run(1)
             if success == False:  return self.fail_fitness
             output_vector = simulator.output()
-            action = 1 if output_vector > 100 else 0
+            #print(f"output_vector {output_vector}")
+            action = 1 if output_vector[0] > 250 else 0
             state, reward, done, _ = self.env.step(action)
-            input_vector = np.minimum(1,np.exp(state))
+            input_vector = 10*np.exp(np.minimum(1,state))
             fitnesses += reward
 
             if rootPath and (done or (epoch+1)%10 == 0) :

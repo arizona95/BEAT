@@ -4,6 +4,8 @@ import neat
 from evaluator import Evaluator
 from datetime import datetime
 from tf_neat.recurrent_net import RecurrentNet
+from tf_neat.adaptive_linear_net import AdaptiveLinearNet
+from tf_neat.adaptive_net import AdaptiveNet
 from tf_neat.population import Population
 from tf_neat.parallel import ParallelEvaluator
 from tf_neat.neat_reporter import LogReporter
@@ -12,10 +14,18 @@ import tensorflow as tf
 rootPath =""
 
 def make_env():
-    return gym.make("CartPole-v0")
+    return gym.make("CartPole-v1")
 
 def make_net(genome, config, bs):
-    return RecurrentNet.create(genome, config, bs)
+    #input_coords = [[-1.0, 0.0], [0.0, 0.0], [1.0, 0.0], [0.0, -1.0]]
+    #output_coords = [[-1.0, 0.0], [0.0, 0.0], [1.0, 0.0]]
+    return RecurrentNet.create(
+        genome,
+        config,
+        #input_coords=input_coords,
+        #output_coords=output_coords,
+        batch_size=bs
+    )
 
 def neat_cfg_change() :
     with open("neat_cfg_maker.cfg","r") as rnc :
@@ -34,10 +44,11 @@ def neat_cfg_change() :
 def run(n_generations, checkpoint_path=False):
     global rootPath
 
-    if checkpoint_path == True :
-        pop = neat.Checkpointer.restore_checkpoint('neat-checkpoint-4')
+    if checkpoint_path != False :
+        pop = Checkpointer.restore_checkpoint(checkpoint_path)
     else :
-        config_path = os.path.join(os.path.dirname(os.path.abspath('')), "lab/neat.cfg")
+
+        config_path = os.path.join(os.path.dirname(os.path.abspath('')), "lab\\neat.cfg")
         config = neat.Config(
             neat.DefaultGenome,
             neat.DefaultReproduction,
@@ -46,20 +57,20 @@ def run(n_generations, checkpoint_path=False):
             config_path,
         )
 
-        evaluator = Evaluator(
-            make_net, make_env=make_env, param=param
-        )
-
         pop = Population(config)
-        pe = ParallelEvaluator(1, evaluator.eval_genome,  rootPath=rootPath)
-        stats = neat.StatisticsReporter()
-        pop.add_reporter(stats)
-        reporter = neat.StdOutReporter(True)
-        pop.add_reporter(reporter)
-        logger = LogReporter("./logs/neat.json", evaluator.eval_genome)
-        pop.add_reporter(logger)
-        pop.add_reporter(Checkpointer(1, filename_prefix =rootPath))
 
+    evaluator = Evaluator(
+        make_net, make_env=make_env, param=param
+    )
+
+    stats = neat.StatisticsReporter()
+    pop.add_reporter(stats)
+    reporter = neat.StdOutReporter(True)
+    pop.add_reporter(reporter)
+    logger = LogReporter("./logs/neat.json", evaluator.eval_genome)
+    pop.add_reporter(logger)
+    pop.add_reporter(Checkpointer(1, filename_prefix =rootPath))
+    pe = ParallelEvaluator(3, evaluator.eval_genome, rootPath=rootPath)
     pop.run(pe.evaluate, n_generations)
 
 
@@ -77,12 +88,19 @@ if __name__ == "__main__" :
         "output_num": 1
     }
 
-    s = datetime.now().strftime('%Y-%m-%d-%Hh-%Mm-%Ss')
-    rootPath = f"generations\{s}"
 
-    if not os.path.exists(rootPath):
-        os.makedirs(rootPath)
+    n_generations = 30
+    load_generation = 4
+    load_rootpath = "2022-05-09-07h-18m-45s"
+    filename = f"generations\\{load_rootpath}\\gen_{load_generation}\\genomes"
 
+    now_time = datetime.now().strftime('%Y-%m-%d-%Hh-%Mm-%Ss')
+    rootPath = f"generations\\{now_time}"
+    if not os.path.exists(rootPath):   os.makedirs(rootPath)
     neat_cfg_change()
-    run(5)
-    #run(100, checkpoint_path = "neat-checkpoint-4")
+
+
+    preTraining= False
+    #preTraining = True
+    if preTraining == False : run(n_generations)
+    elif preTraining == True : run(n_generations, checkpoint_path =filename)

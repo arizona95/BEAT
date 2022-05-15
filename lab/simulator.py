@@ -71,12 +71,12 @@ class Simulator :
 
             self.engine = engine
             self.ode_language = ode_language
-            self.method = 'RK23'  # 'RK45', 'RK23', 'DOP853', 'Radau', 'BDF', 'LSODA'
+            self.method = 'LSODA'  # 'RK45', 'RK23', 'DOP853', 'Radau', 'BDF', 'LSODA'
             self.system = System(self.model, engine=self.engine)
 
     @classmethod
     def by_file(cls, savepath):
-        with open(f"{savepath}\model.JSON", 'rb') as fr:
+        with open(f"{savepath}\\model.JSON", 'rb') as fr:
             model = pickle.load(fr)
             return cls(model)
 
@@ -94,7 +94,8 @@ class Simulator :
 
         if self.model["n"] == 0: return False
         if self.model["e"] == 0 : return False
-        if self.model["e"] >= 100: return False
+        if self.model["e"] >= 1000: return False
+
 
         return True
 
@@ -141,10 +142,10 @@ class Simulator :
     def visualize(self, savePath=False):
         if savePath :
             try:
-                plt.savefig(f"{savePath}/model_{str(self.history['age'])}.png", dpi=300)
+                plt.savefig(f"{savePath}\\model_{str(self.history['age'])}.png", dpi=300)
             except :
                 pass
-            with open(f"{savePath}\model.JSON", 'wb') as fw:
+            with open(f"{savePath}\\model.JSON", 'wb') as fw:
                 pickle.dump(self.model_dict, fw)
         else : plt.show()
 

@@ -1,0 +1,35 @@
+@value edgebase: "../../../../nodegraph-base/views/graph/edges/Edge.module.css";
+@value colors: "../../Colors.css";
+@value blue from colors;
+
+.edge
+{
+	composes: edge from edgebase;
+	display: none;
+}
+
+.visible
+{
+	display: initial;
+}
+
+.edge text
+{
+	user-select: none;
+	pointer-events: none;
+}
+
+.line
+{
+	composes: line from edgebase;
+}
+
+.selected
+{
+	composes: selected from edgebase;
+}
+
+.selection
+{
+	composes: selection from edgebase;
+}

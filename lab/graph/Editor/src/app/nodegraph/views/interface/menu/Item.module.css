@@ -1,0 +1,94 @@
+@value interface: "../Interface.module.css";
+@value spacing-tiny, spacing-small from interface;
+@value colors: "../../Colors.css";
+@value white, light-blue, dark-gray from colors;
+
+.bar
+{
+	height: 26px;
+	display: flex;
+	color: white;
+	background-color: dark-gray;
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	font: inherit;
+}
+
+.bar
+{
+	padding-left: spacing-small;
+	padding-right: spacing-tiny;
+}
+
+.bar > *:first-child
+{
+	flex-grow: 1;
+}
+
+.button
+{
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: spacing-tiny;
+	background-color: transparent;
+	display: inline-flex;
+}
+
+.button:disabled
+{
+	cursor: initial;
+}
+
+.button svg
+{
+	height: 16px;
+	fill: light-blue;
+}
+
+.button:active svg
+{
+	fill: white;
+}
+
+.content
+{
+	display: none;
+}
+
+.item.open .content
+{
+	display: block;
+	padding: spacing-small;
+	padding-left: calc( spacing-small * 2 );
+	box-sizing: border-box;
+}
+
+.toggle
+{
+	composes: button;
+	color: white;
+	padding: 0;
+	font: inherit;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+}
+
+.toggle > *:not(:first-child)
+{
+	margin-left: spacing-small;
+}
+
+.toggle svg
+{
+	fill: white;
+	height: 14px;
+}
+
+.open .toggle svg
+{
+	transform: rotate( 90deg );
+}

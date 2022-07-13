@@ -1,0 +1,162 @@
+@value interface: "../Interface.module.css";
+@value button-radius, spacing-tiny, spacing-small from interface;
+@value menu: "./Menu.module.css";
+@value colors: "../../Colors.css";
+@value white, light-blue, blue, medium-gray, light-gray, dark-gray from colors;
+
+.sub > *:not(:first-child)
+{
+	margin-top: spacing-tiny;
+}
+
+.sub input, .sub select, .sub textarea, .button:active
+{
+	background-color: dark-gray;
+}
+
+.sub input, .sub textarea
+{
+	padding: spacing-tiny;
+	box-sizing: border-box;
+}
+
+.sub input, .sub textarea, .sub select
+{
+	border: none;
+}
+
+.sub input:focus, .sub textarea:focus, .sub select:focus
+{
+	outline: 1px solid light-blue;
+	outline-offset: 0;
+}
+
+.sub input, .sub textarea, .sub select, .sub option
+{
+	color: inherit;
+	font: inherit;
+}
+
+.sub option
+{
+	font-weight: 300;
+}
+
+.sub input[type="file"]
+{
+	padding: 2px;
+	height: auto;
+}
+
+.sub textarea
+{
+	resize: vertical;
+	min-height: 26px;
+	padding: 4px;
+}
+
+.sub input, .sub textarea, .sub select, .sub option, .toggle, .button
+{
+	height: 26px;
+}
+
+.sub input, .sub textarea, .toggle
+{
+	width: 100%;
+}
+
+.sub input, .sub textarea, .sub select, .sub option, .inner
+{
+	letter-spacing: 0.1em;
+}
+
+.toggle
+{
+	composes: button from menu;
+	border: 1px solid light-blue;
+}
+
+.toggle, .buttons, .kvp span
+{
+	align-items: center;
+}
+
+.toggle, .button
+{
+	background-color: blue;
+}
+
+.toggle svg
+{
+	fill: white;
+	height: 14px;
+}
+
+.open .toggle svg
+{
+	transform: rotate( 90deg );
+}
+
+.toggle, .inner, .content, .buttons, .kvp span
+{
+	display: flex;
+}
+
+.toggle > *
+{
+	margin-left: spacing-small;
+}
+
+.content
+{
+	display: none;
+}
+
+.open .content, .accent
+{
+	display: block;
+}
+
+.inner
+{
+	border: 1px solid dark-gray;
+	padding: spacing-small;
+}
+
+.inner, .buttons
+{
+	flex-direction: column;
+}
+
+.inner > *:not(:first-child)
+{
+	margin-top: spacing-small;
+}
+
+.accent
+{
+	border-bottom: 1px solid medium-gray;
+	width: calc( 100% - 4px );
+	margin-left: 2px;
+	margin-top: 1px;
+}
+
+.kvp
+{
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-row-gap: spacing-tiny;
+	grid-column-gap: calc( 2 * spacing-small );
+}
+
+.kvp > *:nth-child(2n+1)::after
+{
+	content: ":"
+}
+
+.button
+{
+	composes: button from menu;
+	border-radius: button-radius;
+	padding: 0 spacing-small;
+}

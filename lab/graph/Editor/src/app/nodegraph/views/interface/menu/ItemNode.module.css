@@ -1,0 +1,47 @@
+@value itembase: "./Item.module.css";
+@value sub: "./Sub.module.css";
+@value spacing-small from itembase;
+
+.item
+{
+	composes: item from itembase;
+}
+
+.open
+{
+	composes: open from itembase;
+}
+
+.bar
+{
+	composes: bar from itembase;
+}
+
+.content
+{
+	composes: content from itembase;
+}
+
+.content > *:not(:first-child)
+{
+	margin-top: spacing-small;
+}
+
+.toggle
+{
+	composes: toggle from itembase;
+	width: 100%;
+}
+
+.toggle span
+{
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.kvp
+{
+	composes: kvp from sub;
+}

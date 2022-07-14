@@ -1,0 +1,33 @@
+@value itembase: "./Item.module.css";
+@value sub: "./Sub.module.css";
+@value colors: "../../Colors.css";
+@value medium-gray from colors;
+
+.toggle
+{
+	composes: toggle from itembase;
+}
+
+.button
+{
+	composes: button from itembase;
+}
+
+.kvp
+{
+	composes: kvp from sub;
+}
+
+.invisible svg
+{
+	fill: medium-gray;
+}
+
+.circle
+{
+	border-style: solid;
+	border-width: 2px;
+	height: 12px;
+	width: 12px;
+	border-radius: 100%;
+}

@@ -305,7 +305,7 @@ class Gene :
                                     # add k
                                     k[edge_name] = 0
 
-                                    # add v
+                                    # add v 
                                     v[edge_name] = hamilt_k
 
                                     # count plus

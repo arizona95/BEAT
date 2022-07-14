@@ -1,0 +1,7 @@
+@value colors: "../Colors.css";
+@value grid-stroke from colors;
+
+.stroke
+{
+	stroke: grid-stroke;
+}

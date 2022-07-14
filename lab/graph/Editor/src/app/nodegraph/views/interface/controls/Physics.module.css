@@ -1,0 +1,18 @@
+@value controls: "./Controls.module.css";
+@value colors: "../../Colors.css";
+@value gray, light-gray from colors;
+
+.button
+{
+	composes: button from controls;
+}
+
+.deselected
+{
+	background-color: gray;
+}
+
+.deselected svg
+{
+	fill: light-gray;
+}

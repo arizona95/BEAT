@@ -1,0 +1,20 @@
+@value controls: "./Controls.module.css";
+@value colors: "../Colors.css";
+@value gray, light-gray from colors;
+
+.button
+{
+	composes: button from controls;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.deselected
+{
+	background-color: gray;
+}
+
+.deselected svg
+{
+	fill: light-gray;
+}

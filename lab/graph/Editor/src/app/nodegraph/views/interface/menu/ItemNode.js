@@ -43,7 +43,7 @@ class ItemNode extends Item
 					<span>Text</span>
 					<textarea value={ tempModel.text } onChange={ this._onText } disabled={ !this.props.isEditable }/>
 				</div>
-				<Data data={ tempModel.data } isEditable={ this.props.isEditable }/>
+				<Data data={ tempModel.data } isEditable={ this.props.isEditable } type="node"/>
 			</React.Fragment>
 		);
 	}

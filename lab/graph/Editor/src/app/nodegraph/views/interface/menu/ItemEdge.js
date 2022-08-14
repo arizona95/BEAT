@@ -45,7 +45,7 @@ class ItemEdge extends Item
 					<span>Weight</span>
 					<input type="number" value={ tempModel.weight } onChange={ this._onWeight } disabled={ !this.props.isEditable }/>
 				</div>
-				<Data data={ tempModel.data } isEditable={ this.props.isEditable }/>
+				<Data data={ tempModel.data } isEditable={ this.props.isEditable } type="edge"/>
 			</React.Fragment>
 		);
 	}

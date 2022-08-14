@@ -29,7 +29,7 @@ class Data extends React.Component
 		console.log(this)
 
 		for (const label in config){
-		    if ( !has( this.props.data, label ) )
+		    if ( !has( this.props.data, label ) && this.props.type === "node" )
 			{
 		        set(this.props.data, label, config[label]);
 			}

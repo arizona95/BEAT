@@ -43,8 +43,24 @@ class ItemNodeType extends Item
 		const tempGraph = this.props.graph;
 		const tempNode = new this.props.model._modelClass( tempGraph, this.props.model );
 		tempNode.position = new Vector2D( window.screen.width * 0.5, window.screen.height * 0.5 ).scale( 1 / tempGraph.zoom ).subtract( tempGraph.position );
+
+		if( tempNode._type._name == "Reaction"){
+		    tempNode.data.k=1;
+		}else if( tempNode._type._name == "Space"){
+		    tempNode.data.explanation=""
+		}else if( tempNode._type._name == "Element"){
+		    tempNode.data.q=1;
+		    tempNode.data.m=1;
+		    tempNode.data.explanation=""
+		}else {
+		    tempNode.data.a=10;
+		    tempNode.data.x_0=9;
+		    tempNode.data.c=1
+		}
+
 		tempGraph.setSelectedNode( tempNode );
 		tempGraph.setNode( tempNode );
+		console.log("here!@1",tempNode);
 		
 		return tempNode;
 	}

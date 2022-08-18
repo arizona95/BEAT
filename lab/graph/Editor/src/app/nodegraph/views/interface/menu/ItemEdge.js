@@ -41,10 +41,10 @@ class ItemEdge extends Item
 		
 		return (
 			<React.Fragment>
-				<div className={ tStyle.kvp }>
+				{/*<div className={ tStyle.kvp }>
 					<span>Weight</span>
 					<input type="number" value={ tempModel.weight } onChange={ this._onWeight } disabled={ !this.props.isEditable }/>
-				</div>
+				</div>*/}
 				<Data data={ tempModel.data } isEditable={ this.props.isEditable } type="edge"/>
 			</React.Fragment>
 		);

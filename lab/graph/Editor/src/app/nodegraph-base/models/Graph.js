@@ -83,12 +83,12 @@ export default class Graph
 		*	If the graph is currently in a marquee selection state
 		*	@type {bool}
 		*/
-		this.isMarqueeing = false;
+		this.isMarqueeing = true;
 		/**
 		*	If the graph is currently set in pan mode
 		*	@type {bool}
 		*/
-		this.isPanMode = false;
+		this.isPanMode = true;
 		/**
 		*	Size of the graph's grid
 		*	@type {number}

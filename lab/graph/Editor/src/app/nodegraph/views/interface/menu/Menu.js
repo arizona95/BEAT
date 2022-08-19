@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GraphModel from "../../../models/Graph";
+import SubSimulate from "./SubSimulate";
 import SubImport from "./SubImport";
 import SubExport from "./SubExport";
 import SubTypesNode from "./SubTypesNode";
@@ -61,6 +62,7 @@ export default class Menu extends React.PureComponent
 			case 0: // I/O
 				return (
 					<React.Fragment>
+						<SubSimulate graph={ this.props.graph }/>
 						<SubImport graph={ this.props.graph }/>
 						<SubExport graph={ this.props.graph }/>
 					</React.Fragment>

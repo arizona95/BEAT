@@ -2,7 +2,7 @@ import os
 import json
 from simulator import Simulator
 import pandas as pd
-
+import webbrowser
 class web_parser :
     def __init__(self):
         self.reaction_node_type = "Reaction"
@@ -201,19 +201,21 @@ class web_parser :
             self.model['node_names'] = real_node
 
             for r in self.model :
-                print(r)
-                print(self.model[r])
+                if r not in ['node_names']:
+                    print(f"\n@@@@ {r} @@@@")
+                    print(self.model[r])
             return self.model
 
 
 
 if __name__ == "__main__" :
     parser = web_parser()
-    graph_model_filename = "example"
+    graph_model_filename = "unit3"
     model = parser.parse(f"graph/data/{graph_model_filename}.json")
     simulator = Simulator(model, engine="phy", ode_language='PYTHON')
-    success = simulator.run(1)
+    success = simulator.run(2)
     simulator.visualize(savePath=f"graph/result/")
+    webbrowser.open('file://' + os.path.realpath(f"graph/result/model_2.png"), new=2)
 
 
 ## check reaction consister

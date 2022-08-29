@@ -2,6 +2,10 @@ import os
 import json
 from simulator import Simulator
 import pandas as pd
+import glob
+from dominate import document
+from dominate.tags import *
+
 import webbrowser
 class web_parser :
     def __init__(self):
@@ -215,8 +219,18 @@ if __name__ == "__main__" :
     simulator = Simulator(model, engine="phy", ode_language='PYTHON')
     success = simulator.run(2)
     simulator.visualize(savePath=f"graph/result/")
-    webbrowser.open('file://' + os.path.realpath(f"graph/result/model_2.png"), new=2)
 
+    photos = glob.glob(f"graph/result/model*.png")
+
+    with document(title='Photos') as doc:
+        h1('Photos')
+        for path in photos:
+            div(img(src=path.split('\\')[-1]), _class='photo')
+
+    with open('graph/result/gallery.html', 'w') as f:
+        f.write(doc.render())
+
+    webbrowser.open('file://' + os.path.realpath(f"graph/result/gallery.html"), new=2)
 
 ## check reaction consister
 ## simulation ~~

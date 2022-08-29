@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "ajv": "6.6.1",
+    "child_process": "^1.0.2",
     "d3": "5.7.0",
     "d3-force-3d": "2.0.1",
     "file-saver": "2.0.0",

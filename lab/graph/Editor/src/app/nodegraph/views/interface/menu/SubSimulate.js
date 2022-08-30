@@ -44,15 +44,7 @@ export default class SubSimulate extends Sub
 	onRun()
 	{
 		console.log("onRun!")
-		const { exec } = require('child_process');
-        console.log(exec)
-        exec("calc", (error, stdout, stderr) => {
-          console.log("stdout: " + stdout);
-          console.log("stderr: " + stderr);
-          if (error !== null) {
-            console.log("exec error: " + error);
-          }
-        });
+		window.test(this.props);
 	}
 
 

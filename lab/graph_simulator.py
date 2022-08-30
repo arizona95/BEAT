@@ -220,17 +220,17 @@ if __name__ == "__main__" :
     success = simulator.run(2)
     simulator.visualize(savePath=f"graph/result/")
 
-    photos = glob.glob(f"graph/result/model*.png")
+    photos = glob.glob(f"graph/Editor/src/result/model*.png")
 
     with document(title='Photos') as doc:
         h1('Photos')
         for path in photos:
             div(img(src=path.split('\\')[-1]), _class='photo')
 
-    with open('graph/result/gallery.html', 'w') as f:
+    with open('graph/Editor/src/result/gallery.html', 'w') as f:
         f.write(doc.render())
 
-    webbrowser.open('file://' + os.path.realpath(f"graph/result/gallery.html"), new=2)
+    webbrowser.open('file://' + os.path.realpath(f"graph/Editor/src/result/gallery.html"), new=2)
 
 ## check reaction consister
 ## simulation ~~

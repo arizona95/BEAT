@@ -5,7 +5,6 @@ import pandas as pd
 import glob
 from dominate import document
 from dominate.tags import *
-
 import webbrowser
 class web_parser :
     def __init__(self):

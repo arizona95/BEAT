@@ -19,21 +19,6 @@ class Data extends React.Component
 		};
 
 
-        //add initial label
-		const config = {
-		    'a' : "10",
-		    'x_0' : "9",
-		    "c" : "1",
-		}
-
-		console.log(this)
-
-		for (const label in config){
-		    if ( !has( this.props.data, label ) && this.props.type === "node" )
-			{
-		        set(this.props.data, label, config[label]);
-			}
-		}
 		
 		// Events
 		this._onNewText = ( tEvent ) => { this.setState( { newKey: tEvent.target.value } ); };

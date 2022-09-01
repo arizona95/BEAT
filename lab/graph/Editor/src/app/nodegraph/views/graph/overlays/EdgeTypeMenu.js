@@ -64,9 +64,24 @@ class EdgeTypeMenu extends React.Component
 			tempType = new TypeModel();
 			tempGraph.setEdgeType( tempType );
 		}
+        console.log(tempType)
 		
 		// Apply link
 		const tempEdge = new tempType._modelClass( tempType, tempGraph.linkingPin, this.state.target );
+		console.log(tempEdge)
+		if( tempEdge._type._name == "ChemicalReaction"){
+		    tempEdge.data.amount=1;
+		}else if( tempEdge._type._name == "SpaceElement"){
+		}else if( tempEdge._type._name == "SpaceNeighbor"){
+		    tempEdge.data.distance=1;
+		}else if( tempEdge._type._name == "Consist"){
+		    tempEdge.data.amount=1;
+		}else if( tempEdge._type._name == "HamiltonianDiffusion"){
+		    tempEdge.data.k=0;
+		    tempEdge.data.v=0;
+		}
+
+
 		tempGraph.linkingPin.setLink( tempEdge );
 		tempGraph.linkingPin = null;
 	}

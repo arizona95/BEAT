@@ -8,6 +8,7 @@ import ItemNodeType from "./ItemNodeType";
 
 class SubTypesNode extends SubTypes
 {
+
 	onNew()
 	{
 		if ( this.state.newKey !== "" && this.props.graph._nodeTypes[ this.state.newKey ] === undefined )
@@ -24,6 +25,21 @@ class SubTypesNode extends SubTypes
 	
 	renderItems()
 	{
+	    const spaceTypeModel = new TypeModel("Space");
+	    spaceTypeModel.fill="#4D52F5"
+	    spaceTypeModel.radius=50
+        this.props.graph.setNodeType(spaceTypeModel);
+
+	    const reactionTypeModel = new TypeModel("Reaction");
+	    reactionTypeModel.fill="#A39F9F"
+	    reactionTypeModel.radius=24
+        this.props.graph.setNodeType(reactionTypeModel);
+
+        const elementTypeModel = new TypeModel("Element");
+	    elementTypeModel.fill="#C4C70F"
+	    elementTypeModel.radius=30
+        this.props.graph.setNodeType(elementTypeModel);
+
 		return (
 			<React.Fragment>
 				{

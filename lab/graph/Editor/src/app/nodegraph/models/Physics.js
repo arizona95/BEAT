@@ -22,7 +22,7 @@ export default class Physics
 		*	True if physics is running
 		*	@type {bool}
 		*/
-		this._isEnabled = true;
+		this._isEnabled = false;
 		/**
 		*	Array of node physics bodies
 		*	@type {BodyNode[]}

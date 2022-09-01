@@ -142,6 +142,8 @@ class System:
             colision_flow_p = -self.c_ * (grad_p).T
             external_homeostasis_flow_x = self.h * (self.x_h - self.x)
 
+            #print(self.energy())
+
             return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
 
         elif self.engine == "bio":

@@ -24,6 +24,31 @@ class SubTypesEdge extends SubTypes
 	
 	renderItems()
 	{
+	    const chemicalReactionTypeModel = new TypeModel("ChemicalReaction");
+	    chemicalReactionTypeModel.stroke="#2A3563"
+	    chemicalReactionTypeModel.text="r"
+        this.props.graph.setEdgeType(chemicalReactionTypeModel);
+
+        const spaceElementTypeModel = new TypeModel("SpaceElement");
+	    spaceElementTypeModel.stroke="#7D90CA"
+	    spaceElementTypeModel.text="s"
+        this.props.graph.setEdgeType(spaceElementTypeModel);
+
+        const spaceNeighborTypeModel = new TypeModel("SpaceNeighbor");
+	    spaceNeighborTypeModel.stroke="#4D52F5"
+	    spaceNeighborTypeModel.text="n"
+        this.props.graph.setEdgeType(spaceNeighborTypeModel);
+
+        const consistTypeModel = new TypeModel("Consist");
+	    consistTypeModel.stroke="#859532"
+	    consistTypeModel.text="c"
+        this.props.graph.setEdgeType(consistTypeModel);
+
+        const hamiltonianDiffusionTypeModel = new TypeModel("HamiltonianDiffusion");
+	    hamiltonianDiffusionTypeModel.stroke="#D6104F"
+	    hamiltonianDiffusionTypeModel.text="f"
+        this.props.graph.setEdgeType(hamiltonianDiffusionTypeModel);
+
 		return (
 			<React.Fragment>
 				{

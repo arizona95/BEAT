@@ -6,6 +6,7 @@ import GraphModel from "../../../models/Graph";
 import GraphVizReader from "../../../formats/GraphVizReader";
 import GraphJSONReader from "../../../formats/GraphJSONReader";
 import Style from "./Sub.module.css";
+import GraphVizWriter from "../../../formats/GraphVizWriter";
 
 export default class SubSimulate extends Sub
 {
@@ -44,7 +45,18 @@ export default class SubSimulate extends Sub
 	onRun()
 	{
 		console.log("onRun!")
-		window.test(this.props);
+		const writer = new GraphVizWriter();
+		var selected_string = ""
+
+		for (var selected_node in this.props.graph._selectedNodes){
+		    console.log(selected_node)
+            selected_string=selected_string+selected_node+","
+        }
+
+		window.test({
+		    graph: JSON.stringify( writer.write( this.props.graph ) ),
+		    selected: selected_string,
+		    state: JSON.stringify(this.state)});
 	}
 
 

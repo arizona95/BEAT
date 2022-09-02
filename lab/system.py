@@ -103,7 +103,7 @@ class System:
         # calculate initial parameter
         self.x, self.p = self.x_0, self.p_0
         self.q = np.dot(np.diag(np.dot(self.M, self.q_c).T[0]), self.S)
-        self.V = np.dot(self.q, np.dot(1 / (self.D + 1) - 1, self.q.T))
+        self.V = np.dot(self.q, np.dot(1 / (self.D + 1), self.q.T))
         self.m = np.dot(self.M, self.m_c)
 
     def energy(self, ):

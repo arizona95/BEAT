@@ -70,6 +70,7 @@ export default class Menu extends React.PureComponent
 			case 1: // Graph
 				return (
 					<React.Fragment>
+						<SubSimulate graph={ this.props.graph }/>
 						<SubTypesNode graph={ this.props.graph } isEditable={ this.props.isEditable }/>
 						<SubTypesEdge graph={ this.props.graph } isEditable={ this.props.isEditable }/>
 					</React.Fragment>
@@ -77,6 +78,7 @@ export default class Menu extends React.PureComponent
 			case 2: // Data
 				return (
 					<React.Fragment>
+						<SubSimulate graph={ this.props.graph }/>
 						<SubDataNodes graph={ this.props.graph } isEditable={ this.props.isEditable }/>
 						<SubDataEdges graph={ this.props.graph } isEditable={ this.props.isEditable }/>
 					</React.Fragment>

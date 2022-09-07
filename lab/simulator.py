@@ -117,6 +117,9 @@ class Simulator :
         xp0 = np.array([self.model["x_0"], self.model["p_0"]]).reshape(-1)
         t = np.linspace(0, time)
 
+        with open('test', 'a') as f:
+            f.write(self.ode_language + '\n')
+
         ## simulate
         try :  xp = self.simulating( xp0, t, self.ode_language, method=self.method)
         except KeyboardInterrupt: return False

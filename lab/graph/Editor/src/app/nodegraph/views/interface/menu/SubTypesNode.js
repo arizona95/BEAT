@@ -40,6 +40,11 @@ class SubTypesNode extends SubTypes
 	    elementTypeModel.radius=30
         this.props.graph.setNodeType(elementTypeModel);
 
+        const externelTypeModel = new TypeModel("External");
+	    externelTypeModel.fill="#000000"
+	    externelTypeModel.radius=30
+        this.props.graph.setNodeType(externelTypeModel);
+
 		return (
 			<React.Fragment>
 				{

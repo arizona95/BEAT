@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photos</title>
+  </head>
+  <body>
+    <h3>simlate result
+</h3>
+    <h3>engine: phy
+</h3>
+    <h3>ode_language: FORTRAN
+</h3>
+    <h3>selected: 4,5,
+</h3>
+    <h3>Traceback (most recent call last):
+</h3>
+    <h3>  File &quot;graph_simulator_electron.py&quot;, line 304, in &lt;module&gt;
+</h3>
+    <h3>    success = simulator.run(running_time-r_t, selectNode=selected, labelRecord=True)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 182, in run
+</h3>
+    <h3>    try :  ln_xp = self.simulating( ln_xp0, t, self.ode_language, method=self.method)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 148, in simulating
+</h3>
+    <h3>    return odeint(ode_function, ln_xp0, t)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\odepack.py&quot;, line 244, in odeint
+</h3>
+    <h3>    int(bool(tfirst)))
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 147, in &lt;lambda&gt;
+</h3>
+    <h3>    ode_function = lambda ln_xp, t: self.system.ode(t, ln_xp)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 223, in ode
+</h3>
+    <h3>    flow_ln_x, flow_p = self.flow()
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 149, in flow
+</h3>
+    <h3>    print( min(self.x, np.exp(-100)))
+</h3>
+    <h3>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</h3>
+    <h3>
+</h3>
+  </body>
+</html>

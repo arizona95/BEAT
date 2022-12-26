@@ -79,6 +79,8 @@ class EdgeTypeMenu extends React.Component
 		}else if( tempEdge._type._name == "HamiltonianDiffusion"){
 		    tempEdge.data.k=0;
 		    tempEdge.data.v=0;
+		}else if( tempEdge._type._name == "ExternalDiffusion"){
+		    tempEdge.data.h=1;
 		}
 
 

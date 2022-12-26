@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photos</title>
+  </head>
+  <body>
+    <h3>simlate result
+</h3>
+    <h3>engine: phy
+</h3>
+    <h3>ode_language: PYTHON
+</h3>
+    <h3>selected: 
+</h3>
+    <h3>Traceback (most recent call last):
+</h3>
+    <h3>  File &quot;graph_simulator_electron.py&quot;, line 308, in &lt;module&gt;
+</h3>
+    <h3>    success = simulator.run(running_time-r_t, selectNode=selected, labelRecord=True)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 160, in run
+</h3>
+    <h3>    try :  xp = self.simulating( xp0, t, self.ode_language, method=self.method)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 56, in wrapper
+</h3>
+    <h3>    result = func(*args, **kwargs)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 128, in simulating
+</h3>
+    <h3>    solution = solve_ivp(self.system.ode, [0, t[-1]], xp0, method=method, dense_output=True)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\ivp.py&quot;, line 576, in solve_ivp
+</h3>
+    <h3>    message = solver.step()
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 181, in step
+</h3>
+    <h3>    success, message = self._step_impl()
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\bdf.py&quot;, line 355, in _step_impl
+</h3>
+    <h3>    scale, self.newton_tol)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\bdf.py&quot;, line 43, in solve_bdf_system
+</h3>
+    <h3>    f = fun(t_new, y)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 138, in fun
+</h3>
+    <h3>    return self.fun_single(t, y)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 20, in fun_wrapped
+</h3>
+    <h3>    return np.asarray(fun(t, y), dtype=dtype)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 243, in ode
+</h3>
+    <h3>    flow_x, flow_p = self.flow()
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 185, in flow
+</h3>
+    <h3>    debug()
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 178, in debug
+</h3>
+    <h3>    print(f&quot;self.p:{self.p}&quot;)
+</h3>
+    <h3>OSError: [Errno 22] Invalid argument
+</h3>
+    <h3>
+</h3>
+  </body>
+</html>

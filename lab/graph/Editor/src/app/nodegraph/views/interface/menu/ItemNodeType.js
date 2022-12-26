@@ -47,15 +47,20 @@ class ItemNodeType extends Item
 		if( tempNode._type._name == "Reaction"){
 		    tempNode.data.k=1;
 		}else if( tempNode._type._name == "Space"){
+		    tempNode.data.V=1
 		    tempNode.data.explanation=""
 		}else if( tempNode._type._name == "Element"){
-		    tempNode.data.q=1;
+		    tempNode.data.q=0;
 		    tempNode.data.m=1;
 		    tempNode.data.explanation=""
+		}else if( tempNode._type._name == "External"){
+		    tempNode.data.x_h=1;
+		    tempNode.data.explanation=""
 		}else {
-		    tempNode.data.a=10;
-		    tempNode.data.x_0=9;
-		    tempNode.data.c=1
+		    tempNode.data.A=1;
+		    tempNode.data.C_0=1;
+		    tempNode.data.c=1;
+		    tempNode.data.input="";
 		}
 
 		tempGraph.setSelectedNode( tempNode );

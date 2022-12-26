@@ -1,3 +1,32 @@
-오류 메세지 출력
-시스템변수 적용
-lnx 기준 ode 적용
+	1. 외부 node 추가
+	2.  시스템변수 적용 - system, language
+	2.1 bio 모드 변경 - er 제거 -> system 기능으로 변경
+	2.2 시뮬레이팅 시간 표시
+	8. ode gpu 가속화 - julia, numba
+	12. 농도, 부피 추가
+	3. select 만 그래프 표시 - 다 안선택하면 모두 표시
+	13. Gate 만들기 1 - na_k_pump
+	14. Gate 만들기 2 - K leak
+	15. Gate 만들기 3 - Voltage K gate
+	16. Gate 만들기 4 - Voltage Na gate
+	10. HH 모델 만들기
+	11. INPUT 만들기
+	20. 변수조절시 에러 제거
+	7. lnx 기준 ode 적용
+
+19. HH 모델 변수조절
+
+
+17. 마지막 값 출력
+18. 저장 할껀지 체크
+10. STDP 모델 만들기
+5. edge 알아서 선택
+9. 코드정리, assert
+
+
+8. 유전자 생성
+9. 유전자로부터 진화
+10. 오류 메세지 출력
+11. 컨시 컨브이 가능
+12. 진화 map import
+

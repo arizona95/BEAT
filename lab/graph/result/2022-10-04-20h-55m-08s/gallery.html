@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photos</title>
+  </head>
+  <body>
+    <h3>simlate result
+</h3>
+    <h3>engine: phy
+</h3>
+    <h3>ode_language: PYTHON
+</h3>
+    <h3>selected: 13,14,15,16,
+</h3>
+    <h3>Traceback (most recent call last):
+</h3>
+    <h3>  File &quot;graph_simulator_electron.py&quot;, line 300, in &lt;module&gt;
+</h3>
+    <h3>    success = simulator.run(input_time - r_t, selectNode=selected)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 160, in run
+</h3>
+    <h3>    try :  ln_xp = self.simulating( ln_xp0, t, self.ode_language, method=self.method)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 56, in wrapper
+</h3>
+    <h3>    result = func(*args, **kwargs)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\simulator.py&quot;, line 128, in simulating
+</h3>
+    <h3>    solution = solve_ivp(self.system.ode, [0, t[-1]], ln_xp0, method=method, dense_output=True)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\ivp.py&quot;, line 576, in solve_ivp
+</h3>
+    <h3>    message = solver.step()
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 181, in step
+</h3>
+    <h3>    success, message = self._step_impl()
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\bdf.py&quot;, line 360, in _step_impl
+</h3>
+    <h3>    J = self.jac(t_new, y_predict)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\bdf.py&quot;, line 259, in jac_wrapped
+</h3>
+    <h3>    sparsity)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\common.py&quot;, line 316, in num_jac
+</h3>
+    <h3>    return _dense_num_jac(fun, t, y, f, h, factor, y_scale)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\common.py&quot;, line 326, in _dense_num_jac
+</h3>
+    <h3>    f_new = fun(t, y[:, None] + h_vecs)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 133, in fun_vectorized
+</h3>
+    <h3>    f[:, i] = self._fun(t, yi)
+</h3>
+    <h3>  File &quot;c:\Users\arizona95\anaconda3\envs\tensorflow\lib\site-packages\scipy\integrate\_ivp\base.py&quot;, line 20, in fun_wrapped
+</h3>
+    <h3>    return np.asarray(fun(t, y), dtype=dtype)
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 209, in ode
+</h3>
+    <h3>    flow_ln_x, flow_p = self.flow()
+</h3>
+    <h3>  File &quot;C:\Users\arizona95\Desktop\git\BEAT\lab\system.py&quot;, line 146, in flow
+</h3>
+    <h3>    print(np.dot(grad_x, self.relu_M_))
+</h3>
+    <h3>OSError: [Errno 22] Invalid argument
+</h3>
+    <h3>
+</h3>
+  </body>
+</html>

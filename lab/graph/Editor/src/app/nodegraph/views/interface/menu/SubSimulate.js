@@ -18,7 +18,7 @@ export default class SubSimulate extends Sub
 		// State
 		this.state.time = "1";
 		this.state.system = 0;
-		this.state.mode= 0;
+		this.state.language= 0;
 
 		// Variables
 		this._file = null;
@@ -27,10 +27,22 @@ export default class SubSimulate extends Sub
 			"PHYSICAL",
 			"BIOLOGICAL"
 		];
-		this._modes =
+		this._languages =
 		[
 			"FORTRAN",
-			"PYTHON"
+			"PYTHON_LSODA",
+			"PYTHON_BDF",
+			"PYTHON_Radau",
+			"PYTHON_DOP853",
+			"PYTHON_RK23",
+			"PYTHON_RK45",
+			"PYTHON_bdf",
+			"PYTHON_rk5",
+			"PYTHON_rk8",
+			"PYTHON_beuler",
+			"PYTHON_trapz",
+			"JULIA",
+			"JULIA_NUMBA"
 		];
 
 		// Events
@@ -38,7 +50,7 @@ export default class SubSimulate extends Sub
 		    console.log(this.state);
 		    this.setState( { time:  tEvent.target.value  } ); };
 		this._onSystem = (tEvent) => { this.setState({system: parseInt(tEvent.target.value)}); }
-		this._onMode = (tEvent) => { this.setState({mode: parseInt(tEvent.target.value)}); }
+		this._onLanguage = (tEvent) => { this.setState({language: parseInt(tEvent.target.value)}); }
 	    this._onRun = () => { this.onRun(); };
 	}
 
@@ -79,9 +91,9 @@ export default class SubSimulate extends Sub
 						}
 					</select>
 					<span>Language</span>
-					<select onChange={ this._onMode }>
+					<select onChange={ this._onLanguage }>
 						{
-							this._modes.map(
+							this._languages.map(
 								( tName, tIndex ) =>
 								(
 									<option key={ tName } value={ tIndex }>{ tName }</option>

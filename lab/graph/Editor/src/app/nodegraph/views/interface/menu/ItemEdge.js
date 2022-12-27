@@ -38,6 +38,7 @@ class ItemEdge extends Item
 	renderContent( tStyle = Style )
 	{
 		const tempModel = this.props.model;
+		console.log(this.props)
 		
 		return (
 			<React.Fragment>

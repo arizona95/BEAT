@@ -49,6 +49,11 @@ class SubTypesEdge extends SubTypes
 	    hamiltonianDiffusionTypeModel.text="f"
         this.props.graph.setEdgeType(hamiltonianDiffusionTypeModel);
 
+        const externalDiffusionTypeModel = new TypeModel("ExternalDiffusion");
+	    externalDiffusionTypeModel.stroke="#000000"
+	    externalDiffusionTypeModel.text="h"
+        this.props.graph.setEdgeType(externalDiffusionTypeModel);
+
 		return (
 			<React.Fragment>
 				{

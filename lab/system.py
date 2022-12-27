@@ -42,7 +42,7 @@ class System:
     def assert_parameter(self, ):
         # assert system parameter
         assert self.x_0.shape == (self.n, 1)
-        assert (self.x_0 > 0).all()
+        assert (self.x_0 >= 0).all()
         assert self.p_0.shape == (self.n, 1)
         assert self.M.shape == (self.n, self.c)
         assert (self.M >= 0).all()
@@ -117,40 +117,81 @@ class System:
         return energy[0]
 
     def flow(self, mode="phy"):
+        np.set_printoptions(suppress=False)
         # gradient
         # mode : phy, bio
         if self.engine == "phy":
             grad_x = \
-                (np.log(self.x) + 1).T + \
+                (self.ln_x + 1).T + \
                 self.a.T + \
                 np.dot(self.x.T, self.V) + \
                 (0.5 * (1 / self.m) * self.p * self.p).T
             grad_p = ((1 / self.m) * self.p * self.x).T
 
-            # flow
-            #2130
+
+            grad_x = grad_x
+            grad_p = grad_p
+
+            def debug() :
+                """
+                np.set_printoptions(suppress=True)
+                print(f"self.x:{self.x}")
+                print(f"d1:{(self.k.T * (np.exp(np.dot(grad_x, self.relu_M_)) -np.exp(np.dot(grad_x, self.relu_minus_M_))))}")
+                print(f"d2:{np.exp(np.dot(grad_x, self.relu_M_))}")
+                print(f"self.relu_minus_M_):{self.relu_minus_M_}")
+                print(f"np.dot(grad_x, self.relu_minus_M_):{np.dot(grad_x, self.relu_minus_M_)}")
+                print(f"d3:{np.exp(np.dot(grad_x, self.relu_minus_M_))}")
+                print(f"self.x.T:{self.x.T}")
+                print(f"grad_x:{grad_x}")
+                print(f"(self.ln_x + 1).T:{(self.ln_x + 1).T}")
+                print(f"self.a.T:{self.a.T}")
+                print(f"np.dot(self.x.T, self.V):{np.dot(self.x.T, self.V)}")
+                print(f"(0.5 * (1 / self.m) * self.p * self.p).T:{(0.5 * (1 / self.m) * self.p * self.p).T}")
+                print(f"flow_x.T:{flow_x.T}")
+                print(f"chemical_flow_x:{chemical_flow_x.T}")
+                print(f"hamiltonian_flow_x:{hamiltonian_flow_x.T}")
+                print(f"external_homeostasis_flow_x:{external_homeostasis_flow_x.T}")
+                print(f"hamiltonian_flow_p:{hamiltonian_flow_p.T}")
+                """
+                #exit()
+                print(f"self.x:{self.x}")
+                print(f"grad_x:{grad_x}")
+                print(f"d2:{np.dot(grad_x, self.relu_M_)}")
+                print('-----------------------------------------')
+                #exit()
+
+            #debug()
+
+
+            c1 = np.exp(np.dot(grad_x, self.relu_M_))
+            c2 = np.exp(np.dot(grad_x, self.relu_minus_M_))
+
             chemical_flow_x = \
                 -np.dot(self.M_, (self.k.T * \
                                   (np.exp(np.dot(grad_x, self.relu_M_)) -\
                                    np.exp(np.dot(grad_x, self.relu_minus_M_)))).T)
             hamiltonian_flow_x = np.dot(self.M_, self.v * \
                                         (np.dot(grad_p, self.M_).T) * \
-                                        (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
+                                        (np.exp(np.dot(np.abs(self.M_.T), self.ln_x))))
             hamiltonian_flow_p = -np.dot(self.M_, self.v * \
                                          (np.dot(grad_x, self.M_).T) * \
-                                         (np.exp(np.dot(np.abs(self.M_.T), np.log(self.x)))))
+                                         (np.exp(np.dot(np.abs(self.M_.T),self.ln_x))))
             colision_flow_p = -self.c_ * (grad_p).T
             external_homeostasis_flow_x = self.h * (self.x_h - self.x)
 
-            #print(self.energy())
 
-            return chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
+
+            flow_x = chemical_flow_x + hamiltonian_flow_x + external_homeostasis_flow_x
+            flow_p = hamiltonian_flow_p + colision_flow_p
+
+
+            return flow_x,flow_p
 
         elif self.engine == "bio":
 
             #2380
             grad_x = \
-                (np.log(self.x) + 1).T + \
+                (self.ln_x + 1).T + \
                 self.a.T + \
                 np.dot(self.x.T, self.V) + \
                 (0.5 * (1 / self.m) * self.p * self.p).T
@@ -185,33 +226,20 @@ class System:
 
 
 
-
-            #debug_diffusion_flow_x = np.dot(self.M_d[:,11].reshape(-1,1), (self.k_d[11] * \
-            #                      (-np.take(self.x_a_cal, self.diff1)+ \
-            #                       np.take(self.x_a_cal, self.diff2))[11]))
-
-            #print(f"x {self.x.T}")
-            #print(f"self.x_a_cal, {self.x_a_cal}")
-            #print(f"chemical_flow_x, {chemical_flow_x.T}")
-            #print(f"diffusion_flow_x, {diffusion_flow_x.T}")
-            #print(f"hamiltonian_flow_x, {hamiltonian_flow_x.T}")
-            #print(f"external_homeostasis_flow_x, {external_homeostasis_flow_x.T}")
-            #print(f"chemical_flow_x {chemical_flow_x.T}")
-            #print(f"diffusion_flow_x {diffusion_flow_x.T}")
-            #print(f"hamiltonian_flow_x {hamiltonian_flow_x.T}")
-
-
             # exp 570
             # take 190
             # .T 20
             # - 216 ~ 108
 
+            flow_x = chemical_flow_x + diffusion_flow_x+ hamiltonian_flow_x + external_homeostasis_flow_x
+            flow_p = hamiltonian_flow_p + colision_flow_p
 
-            return chemical_flow_x + diffusion_flow_x+ hamiltonian_flow_x + external_homeostasis_flow_x, hamiltonian_flow_p + colision_flow_p
+            return flow_x, flow_p
 
     def ode(self, t, xp):
         xp_2d = xp.reshape(2, -1)
-        self.x = np.array([xp_2d[0]]).T
+        self.x = np.maximum(np.array([xp_2d[0]]).T, np.exp(-100))  # block to go infinite small value
+        self.ln_x = np.log(self.x)
         self.p = np.array([xp_2d[1]]).T
         flow_x, flow_p = self.flow()
         dxpdt = np.array([flow_x, flow_p]).reshape(-1)

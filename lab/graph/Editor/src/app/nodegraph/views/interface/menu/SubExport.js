@@ -32,7 +32,7 @@ export default class SubExport extends Sub
 	
 	onExport()
 	{
-		FileSaver.saveAs( new Blob( [ JSON.stringify( this.selectedFormat.write( this.props.graph ) ) ], { type: "application/json" } ), "data.json" );
+		FileSaver.saveAs( new Blob( [ JSON.stringify( this.selectedFormat.write( this.props.graph ) ) ], { type: "application/json"} ), "data..json" );
 	}
 	
 	get selectedFormat()

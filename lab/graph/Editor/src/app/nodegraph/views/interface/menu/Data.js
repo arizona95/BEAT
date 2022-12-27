@@ -13,6 +13,7 @@ class Data extends React.Component
 		super( tProps );
 
 		// State
+		this._file = null;
 		this.state =
 		{
 			newKey: ""
@@ -23,6 +24,16 @@ class Data extends React.Component
 		// Events
 		this._onNewText = ( tEvent ) => { this.setState( { newKey: tEvent.target.value } ); };
 		this._onNew = () => { this.onNew(); };
+
+
+		this._onFileInput = ( tEvent ) => { this.onFileInput( tEvent.target.files ); };
+	}
+
+	onFileInput( tFiles )
+	{
+		this._file = tFiles == null || tFiles.length === 0 ? null : tFiles[0];
+		console.log(tFiles)
+		set( this.props.data, "input", tFiles[0].path );
 	}
 	
 	onNew()
@@ -68,16 +79,19 @@ class Data extends React.Component
 					Object.keys( tempData ).map(
 						( tKey ) =>
 						(
-							<React.Fragment key={ tKey }>
-								<span>{ tKey }</span>
-								<textarea value={ get( tempData, tKey ) } onChange={ ( tEvent ) => { set( tempData, tKey, tEvent.target.value); } } disabled={ !this.props.isEditable }/>
-								{
-									this.props.isEditable &&
-										<button className={ tStyle.button } onClick={ () => { remove( tempData, tKey ); } }>
-											{ Icons.delete }
-										</button>
-								}
-							</React.Fragment>
+                            <React.Fragment key={ tKey }>
+                                <span>{ tKey }</span>
+                                {tKey!=="input"
+                                    ?<textarea value={ get( tempData, tKey ) } onChange={ ( tEvent ) => { set( tempData, tKey, tEvent.target.value); } } disabled={ !this.props.isEditable }/>
+                                    :<input type="file" onChange={ this._onFileInput }/>
+                                }
+                                {
+                                    this.props.isEditable &&
+                                        <button className={ tStyle.button } onClick={ () => { remove( tempData, tKey ); } }>
+                                            { Icons.delete }
+                                        </button>
+                                }
+                            </React.Fragment>
 						)
 					)
 				}
